@@ -27,5 +27,5 @@ for key in keylist:
 		day = key[key.index(' ') - 5:key.index(' ')]
 		string = str(time_dict[key])
 		action = string[:space_index]
-		# print(current_gid)
+		# print(current_gid) 
 		print(current_gid, day, min, action)
