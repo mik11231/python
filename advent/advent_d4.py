@@ -24,7 +24,8 @@ for key in keylist:
 	except Exception:
 		space_index = str(time_dict[key]).index(' ')
 		min = key[key.index(':') + 1:]
+		day = key[key.index(' ') - 5:key.index(' ')]
 		string = str(time_dict[key])
 		action = string[:space_index]
-		print(current_gid)
-		print(min, action)
+		# print(current_gid)
+		print(current_gid, day, min, action)
