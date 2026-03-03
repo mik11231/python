@@ -93,3 +93,5 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+.aoc_session_b64
