@@ -168,6 +168,8 @@ It documents:
      - wait `5` seconds between successful submissions
      - wait `60` seconds after any wrong-answer submission before retrying
 
+The same workflow is available via the unified CLI (see **Tool Index** above); prefer `python -m aoclib` (or `aoc` after install) for new work.
+
 ## Consistency Audit
 
 Run:

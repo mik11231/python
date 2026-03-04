@@ -46,6 +46,7 @@ No evidence was found that any solution is copied from another codebase. Checks 
 ## Recommendations
 
 - Re-run this style of check after adding new years or bulk-importing solutions (e.g. `grep` for URLs and attribution in `advent*/Day*/*.py`).
+- To re-run the full GitHub/snippet sweep, follow the method in **Originality Re-check (2026-03-04)** above (API pass, store results in `.local_state/originality_github_scan.json`, then triage flagged files).
 - Keep using `python tools/audit_aoc.py` so all solutions retain the standard entrypoint and docstrings.
 
 ---

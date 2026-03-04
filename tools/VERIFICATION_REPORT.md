@@ -29,7 +29,7 @@ Observed result:
 
 Notes:
 
-- `tools/accepted_answers.json` includes years `2018..2025` (2025 released days).
+- `tools/accepted_answers.json` includes years `2015..2025` (2025 through released days).
 - OCR-output day/part cases are explicitly handled by verifier rules.
 
 ## 2) Static audit

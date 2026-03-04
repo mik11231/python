@@ -48,7 +48,7 @@ Expected:
 - style lint passes with zero errors
 - verify reports zero failures
 
-If verify fails, inspect failures first before changing anything else.
+If verify fails, inspect failures first before changing anything else. See `tools/VERIFICATION_REPORT.md` for how to re-run verification and interpret results.
 
 ## 3) Day-to-day puzzle workflow
 
