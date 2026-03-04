@@ -20,6 +20,7 @@ Use this section as a fast lookup after a long break.
 | Validate session cookie | `python tools/test_aoc_session.py` | `python -m aoclib test-session` | `aoc test-session` |
 | Download puzzle input | `python tools/download_input.py <day> [year] [base_dir]` | `python -m aoclib download-input <day> [year] [base_dir]` | `aoc download-input ...` |
 | Download instructions HTML | `python tools/download_instructions.py <day> [year] [base_dir]` | `python -m aoclib download-instructions <day> [year] [base_dir]` | `aoc download-instructions ...` |
+| Export instructions Markdown | `python tools/export_instructions_markdown.py [--overwrite]` | n/a | n/a |
 | Submit answer | `python tools/submit_answer.py <day> <part> <answer> [year]` | `python -m aoclib submit <day> <part> <answer> [year]` | `aoc submit ...` |
 | Run static audit | `python tools/audit_aoc.py [paths...]` | `python -m aoclib audit [paths...]` | `aoc-audit` or `aoc audit` |
 | Run style linter | `python tools/lint_aoc_style.py [--strict] [--year YYYY ...]` | `python -m aoclib lint-style [--strict] [--year YYYY ...]` | `aoc lint-style ...` |
@@ -118,6 +119,30 @@ Usage:
 ```bash
 python tools/download_instructions.py <day> [year] [base_dir]
 python tools/download_instructions.py 14 2024
+```
+
+## `tools/export_instructions_markdown.py`
+
+Converts archived AoC instruction pages from HTML into readable Markdown
+siblings for easier browsing in GitHub.
+
+Input/Output:
+
+- Input: `advent20XX/DayN/dN_instructions.html`
+- Output: `advent20XX/DayN/dN_instructions.md`
+
+Behavior:
+
+- extracts puzzle text from AoC `article.day-desc` blocks
+- strips page chrome and HTML-only structure
+- preserves code/sample blocks as fenced Markdown code blocks
+- writes all discovered files in one pass from repo root
+
+Usage:
+
+```bash
+python tools/export_instructions_markdown.py
+python tools/export_instructions_markdown.py --overwrite
 ```
 
 ## `tools/submit_answer.py`
