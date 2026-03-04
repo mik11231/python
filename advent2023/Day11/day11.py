@@ -6,6 +6,7 @@ sum of Manhattan distances between all pairs.  Uses coordinate remapping
 instead of actually expanding the grid.
 """
 from pathlib import Path
+from bisect import bisect_left
 from itertools import combinations
 import sys
 
@@ -18,15 +19,16 @@ def galaxy_distances(s: str, expansion: int = 2) -> int:
     grid = s.strip().splitlines()
     rows, cols = len(grid), len(grid[0])
 
-    empty_rows = {r for r in range(rows) if all(grid[r][c] == "." for c in range(cols))}
-    empty_cols = {c for c in range(cols) if all(grid[r][c] == "." for r in range(rows))}
+    empty_rows = [r for r in range(rows) if all(grid[r][c] == "." for c in range(cols))]
+    empty_cols = [c for c in range(cols) if all(grid[r][c] == "." for r in range(rows))]
 
     galaxies: list[tuple[int, int]] = []
     for r in range(rows):
         for c in range(cols):
             if grid[r][c] == "#":
-                er = sum(1 for er in empty_rows if er < r)
-                ec = sum(1 for ec in empty_cols if ec < c)
+                # Count how many empty rows/cols come before this coordinate.
+                er = bisect_left(empty_rows, r)
+                ec = bisect_left(empty_cols, c)
                 galaxies.append((r + er * (expansion - 1), c + ec * (expansion - 1)))
 
     return sum(

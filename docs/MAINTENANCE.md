@@ -23,12 +23,14 @@ Read:
 
 ```bash
 make audit
+make lint-style
 make verify
 ```
 
 Expected:
 
 - audit passes all checks
+- style lint passes with zero errors
 - verify reports zero failures
 
 If verify fails, inspect failures first before changing anything else.
@@ -120,8 +122,9 @@ When refactoring multiple day scripts or shared helpers:
 2. Apply refactor.
 3. Re-run target scripts and compare outputs.
 4. Run `make audit`.
-5. Run `make verify` (or at least affected year).
-6. Update docs (`README`, `tools/README`, `aoclib/README`) as needed.
+5. Run `make lint-style`.
+6. Run `make verify` (or at least affected year).
+7. Update docs (`README`, `tools/README`, `aoclib/README`) as needed.
 
 ## 6) Common failure patterns
 
@@ -163,6 +166,7 @@ Minimum:
 
 ```bash
 make audit
+make lint-style
 make verify
 ```
 

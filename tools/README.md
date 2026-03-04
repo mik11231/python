@@ -171,6 +171,35 @@ Exit codes:
 - `0` required checks pass
 - non-zero if required checks fail
 
+## `tools/lint_aoc_style.py`
+
+Lightweight style/convention checker focused on long-term consistency.
+
+Checks:
+
+- year README structure:
+  - `# Advent of Code YYYY`
+  - `## Completed Days`
+- day folder naming (`DayN`) and required part 1 script (`dayN.py`)
+- solution script conventions:
+  - parseable syntax
+  - module docstring
+  - solve entrypoint (`solve`, `solve_part1`, `solve_part2`) as warning
+- recommended:
+  - `if __name__ == "__main__"` main guard (warning by default)
+
+Usage:
+
+```bash
+python tools/lint_aoc_style.py
+python tools/lint_aoc_style.py --strict
+```
+
+Exit codes:
+
+- `0` no errors (warnings allowed unless `--strict`)
+- non-zero on style errors (and warnings in `--strict`)
+
 ## `tools/accepted_answers.json`
 
 Canonical accepted-answer dataset used by `tools/verify_all.py`.

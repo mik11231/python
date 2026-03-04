@@ -6,31 +6,13 @@ wall cell (2 steps). For every pair of track cells with Manhattan distance == 2,
 compute time saved = |dist[a] - dist[b]| - 2. Count cheats saving >= 100.
 """
 from pathlib import Path
-import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from aoclib.grid import neighbors4
-from aoclib.search import bfs_distances
+from common import parse_track, track_distances
 
 
 def solve(s: str, threshold: int = 100) -> int:
-    grid = s.strip().splitlines()
-    rows, cols = len(grid), len(grid[0])
-
-    for r in range(rows):
-        for c in range(cols):
-            if grid[r][c] == 'S':
-                start = (r, c)
-            elif grid[r][c] == 'E':
-                end = (r, c)
-
-    def _neighbors(cell: tuple[int, int]):
-        r, c = cell
-        for nr, nc in neighbors4(r, c, rows, cols):
-            if grid[nr][nc] != '#':
-                yield (nr, nc)
-
-    dist = bfs_distances(start, _neighbors)
+    grid, start, _ = parse_track(s)
+    dist = track_distances(grid, start)
 
     count = 0
     for (r, c), d in dist.items():

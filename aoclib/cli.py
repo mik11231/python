@@ -59,6 +59,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("paths", nargs="*")
     p.set_defaults(func=lambda a: run_tool("audit_aoc.py", a.paths))
 
+    p = sub.add_parser("lint-style", help="Run lightweight style/convention linter")
+    p.add_argument("--strict", action="store_true")
+    p.set_defaults(func=lambda a: run_tool("lint_aoc_style.py", ["--strict"] if a.strict else []))
+
     p = sub.add_parser("verify", help="Run answer verification against accepted answers")
     p.add_argument("--year", action="append", help="Year to verify (repeatable)")
     p.add_argument("--timeout", type=int, default=180)

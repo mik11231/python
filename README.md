@@ -70,6 +70,22 @@ aoc new-year 2026
 aoc new-day 2026 1
 ```
 
+## Quick Start
+
+For a fresh year/day setup with consistent scaffolding:
+
+```bash
+# create year folder + Day1..DayN (auto-detect released day count when online)
+python -m aoclib new-year 2026
+
+# add a specific day scaffold later
+python -m aoclib new-day 2026 7
+
+# pull puzzle artifacts
+python -m aoclib download-input 7 2026 advent2026
+python -m aoclib download-instructions 7 2026 advent2026
+```
+
 ## Tooling Reference
 
 The complete CLI reference for repository tooling is in:
@@ -113,12 +129,27 @@ Current required standards enforced by the auditor:
 
 `main` guards are also reported as recommended improvements for legacy script-style files.
 
+## Style Lint
+
+Run:
+
+```bash
+python -m aoclib lint-style
+```
+
+This linter enforces lightweight repo conventions:
+
+- year README format and required sections
+- Day folder naming and required `dayN.py` part 1 file
+- module docstrings and solve entrypoints in day scripts
+
 
 ## Quick Commands
 
 ```bash
 make help
 make audit
+make lint-style
 make verify
 make verify YEAR=2025
 make sync-answers
