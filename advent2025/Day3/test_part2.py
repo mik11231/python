@@ -2,6 +2,17 @@
 """Test Part 2 with the example from the problem"""
 
 def find_max_joltage_12(bank):
+    """
+    Run `find_max_joltage_12` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: bank.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     if len(bank) < 12:
         return 0
     

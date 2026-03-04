@@ -7,6 +7,17 @@ BASE = [0, 1, 0, -1]
 
 
 def phase(arr):
+    """
+    Run `phase` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: arr.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     n = len(arr)
     out = [0] * n
     for i in range(n):
@@ -20,6 +31,17 @@ def phase(arr):
 
 
 def solve(s: str) -> str:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     arr = [int(c) for c in s.strip()]
     for _ in range(100):
         arr = phase(arr)

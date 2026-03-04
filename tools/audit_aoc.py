@@ -25,10 +25,32 @@ RECOMMENDED_CHECKS = ("solve_entrypoint", "main_guard")
 
 
 def iter_solution_files(year_dir: Path):
+    """
+    Run `iter_solution_files` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: year_dir.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     yield from sorted(year_dir.glob("Day*/day*.py"))
 
 
 def has_main_guard(source: str) -> bool:
+    """
+    Run `has_main_guard` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: source.
+    - Returns the computed result for this stage of the pipeline.
+    """
     compact = "".join(source.split())
     return "if__name__=='__main__':" in compact or 'if__name__=="__main__":' in compact
 
@@ -45,6 +67,17 @@ def has_solve_entrypoint(tree: ast.Module) -> bool:
 
 
 def audit_file(path: Path) -> dict[str, bool | str]:
+    """
+    Run `audit_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     src = path.read_text(encoding="utf-8")
     result: dict[str, bool | str] = {k: False for k in REQUIRED_CHECKS + RECOMMENDED_CHECKS}
     result["path"] = str(path)
@@ -62,12 +95,34 @@ def audit_file(path: Path) -> dict[str, bool | str]:
 
 
 def find_year_dirs(args: list[str]) -> list[Path]:
+    """
+    Run `find_year_dirs` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: args.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if args:
         return [Path(a) for a in args]
     return sorted(Path(".").glob("advent20[0-9][0-9]"))
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     years = find_year_dirs(sys.argv[1:])
     if not years:
         print("No advent year folders found.")

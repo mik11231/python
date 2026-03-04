@@ -15,10 +15,32 @@ MOV = {
 
 
 def dist(x: int, y: int, z: int) -> int:
+    """
+    Run `dist` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: x, y, z.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return max(abs(x), abs(y), abs(z))
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     x = y = z = 0
     best = 0
     for t in s.strip().split(","):

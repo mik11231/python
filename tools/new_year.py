@@ -14,6 +14,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def make_year_readme(year_dir: Path, year: int) -> None:
+    """
+    Run `make_year_readme` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: year_dir, year.
+    - Returns the computed result for this stage of the pipeline.
+    """
     text = f"""# Advent of Code {year}
 
 This folder follows the same day-based layout as other `advent20XX` folders.
@@ -55,6 +66,17 @@ def detect_released_days(year: int, timeout: int = 15) -> int | None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: argv.
+    - Returns the computed result for this stage of the pipeline.
+    """
     parser = argparse.ArgumentParser(description="Create new adventYYYY folder and optional Day1..Day25.")
     parser.add_argument("year", type=int)
     parser.add_argument("--days", type=int, help="How many day folders to create (auto-detect if omitted)")

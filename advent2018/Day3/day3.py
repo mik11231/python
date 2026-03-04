@@ -8,6 +8,17 @@ CLAIM_RE = re.compile(r"#(\d+) @ (\d+),(\d+): (\d+)x(\d+)")
 
 
 def load_claims(path: Path) -> list[tuple[int, int, int, int, int]]:
+    """
+    Run `load_claims` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     claims = []
     for line in path.read_text().splitlines():
         if not line.strip():
@@ -18,6 +29,17 @@ def load_claims(path: Path) -> list[tuple[int, int, int, int, int]]:
 
 
 def build_fabric_counts(claims: list[tuple[int, int, int, int, int]]) -> Counter[tuple[int, int]]:
+    """
+    Run `build_fabric_counts` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: claims.
+    - Returns the computed result for this stage of the pipeline.
+    """
     fabric = Counter()
     for _, x, y, width, height in claims:
         for xi in range(x, x + width):
@@ -27,6 +49,17 @@ def build_fabric_counts(claims: list[tuple[int, int, int, int, int]]) -> Counter
 
 
 def solve(claims: list[tuple[int, int, int, int, int]]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: claims.
+    - Returns the computed result for this stage of the pipeline.
+    """
     fabric = build_fabric_counts(claims)
     return sum(1 for count in fabric.values() if count > 1)
 

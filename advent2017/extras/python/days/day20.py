@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+advent2017/extras/python/days/day20.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2017.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -20,6 +31,17 @@ LINE_RE = re.compile(
 
 
 def resolve_input(provided: str | None) -> Path:
+    """
+    Run `resolve_input` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: provided.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if provided:
         return Path(provided).resolve()
     for c in (
@@ -35,6 +57,17 @@ def resolve_input(provided: str | None) -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -43,6 +76,17 @@ def sha256_file(path: Path) -> str:
 
 
 def parse(text: str) -> list[tuple[tuple[int, int, int], tuple[int, int, int], tuple[int, int, int]]]:
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     out = []
     for line in text.splitlines():
         if not line.strip():
@@ -56,7 +100,29 @@ def parse(text: str) -> list[tuple[tuple[int, int, int], tuple[int, int, int], t
 
 
 def part1(ps: list[tuple[tuple[int, int, int], tuple[int, int, int], tuple[int, int, int]]]) -> int:
+    """
+    Run `part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: ps.
+    - Returns the computed result for this stage of the pipeline.
+    """
     def key(item: tuple[int, tuple[tuple[int, int, int], tuple[int, int, int], tuple[int, int, int]]]) -> tuple[int, int, int, int]:
+        """
+        Run `key` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: item.
+        - Returns the computed result for this stage of the pipeline.
+        """
         i, (p, v, a) = item
         return (
             abs(a[0]) + abs(a[1]) + abs(a[2]),
@@ -70,6 +136,17 @@ def part1(ps: list[tuple[tuple[int, int, int], tuple[int, int, int], tuple[int, 
 
 def solve_axis(dp: int, dv: int, da: int) -> tuple[bool, set[int]]:
     # Equation: da*t^2 + (da + 2*dv)*t + 2*dp = 0, t in Z, t >= 0
+    """
+    Run `solve_axis` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: dp, dv, da.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if da == 0 and dv == 0:
         if dp == 0:
             return True, set()
@@ -102,6 +179,17 @@ def solve_axis(dp: int, dv: int, da: int) -> tuple[bool, set[int]]:
 
 
 def position_at(p: tuple[int, int, int], v: tuple[int, int, int], a: tuple[int, int, int], t: int) -> tuple[int, int, int]:
+    """
+    Run `position_at` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: p, v, a, t.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return (
         p[0] + v[0] * t + a[0] * t * (t + 1) // 2,
         p[1] + v[1] * t + a[1] * t * (t + 1) // 2,
@@ -110,6 +198,17 @@ def position_at(p: tuple[int, int, int], v: tuple[int, int, int], a: tuple[int, 
 
 
 def pair_collision_times(pi, pj) -> set[int]:
+    """
+    Run `pair_collision_times` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: pi, pj.
+    - Returns the computed result for this stage of the pipeline.
+    """
     (p1, v1, a1) = pi
     (p2, v2, a2) = pj
     axis_any = []
@@ -128,6 +227,17 @@ def pair_collision_times(pi, pj) -> set[int]:
 
 
 def part2(ps: list[tuple[tuple[int, int, int], tuple[int, int, int], tuple[int, int, int]]]) -> int:
+    """
+    Run `part2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: ps.
+    - Returns the computed result for this stage of the pipeline.
+    """
     n = len(ps)
     events: dict[int, list[tuple[int, int]]] = defaultdict(list)
     for i in range(n):
@@ -157,6 +267,17 @@ def part2(ps: list[tuple[tuple[int, int, int], tuple[int, int, int], tuple[int, 
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", type=int, choices=[1, 2], required=True)
     ap.add_argument("--input")

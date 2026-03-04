@@ -26,10 +26,32 @@ broadcaster -> a
 
 
 def test_part1_example1():
+    """
+    Run `test_part1_example1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(EXAMPLE1) == 32000000
 
 
 def test_part1_example2():
+    """
+    Run `test_part1_example2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(EXAMPLE2) == 11687500
 
 

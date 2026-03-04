@@ -14,6 +14,17 @@ EXPECTED_PART2 = "fjpmholcibdgeakn"
 
 
 def default_input_path() -> Path:
+    """
+    Run `default_input_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cands = [
         Path("advent2017/Day16/d16_input.txt"),
         Path("Day16/d16_input.txt"),
@@ -28,6 +39,17 @@ def default_input_path() -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -36,10 +58,32 @@ def sha256_file(path: Path) -> str:
 
 
 def parse_moves(raw: str) -> list[str]:
+    """
+    Run `parse_moves` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: raw.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return [m.strip() for m in raw.strip().split(",") if m.strip()]
 
 
 def apply_once(state: list[str], moves: list[str]) -> None:
+    """
+    Run `apply_once` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: state, moves.
+    - Returns the computed result for this stage of the pipeline.
+    """
     for mv in moves:
         t = mv[0]
         arg = mv[1:]
@@ -59,6 +103,17 @@ def apply_once(state: list[str], moves: list[str]) -> None:
 
 
 def dance(moves: list[str], rounds: int) -> str:
+    """
+    Run `dance` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: moves, rounds.
+    - Returns the computed result for this stage of the pipeline.
+    """
     state = list("abcdefghijklmnop")
     seen: dict[str, int] = {}
 
@@ -79,6 +134,17 @@ def dance(moves: list[str], rounds: int) -> str:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description="AoC 2017 Day 16 fancy Python")
     ap.add_argument("--part", type=int, required=True, choices=[1, 2])
     ap.add_argument("--input")

@@ -14,6 +14,17 @@ def count_arrangements(pattern: str, groups: tuple[int, ...]) -> int:
 
     @lru_cache(maxsize=None)
     def dp(pi: int, gi: int) -> int:
+        """
+        Run `dp` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: pi, gi.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if gi == len(groups):
             return 0 if "#" in pattern[pi:] else 1
         if pi >= len(pattern):

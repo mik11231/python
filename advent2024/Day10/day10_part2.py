@@ -17,6 +17,17 @@ def solve(s: str) -> int:
 
     @lru_cache(maxsize=None)
     def count_trails(r: int, c: int) -> int:
+        """
+        Run `count_trails` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: r, c.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if heights[r][c] == 9:
             return 1
         total = 0

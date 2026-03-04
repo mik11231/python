@@ -8,6 +8,17 @@ from aoclib.geometry import manhattan2
 
 
 def load_points(path: Path) -> list[tuple[int, int]]:
+    """
+    Run `load_points` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     points = []
     for line in path.read_text().splitlines():
         if not line.strip():
@@ -18,6 +29,17 @@ def load_points(path: Path) -> list[tuple[int, int]]:
 
 
 def largest_finite_area(points: list[tuple[int, int]]) -> int:
+    """
+    Run `largest_finite_area` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: points.
+    - Returns the computed result for this stage of the pipeline.
+    """
     min_x = min(x for x, _ in points)
     max_x = max(x for x, _ in points)
     min_y = min(y for _, y in points)
@@ -42,6 +64,17 @@ def largest_finite_area(points: list[tuple[int, int]]) -> int:
 
 
 def solve(points: list[tuple[int, int]]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: points.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return largest_finite_area(points)
 
 

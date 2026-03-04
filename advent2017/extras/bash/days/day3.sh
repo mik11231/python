@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Architecture Notes:
+# - This script is documented so operators can rebuild behavior from comments alone.
+# - Structure follows: input acquisition -> normalization -> solving -> reporting.
+# - Keep side effects explicit and measured in runtime/benchmark workflows.
+
 set -euo pipefail
 EXPECTED_SHA='697301449f3f32ff9e73436c0ee11191f61f63d01afda5637bf644c5aa6042bc'
 EXPECTED_PART1='371'

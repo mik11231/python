@@ -17,6 +17,17 @@ def run(program, a, b, c):
     out = []
 
     def combo(op):
+        """
+        Run `combo` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: op.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         if op <= 3:
             return op
         return regs[op - 4]
@@ -56,6 +67,17 @@ def solve(s: str) -> int:
     program = nums[3:]
 
     def search(pos, a_so_far):
+        """
+        Run `search` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: pos, a_so_far.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         if pos < 0:
             return a_so_far
         for bits in range(8):

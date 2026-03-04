@@ -48,18 +48,62 @@ EXAMPLE2 = """\
 
 
 def test_part1_ex1():
+    """
+    Run `test_part1_ex1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(EXAMPLE1) == 7036
 
 
 def test_part1_ex2():
+    """
+    Run `test_part1_ex2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(EXAMPLE2) == 11048
 
 
 def test_part2_ex1():
+    """
+    Run `test_part2_ex1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p2(EXAMPLE1) == 45
 
 
 def test_part2_ex2():
+    """
+    Run `test_part2_ex2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p2(EXAMPLE2) == 64
 
 

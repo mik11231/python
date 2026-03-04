@@ -33,6 +33,17 @@ def count_paths(graph: dict[str, list[str]]) -> int:
     """Count all start→end paths visiting small caves at most once."""
 
     def dfs(node: str, visited: set[str]) -> int:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: node, visited.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if node == "end":
             return 1
         total = 0

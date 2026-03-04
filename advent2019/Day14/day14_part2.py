@@ -5,6 +5,17 @@ from day14 import ore_for_fuel, parse
 
 
 def solve(s: str, ore=1_000_000_000_000) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s, ore.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rec = parse(s)
     lo, hi = 1, 1
     while ore_for_fuel(rec, hi) <= ore:

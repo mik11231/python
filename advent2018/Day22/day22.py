@@ -5,6 +5,17 @@ from pathlib import Path
 
 
 def load(path: Path):
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     lines = [line.strip() for line in path.read_text().splitlines() if line.strip()]
     depth = int(lines[0].split(': ')[1])
     tx, ty = map(int, lines[1].split(': ')[1].split(','))
@@ -16,6 +27,17 @@ def make_erosion(depth: int, tx: int, ty: int):
 
     @lru_cache(None)
     def erosion(x: int, y: int) -> int:
+        """
+        Run `erosion` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: x, y.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if (x, y) in ((0, 0), (tx, ty)):
             gi = 0
         elif y == 0:
@@ -30,6 +52,17 @@ def make_erosion(depth: int, tx: int, ty: int):
 
 
 def solve(depth: int, tx: int, ty: int) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: depth, tx, ty.
+    - Returns the computed result for this stage of the pipeline.
+    """
     erosion = make_erosion(depth, tx, ty)
     return sum(erosion(x, y) % 3 for y in range(ty + 1) for x in range(tx + 1))
 

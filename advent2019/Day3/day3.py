@@ -7,6 +7,17 @@ DIR = {'U': (0, 1), 'D': (0, -1), 'L': (-1, 0), 'R': (1, 0)}
 
 
 def trace(wire: str) -> set[tuple[int, int]]:
+    """
+    Run `trace` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: wire.
+    - Returns the computed result for this stage of the pipeline.
+    """
     x = y = 0
     seen = set()
     for move in wire.split(','):
@@ -21,6 +32,17 @@ def trace(wire: str) -> set[tuple[int, int]]:
 
 
 def solve(w1: str, w2: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: w1, w2.
+    - Returns the computed result for this stage of the pipeline.
+    """
     inter = trace(w1) & trace(w2)
     return min(abs(x) + abs(y) for x, y in inter)
 

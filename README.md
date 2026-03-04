@@ -220,3 +220,17 @@ make sync-answers
 - `docs/ARCHITECTURE.md`: system layout and component relationships
 - `docs/MAINTENANCE.md`: operational runbook/checklists
 - `docs/CHANGELOG.md`: major structural/tooling milestones
+
+## Year Architecture and Methodology Index
+
+- [2015](advent2015/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2016](advent2016/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2017](advent2017/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2018](advent2018/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2019](advent2019/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2020](advent2020/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2021](advent2021/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2022](advent2022/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2023](advent2023/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2024](advent2024/README.md): architecture, methodology, theme/story, and solved-scope summary
+- [2025](advent2025/README.md): architecture, methodology, theme/story, and solved-scope summary

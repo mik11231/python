@@ -30,6 +30,17 @@ def solve(s: str) -> int:
 
     # ranges: dict mapping 'x','m','a','s' -> (lo, hi) inclusive
     def count_accepted(wf: str, ranges: dict[str, tuple[int, int]]) -> int:
+        """
+        Run `count_accepted` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: wf, ranges.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if wf == "R":
             return 0
         if wf == "A":

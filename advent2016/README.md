@@ -42,3 +42,27 @@ Tooling and shared library references:
 - Day 23: Part 1 = `11748`, Part 2 = `479008308`
 - Day 24: Part 1 = `490`, Part 2 = `744`
 - Day 25: Part 1 = `198` (no separate computational Part 2 in AoC 2016)
+
+## Architecture
+
+- Day-centric boundaries: each `DayN/` directory isolates input, prompt artifact, part 1, part 2, and example checks.
+- Shared operational utilities live outside year folders (`aoclib` + `tools`) so puzzle logic remains focused and portable.
+- Solution modules favor pure `solve(...)`/`solve_part*` style functions with thin CLI wrappers for reproducible execution.
+
+## Methodology
+
+- Parse once into explicit in-memory structures (lists, dicts, sets, tuples, lightweight dataclasses where useful).
+- Encode puzzle rules as deterministic transformations with testable helper functions.
+- Prefer asymptotically sound approaches first; then optimize hotspots using caching, pruning, cycle detection, or tighter data layout.
+- Validate against AoC examples before running full input and synchronizing accepted answers.
+
+## Theme and Story Summary
+
+- Theme: Infiltration and decoding: navigation, keypads, microchips, and assembly-like interpreters under constraints.
+- Story Summary: The 2016 progression focuses on movement through hostile/unknown environments and controlled execution of small virtual machines to recover target signals and credentials.
+
+## What Our Solutions Addressed
+
+- Correctness: each day/part implementation matches accepted AoC outputs recorded in this README.
+- Maintainability: consistent file naming/layout keeps long-term navigation predictable.
+- Operability: scripts integrate with repo tooling for download, verify, style lint, and answer synchronization.

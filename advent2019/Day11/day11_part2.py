@@ -5,6 +5,17 @@ from day11 import paint
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     grid, _ = paint(program, 1)
     xs = [x for x, y in grid if grid[(x, y)] == 1]
     ys = [y for x, y in grid if grid[(x, y)] == 1]

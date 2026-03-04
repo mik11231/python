@@ -2,6 +2,17 @@
 """Test Part 2 with the example from the problem"""
 
 def count_adjacent_rolls(grid, row, col):
+    """
+    Run `count_adjacent_rolls` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid, row, col.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     count = 0
     rows = len(grid)
     cols = len(grid[0]) if rows > 0 else 0

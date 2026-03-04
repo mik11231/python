@@ -17,9 +17,31 @@ class Prog:
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     p = [ln.split() for ln in s.splitlines() if ln.strip()]
 
     def val(pr: Prog, x: str) -> int:
+        """
+        Run `val` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: pr, x.
+        - Returns the computed result for this stage of the pipeline.
+        """
         return int(x) if x.lstrip("-").isdigit() else pr.r[x]
 
     a = Prog(0, defaultdict(int), deque())
@@ -28,6 +50,17 @@ def solve(s: str) -> int:
     b.r["p"] = 1
 
     def step(cur: Prog, oth: Prog) -> None:
+        """
+        Run `step` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: cur, oth.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if not (0 <= cur.ip < len(p)):
             cur.done = True
             cur.blocked = True

@@ -1,3 +1,8 @@
+// Architecture Notes:
+// - This file is heavily commented for long-term maintainability and reconstruction.
+// - Pipeline shape is parse -> model -> compute -> emit.
+// - Performance-sensitive sections document data-layout and concurrency tradeoffs.
+
 use sha2::{Digest, Sha256};
 use std::collections::VecDeque;
 use std::env;

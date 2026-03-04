@@ -25,10 +25,32 @@ class Group:
 
     @property
     def power(self) -> int:
+        """
+        Run `power` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self.
+        - Returns the computed result for this stage of the pipeline.
+        """
         return self.units * self.attack
 
 
 def parse_modifiers(text: str | None):
+    """
+    Run `parse_modifiers` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     weak = set()
     immune = set()
     if not text:
@@ -42,6 +64,17 @@ def parse_modifiers(text: str | None):
 
 
 def load(path: Path):
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     groups = []
     army = None
     gid = {'Immune System': 0, 'Infection': 0}
@@ -75,6 +108,17 @@ def load(path: Path):
 
 
 def damage(attacker: Group, defender: Group) -> int:
+    """
+    Run `damage` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: attacker, defender.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if attacker.attack_type in defender.immune:
         return 0
     d = attacker.power
@@ -142,6 +186,17 @@ def fight(initial_groups: list[Group], boost: int = 0):
 
 
 def solve(groups: list[Group]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: groups.
+    - Returns the computed result for this stage of the pipeline.
+    """
     _, units = fight(groups, boost=0)
     return units
 

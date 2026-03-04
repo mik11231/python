@@ -14,6 +14,17 @@ TOOLS = ROOT / "tools"
 
 
 def run_tool(script_name: str, args: list[str]) -> int:
+    """
+    Run `run_tool` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: script_name, args.
+    - Returns the computed result for this stage of the pipeline.
+    """
     script = TOOLS / script_name
     cmd = [sys.executable, str(script), *args]
     proc = subprocess.run(cmd, cwd=ROOT)
@@ -21,6 +32,17 @@ def run_tool(script_name: str, args: list[str]) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """
+    Run `build_parser` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     parser = argparse.ArgumentParser(prog="aoc", description="Advent of Code unified tooling CLI")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
@@ -63,6 +85,17 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--strict", action="store_true")
     p.add_argument("--year", action="append", help="Year to lint (repeatable)")
     def _run_lint_style(a: argparse.Namespace) -> int:
+        """
+        Run `_run_lint_style` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: a.
+        - Returns the computed result for this stage of the pipeline.
+        """
         args: list[str] = []
         if a.strict:
             args.append("--strict")
@@ -76,6 +109,17 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--year", action="append", help="Year to verify (repeatable)")
     p.add_argument("--timeout", type=int, default=180)
     def _run_verify(a: argparse.Namespace) -> int:
+        """
+        Run `_run_verify` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: a.
+        - Returns the computed result for this stage of the pipeline.
+        """
         args: list[str] = []
         if a.year:
             for y in a.year:
@@ -93,6 +137,17 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--offline-default", type=int, default=25)
     p.add_argument("--force", action="store_true")
     def _run_new_year(a: argparse.Namespace) -> int:
+        """
+        Run `_run_new_year` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: a.
+        - Returns the computed result for this stage of the pipeline.
+        """
         args = [str(a.year), "--offline-default", str(a.offline_default)]
         if a.days is not None:
             args.extend(["--days", str(a.days)])
@@ -110,6 +165,17 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: argv.
+    - Returns the computed result for this stage of the pipeline.
+    """
     parser = build_parser()
     args = parser.parse_args(argv)
     return int(args.func(args))

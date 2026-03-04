@@ -8,12 +8,34 @@ from advent2019.intcode import IntcodeComputer
 
 
 def probe(program, x, y):
+    """
+    Run `probe` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program, x, y.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     vm = IntcodeComputer(program)
     out, _ = vm.run([x, y])
     return out[-1]
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return sum(probe(program, x, y) for y in range(50) for x in range(50))
 
 

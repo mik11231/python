@@ -15,6 +15,17 @@ TOKENS = list(WORDS) + list("123456789")
 
 
 def first_digit(line: str) -> str:
+    """
+    Run `first_digit` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: line.
+    - Returns the computed result for this stage of the pipeline.
+    """
     for i in range(len(line)):
         for tok in TOKENS:
             if line[i:].startswith(tok):
@@ -23,6 +34,17 @@ def first_digit(line: str) -> str:
 
 
 def last_digit(line: str) -> str:
+    """
+    Run `last_digit` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: line.
+    - Returns the computed result for this stage of the pipeline.
+    """
     for i in range(len(line) - 1, -1, -1):
         for tok in TOKENS:
             if line[i:].startswith(tok):

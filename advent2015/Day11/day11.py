@@ -53,6 +53,17 @@ def has_two_pairs(s: str) -> bool:
 
 
 def is_valid(s: str) -> bool:
+    """
+    Run `is_valid` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if "i" in s or "l" in s or "o" in s:
         return False
     return has_run_of_three(s) and has_two_pairs(s)

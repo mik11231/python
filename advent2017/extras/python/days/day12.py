@@ -15,6 +15,17 @@ EXPECTED_PART2 = "215"
 
 
 def default_input_path() -> Path:
+    """
+    Run `default_input_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cands = [
         Path("advent2017/Day12/d12_input.txt"),
         Path("Day12/d12_input.txt"),
@@ -29,6 +40,17 @@ def default_input_path() -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -37,6 +59,17 @@ def sha256_file(path: Path) -> str:
 
 
 def parse_graph(raw: str) -> dict[int, list[int]]:
+    """
+    Run `parse_graph` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: raw.
+    - Returns the computed result for this stage of the pipeline.
+    """
     g: dict[int, list[int]] = {}
     for line in raw.splitlines():
         if not line.strip():
@@ -49,6 +82,17 @@ def parse_graph(raw: str) -> dict[int, list[int]]:
 
 
 def bfs_component(g: dict[int, list[int]], start: int, seen: set[int]) -> set[int]:
+    """
+    Run `bfs_component` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: g, start, seen.
+    - Returns the computed result for this stage of the pipeline.
+    """
     q = deque([start])
     comp: set[int] = {start}
     seen.add(start)
@@ -64,6 +108,17 @@ def bfs_component(g: dict[int, list[int]], start: int, seen: set[int]) -> set[in
 
 
 def solve(raw: str) -> tuple[int, int]:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: raw.
+    - Returns the computed result for this stage of the pipeline.
+    """
     g = parse_graph(raw)
     seen: set[int] = set()
 
@@ -80,6 +135,17 @@ def solve(raw: str) -> tuple[int, int]:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description="AoC 2017 Day 12 fancy Python")
     ap.add_argument("--part", type=int, required=True, choices=[1, 2])
     ap.add_argument("--input")

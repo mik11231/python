@@ -15,6 +15,17 @@ NEXT_RE = re.compile(r"- Continue with state ([A-Z]).")
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     lines = [ln.strip() for ln in s.splitlines() if ln.strip()]
     st = ST_RE.match(lines[0]).group(1)
     steps = int(STEP_RE.match(lines[1]).group(1))

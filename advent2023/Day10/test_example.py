@@ -47,18 +47,62 @@ L--J.L7...LJS7F-7L7.
 
 
 def test_part1_simple():
+    """
+    Run `test_part1_simple` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(SIMPLE) == 4
 
 
 def test_part1_complex():
+    """
+    Run `test_part1_complex` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(COMPLEX) == 8
 
 
 def test_part2_simple():
+    """
+    Run `test_part2_simple` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p2(ENCLOSED_SIMPLE) == 4
 
 
 def test_part2_complex():
+    """
+    Run `test_part2_complex` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p2(ENCLOSED_COMPLEX) == 8
 
 

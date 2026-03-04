@@ -5,10 +5,32 @@ from pathlib import Path
 
 
 def load(s):
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return [list(map(int, re.findall(r'-?\d+', line))) for line in s.splitlines() if line.strip()]
 
 
 def step(pos, vel):
+    """
+    Run `step` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: pos, vel.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     n = len(pos)
     for i in range(n):
         for j in range(i + 1, n):
@@ -23,6 +45,17 @@ def step(pos, vel):
 
 
 def solve(s: str, steps=1000) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s, steps.
+    - Returns the computed result for this stage of the pipeline.
+    """
     pos = load(s)
     vel = [[0, 0, 0] for _ in pos]
     for _ in range(steps):

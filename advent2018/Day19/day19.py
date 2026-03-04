@@ -4,6 +4,17 @@ from pathlib import Path
 
 
 def apply(op, a, b, c, r):
+    """
+    Run `apply` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: op, a, b, c, r.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     if op == 'addr': r[c] = r[a] + r[b]
     elif op == 'addi': r[c] = r[a] + b
     elif op == 'mulr': r[c] = r[a] * r[b]
@@ -24,6 +35,17 @@ def apply(op, a, b, c, r):
 
 
 def load(path: Path):
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     lines = [line.strip() for line in path.read_text().splitlines() if line.strip()]
     ip_reg = int(lines[0].split()[1])
     prog = []
@@ -34,6 +56,17 @@ def load(path: Path):
 
 
 def run(ip_reg, prog, r0=0, max_steps=50_000_000):
+    """
+    Run `run` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: ip_reg, prog, r0, max_steps.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     r = [0, 0, 0, 0, 0, 0]
     r[0] = r0
     ip = 0
@@ -50,6 +83,17 @@ def run(ip_reg, prog, r0=0, max_steps=50_000_000):
 
 
 def solve(path: Path) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ip_reg, prog = load(path)
     r = run(ip_reg, prog, r0=0)
     return r[0]

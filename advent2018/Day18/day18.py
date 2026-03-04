@@ -5,6 +5,17 @@ from pathlib import Path
 
 
 def load(path: Path) -> list[list[str]]:
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return [list(line.strip()) for line in path.read_text().splitlines() if line.strip()]
 
 
@@ -36,11 +47,33 @@ def step(grid: list[list[str]]) -> list[list[str]]:
 
 
 def value(grid: list[list[str]]) -> int:
+    """
+    Run `value` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     flat = [c for row in grid for c in row]
     return flat.count('|') * flat.count('#')
 
 
 def solve(grid: list[list[str]]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     for _ in range(10):
         grid = step(grid)
     return value(grid)

@@ -26,6 +26,17 @@ hhh: out
 
 
 def main() -> None:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     graph = parse_graph(EXAMPLE.splitlines())
     got = count_paths_with_required_nodes(graph, "svr", "out", ("dac", "fft"))
     expected = 2

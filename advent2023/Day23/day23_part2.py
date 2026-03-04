@@ -10,6 +10,17 @@ import sys
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     grid = s.strip().splitlines()
     rows, cols = len(grid), len(grid[0])
     start = (0, grid[0].index("."))
@@ -52,6 +63,17 @@ def solve(s: str) -> int:
     best = [0]
 
     def dfs(node, dist, mask):
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: node, dist, mask.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         if node == end_id:
             if dist > best[0]:
                 best[0] = dist

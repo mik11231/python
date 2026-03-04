@@ -34,6 +34,17 @@ def parse_lines(text: str) -> list[tuple[int, int, int, int]]:
 
 
 def _sign(n: int) -> int:
+    """
+    Run `_sign` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: n.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return (n > 0) - (n < 0)
 
 

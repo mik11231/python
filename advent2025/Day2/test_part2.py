@@ -2,6 +2,17 @@
 """Test Part 2 with example cases"""
 
 def is_invalid_id(product_id):
+    """
+    Run `is_invalid_id` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: product_id.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     id_str = str(product_id)
     num_digits = len(id_str)
     

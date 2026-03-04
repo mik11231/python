@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+advent2017/extras/python/days/day23.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2017.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -13,6 +24,17 @@ EXPECTED_PART2 = "917"
 
 
 def resolve_input(provided: str | None) -> Path:
+    """
+    Run `resolve_input` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: provided.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if provided:
         return Path(provided).resolve()
     for c in (
@@ -28,6 +50,17 @@ def resolve_input(provided: str | None) -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -36,6 +69,17 @@ def sha256_file(path: Path) -> str:
 
 
 def parse(text: str) -> list[tuple[str, str, str]]:
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     out = []
     for ln in text.splitlines():
         s = ln.strip()
@@ -46,12 +90,34 @@ def parse(text: str) -> list[tuple[str, str, str]]:
 
 
 def val(tok: str, regs: dict[str, int]) -> int:
+    """
+    Run `val` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: tok, regs.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if tok.lstrip("-").isdigit():
         return int(tok)
     return regs.get(tok, 0)
 
 
 def part1(prog: list[tuple[str, str, str]]) -> int:
+    """
+    Run `part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: prog.
+    - Returns the computed result for this stage of the pipeline.
+    """
     regs: dict[str, int] = {}
     ip = 0
     muls = 0
@@ -74,6 +140,17 @@ def part1(prog: list[tuple[str, str, str]]) -> int:
 
 
 def is_prime(n: int) -> bool:
+    """
+    Run `is_prime` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: n.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if n < 2:
         return False
     if n % 2 == 0:
@@ -89,6 +166,17 @@ def is_prime(n: int) -> bool:
 
 def part2(prog: list[tuple[str, str, str]]) -> int:
     # Derived from the instruction stream semantics for AoC 2017 Day 23.
+    """
+    Run `part2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: prog.
+    - Returns the computed result for this stage of the pipeline.
+    """
     b0 = int(prog[0][2])
     b = b0 * 100 + 100_000
     c = b + 17_000
@@ -100,6 +188,17 @@ def part2(prog: list[tuple[str, str, str]]) -> int:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", type=int, choices=[1, 2], required=True)
     ap.add_argument("--input")

@@ -22,6 +22,17 @@ ROW_SUFFIXES = tuple(tuple(ord(c) for c in str(i)) + SUFFIX for i in range(128))
 
 
 def default_input_path() -> Path:
+    """
+    Run `default_input_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cands = [
         Path("advent2017/Day14/d14_input.txt"),
         Path("Day14/d14_input.txt"),
@@ -36,6 +47,17 @@ def default_input_path() -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -44,6 +66,17 @@ def sha256_file(path: Path) -> str:
 
 
 def reverse_segment(a: list[int], start: int, length: int) -> None:
+    """
+    Run `reverse_segment` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: a, start, length.
+    - Returns the computed result for this stage of the pipeline.
+    """
     n = len(a)
     for i in range(length // 2):
         x = (start + i) % n
@@ -52,6 +85,17 @@ def reverse_segment(a: list[int], start: int, length: int) -> None:
 
 
 def knot_row_mask_and_used(lengths: tuple[int, ...]) -> tuple[int, int]:
+    """
+    Run `knot_row_mask_and_used` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: lengths.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ring = list(RING_BASE)
     pos = 0
     skip = 0
@@ -76,6 +120,17 @@ def knot_row_mask_and_used(lengths: tuple[int, ...]) -> tuple[int, int]:
 
 
 def build_rows(seed: str) -> tuple[list[int], int]:
+    """
+    Run `build_rows` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: seed.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rows = [0] * 128
     used_total = 0
     base = tuple(ord(c) for c in seed) + (45,)
@@ -87,6 +142,17 @@ def build_rows(seed: str) -> tuple[list[int], int]:
 
 
 def count_regions(rows: list[int]) -> int:
+    """
+    Run `count_regions` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: rows.
+    - Returns the computed result for this stage of the pipeline.
+    """
     unseen = rows[:]
     regions = 0
 
@@ -119,6 +185,17 @@ def count_regions(rows: list[int]) -> int:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description="AoC 2017 Day 14 fancy Python")
     ap.add_argument("--part", type=int, required=True, choices=[1, 2])
     ap.add_argument("--input")

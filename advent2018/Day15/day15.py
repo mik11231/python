@@ -21,6 +21,17 @@ class Unit:
 
 
 def reading_key_pos(x: int, y: int) -> tuple[int, int]:
+    """
+    Run `reading_key_pos` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: x, y.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return (y, x)
 
 
@@ -38,6 +49,17 @@ def load(path: Path, elf_attack: int = 3):
 
 
 def occupied(units: list[Unit]) -> dict[tuple[int, int], Unit]:
+    """
+    Run `occupied` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: units.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return {(u.x, u.y): u for u in units if u.alive}
 
 
@@ -165,6 +187,17 @@ def run_combat(grid, units: list[Unit], stop_on_elf_death: bool = False):
 
 
 def solve(path: Path) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     grid, units = load(path, elf_attack=3)
     rounds, hp_sum, _ = run_combat(grid, units)
     return rounds * hp_sum

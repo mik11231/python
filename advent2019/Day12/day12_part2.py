@@ -6,10 +6,32 @@ from pathlib import Path
 
 
 def load(s):
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return [list(map(int, re.findall(r'-?\d+', line))) for line in s.splitlines() if line.strip()]
 
 
 def axis_period(vals):
+    """
+    Run `axis_period` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: vals.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     pos = vals[:]
     vel = [0] * len(pos)
     init = (tuple(pos), tuple(vel))
@@ -29,6 +51,17 @@ def axis_period(vals):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     pos = load(s)
     px = axis_period([p[0] for p in pos])
     py = axis_period([p[1] for p in pos])

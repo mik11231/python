@@ -5,6 +5,17 @@ from pathlib import Path
 
 
 def load_edges(path: Path) -> list[tuple[str, str]]:
+    """
+    Run `load_edges` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     edges = []
     for line in path.read_text().splitlines():
         if not line.strip():
@@ -15,6 +26,17 @@ def load_edges(path: Path) -> list[tuple[str, str]]:
 
 
 def solve(edges: list[tuple[str, str]]) -> str:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: edges.
+    - Returns the computed result for this stage of the pipeline.
+    """
     prereq: dict[str, set[str]] = defaultdict(set)
     nodes = set()
     for a, b in edges:

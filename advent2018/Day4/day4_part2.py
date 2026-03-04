@@ -9,10 +9,32 @@ GUARD_RE = re.compile(r"Guard #(\d+) begins shift")
 
 
 def load_lines(path: Path) -> list[str]:
+    """
+    Run `load_lines` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return sorted(line.strip() for line in path.read_text().splitlines() if line.strip())
 
 
 def build_sleep_table(lines: list[str]) -> dict[int, list[int]]:
+    """
+    Run `build_sleep_table` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: lines.
+    - Returns the computed result for this stage of the pipeline.
+    """
     minutes_by_guard: dict[int, list[int]] = defaultdict(lambda: [0] * 60)
     guard = None
     sleep_start = None
@@ -36,6 +58,17 @@ def build_sleep_table(lines: list[str]) -> dict[int, list[int]]:
 
 
 def solve(lines: list[str]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: lines.
+    - Returns the computed result for this stage of the pipeline.
+    """
     minutes_by_guard = build_sleep_table(lines)
     best_guard = -1
     best_minute = -1

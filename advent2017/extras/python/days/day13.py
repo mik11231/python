@@ -14,6 +14,17 @@ EXPECTED_PART2 = "3941460"
 
 
 def default_input_path() -> Path:
+    """
+    Run `default_input_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cands = [
         Path("advent2017/Day13/d13_input.txt"),
         Path("Day13/d13_input.txt"),
@@ -28,6 +39,17 @@ def default_input_path() -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -37,6 +59,17 @@ def sha256_file(path: Path) -> str:
 
 def parse_layers(raw: str) -> tuple[list[tuple[int, int]], list[tuple[int, int]]]:
     # part1 uses (depth, range); part2 uses (bad_delay_mod_period, period)
+    """
+    Run `parse_layers` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: raw.
+    - Returns the computed result for this stage of the pipeline.
+    """
     p1: list[tuple[int, int]] = []
     p2: list[tuple[int, int]] = []
     for line in raw.splitlines():
@@ -54,6 +87,17 @@ def parse_layers(raw: str) -> tuple[list[tuple[int, int]], list[tuple[int, int]]
 
 
 def solve_part1(layers: list[tuple[int, int]]) -> int:
+    """
+    Run `solve_part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: layers.
+    - Returns the computed result for this stage of the pipeline.
+    """
     severity = 0
     for depth, rng in layers:
         if depth % (2 * (rng - 1)) == 0:
@@ -62,6 +106,17 @@ def solve_part1(layers: list[tuple[int, int]]) -> int:
 
 
 def solve_part2(layers: list[tuple[int, int]]) -> int:
+    """
+    Run `solve_part2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: layers.
+    - Returns the computed result for this stage of the pipeline.
+    """
     layers_loc = layers
     delay = 0
     while True:
@@ -74,6 +129,17 @@ def solve_part2(layers: list[tuple[int, int]]) -> int:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description="AoC 2017 Day 13 fancy Python")
     ap.add_argument("--part", type=int, required=True, choices=[1, 2])
     ap.add_argument("--input")

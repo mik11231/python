@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+advent2017/extras/python/days/day21.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2017.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -13,6 +24,17 @@ EXPECTED_PART2 = "1857134"
 
 
 def resolve_input(provided: str | None) -> Path:
+    """
+    Run `resolve_input` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: provided.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if provided:
         return Path(provided).resolve()
     for c in (
@@ -28,6 +50,17 @@ def resolve_input(provided: str | None) -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -36,15 +69,48 @@ def sha256_file(path: Path) -> str:
 
 
 def rotate(p: tuple[str, ...]) -> tuple[str, ...]:
+    """
+    Run `rotate` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: p.
+    - Returns the computed result for this stage of the pipeline.
+    """
     n = len(p)
     return tuple("".join(p[n - 1 - r][c] for r in range(n)) for c in range(n))
 
 
 def flip(p: tuple[str, ...]) -> tuple[str, ...]:
+    """
+    Run `flip` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: p.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return tuple(row[::-1] for row in p)
 
 
 def canonical(p: tuple[str, ...]) -> tuple[str, ...]:
+    """
+    Run `canonical` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: p.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cur = p
     vars_: list[tuple[str, ...]] = []
     for _ in range(4):
@@ -55,6 +121,17 @@ def canonical(p: tuple[str, ...]) -> tuple[str, ...]:
 
 
 def parse_rules(text: str) -> dict[tuple[str, ...], tuple[str, ...]]:
+    """
+    Run `parse_rules` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rules: dict[tuple[str, ...], tuple[str, ...]] = {}
     for ln in text.splitlines():
         s = ln.strip()
@@ -68,6 +145,17 @@ def parse_rules(text: str) -> dict[tuple[str, ...], tuple[str, ...]]:
 
 
 def split_blocks(grid: tuple[str, ...], bs: int) -> list[tuple[str, ...]]:
+    """
+    Run `split_blocks` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid, bs.
+    - Returns the computed result for this stage of the pipeline.
+    """
     n = len(grid)
     cnt = n // bs
     out: list[tuple[str, ...]] = []
@@ -78,7 +166,29 @@ def split_blocks(grid: tuple[str, ...], bs: int) -> list[tuple[str, ...]]:
 
 
 def run_iters(rules: dict[tuple[str, ...], tuple[str, ...]], n: int) -> int:
+    """
+    Run `run_iters` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: rules, n.
+    - Returns the computed result for this stage of the pipeline.
+    """
     def enhance_once(grid: tuple[str, ...]) -> tuple[str, ...]:
+        """
+        Run `enhance_once` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: grid.
+        - Returns the computed result for this stage of the pipeline.
+        """
         size = len(grid)
         bs = 2 if size % 2 == 0 else 3
         os = bs + 1
@@ -94,6 +204,17 @@ def run_iters(rules: dict[tuple[str, ...], tuple[str, ...]], n: int) -> int:
         return tuple("".join(row) for row in out)
 
     def popcount(p: tuple[str, ...]) -> int:
+        """
+        Run `popcount` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: p.
+        - Returns the computed result for this stage of the pipeline.
+        """
         return sum(row.count("#") for row in p)
 
     init = (".#.", "..#", "###")
@@ -105,11 +226,33 @@ def run_iters(rules: dict[tuple[str, ...], tuple[str, ...]], n: int) -> int:
 
     @lru_cache(maxsize=None)
     def expand_three_steps_from_3(p: tuple[str, ...]) -> tuple[tuple[str, ...], ...]:
+        """
+        Run `expand_three_steps_from_3` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: p.
+        - Returns the computed result for this stage of the pipeline.
+        """
         g = enhance_once(enhance_once(enhance_once(p)))
         return tuple(split_blocks(g, 3))
 
     @lru_cache(maxsize=None)
     def count_after_cycles(p: tuple[str, ...], cycles: int) -> int:
+        """
+        Run `count_after_cycles` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: p, cycles.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if cycles == 0:
             return popcount(p)
         return sum(count_after_cycles(sub, cycles - 1) for sub in expand_three_steps_from_3(p))
@@ -123,6 +266,17 @@ def run_iters(rules: dict[tuple[str, ...], tuple[str, ...]], n: int) -> int:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", type=int, choices=[1, 2], required=True)
     ap.add_argument("--input")

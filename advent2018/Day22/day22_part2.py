@@ -18,9 +18,31 @@ ALLOWED = {
 
 
 def solve(depth: int, tx: int, ty: int) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: depth, tx, ty.
+    - Returns the computed result for this stage of the pipeline.
+    """
     erosion = make_erosion(depth, tx, ty)
 
     def region(x: int, y: int) -> int:
+        """
+        Run `region` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: x, y.
+        - Returns the computed result for this stage of the pipeline.
+        """
         return erosion(x, y) % 3
 
     # Dijkstra over (x, y, tool). Start with torch; goal is target with torch.

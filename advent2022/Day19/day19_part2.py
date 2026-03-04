@@ -40,6 +40,17 @@ def best(bp: tuple[int, int, int, int, int, int], minutes: int) -> int:
         rb: int,
         rg: int,
     ) -> int:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: t, ore, clay, obs, ro, rc, rb, rg.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if t <= 0:
             return 0
 

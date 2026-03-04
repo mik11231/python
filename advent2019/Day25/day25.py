@@ -27,19 +27,63 @@ DANGEROUS = {
 
 class Droid:
     def __init__(self, program):
+        """
+        Run `__init__` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, program.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         self.vm = IntcodeComputer(program)
 
     def send(self, cmd: str) -> str:
+        """
+        Run `send` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, cmd.
+        - Returns the computed result for this stage of the pipeline.
+        """
         inp = [ord(c) for c in cmd + '\n']
         out, _ = self.vm.run(inp)
         return ''.join(chr(c) for c in out)
 
     def boot(self) -> str:
+        """
+        Run `boot` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self.
+        - Returns the computed result for this stage of the pipeline.
+        """
         out, _ = self.vm.run([])
         return ''.join(chr(c) for c in out)
 
 
 def parse_screen(txt: str):
+    """
+    Run `parse_screen` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: txt.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     room = None
     doors = []
     items = []
@@ -68,6 +112,17 @@ def parse_screen(txt: str):
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     d = Droid(program)
     txt = d.boot()
     room, doors, items = parse_screen(txt)
@@ -79,6 +134,17 @@ def solve(program):
     checkpoint_exit = None
 
     def dfs(prev_dir=None):
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: prev_dir.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         nonlocal room, doors, items, txt, checkpoint, checkpoint_exit
         cur_room = room
         if cur_room in visited:
@@ -127,6 +193,17 @@ def solve(program):
 
     # Navigate to checkpoint from current room using BFS on discovered graph.
     def path_between(src, dst):
+        """
+        Run `path_between` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: src, dst.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         from collections import deque
 
         q = deque([(src, [])])

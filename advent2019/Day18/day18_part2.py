@@ -6,6 +6,17 @@ import heapq
 
 
 def parse(s: str):
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     g = [list(r) for r in s.splitlines() if r]
     h, w = len(g), len(g[0])
     start = None
@@ -21,6 +32,17 @@ def parse(s: str):
 
 
 def neighbors(g, x, y):
+    """
+    Run `neighbors` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: g, x, y.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)):
         nx, ny = x + dx, y + dy
         if 0 <= ny < len(g) and 0 <= nx < len(g[0]) and g[ny][nx] != '#':
@@ -28,6 +50,17 @@ def neighbors(g, x, y):
 
 
 def build_graph(g, points):
+    """
+    Run `build_graph` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: g, points.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     out = {name: [] for name in points}
     for name, (sx, sy) in points.items():
         q = deque([(sx, sy, 0, 0)])
@@ -48,6 +81,17 @@ def build_graph(g, points):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     g, (sx, sy), keys = parse(s)
 
     # Convert center to four-start layout.

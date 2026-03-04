@@ -38,6 +38,17 @@ def count_paths_with_required_nodes(
     full_mask = (1 << len(required_nodes)) - 1
 
     def mark(mask: int, node: str) -> int:
+        """
+        Run `mark` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: mask, node.
+        - Returns the computed result for this stage of the pipeline.
+        """
         idx = req_index.get(node)
         if idx is None:
             return mask
@@ -48,6 +59,17 @@ def count_paths_with_required_nodes(
     visiting: set[tuple[str, int]] = set()
 
     def dfs(node: str, mask: int) -> int:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: node, mask.
+        - Returns the computed result for this stage of the pipeline.
+        """
         state = (node, mask)
         if node == end:
             return 1 if mask == full_mask else 0

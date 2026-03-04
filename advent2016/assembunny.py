@@ -32,6 +32,17 @@ def run_program(
         r.update(regs)
 
     def val(x: str) -> int:
+        """
+        Run `val` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: x.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if x.lstrip("-").isdigit():
             return int(x)
         return r.get(x, 0)

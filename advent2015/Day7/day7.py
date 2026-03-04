@@ -36,6 +36,17 @@ def eval_circuit(circuit: dict[str, list[str]], override: dict[str, int] | None 
     vals: dict[str, int] = dict(override or {})
 
     def get(x: str) -> int:
+        """
+        Run `get` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: x.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if x.isdigit():
             return int(x)
         if x in vals:

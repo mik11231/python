@@ -32,6 +32,17 @@ def deduce_mapping(samples):
 
 
 def solve(samples, program) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: samples, program.
+    - Returns the computed result for this stage of the pipeline.
+    """
     mapping = deduce_mapping(samples)
     regs = [0, 0, 0, 0]
     for code, a, b, c in program:

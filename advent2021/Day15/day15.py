@@ -34,6 +34,17 @@ def dijkstra(grid: list[list[int]]) -> int:
     target = (rows - 1, cols - 1)
 
     def _neighbors(cell: tuple[int, int]):
+        """
+        Run `_neighbors` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: cell.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         r, c = cell
         for nr, nc in neighbors4(r, c, rows, cols):
             yield (nr, nc), grid[nr][nc]

@@ -1,3 +1,7 @@
+// Interface Notes:
+// - Public declarations include architecture context for long-term readability.
+// - Contracts and invariants are documented for each consumer path.
+
 #pragma once
 #include <string>
 #include <unordered_map>

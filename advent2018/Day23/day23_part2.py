@@ -6,6 +6,17 @@ from pathlib import Path
 
 
 def load(path: Path):
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     bots = []
     for line in path.read_text().splitlines():
         if not line.strip():
@@ -33,11 +44,33 @@ def bots_in_cube(bots, x, y, z, size):
 
 
 def min_dist_cube_to_origin(x, y, z, size):
+    """
+    Run `min_dist_cube_to_origin` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: x, y, z, size.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return dist_point_to_cube(0, 0, 0, x, y, z, size)
 
 
 def solve(bots):
     # Bounding cube that covers all bot centers.
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: bots.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     min_x = min(b[0] for b in bots)
     max_x = max(b[0] for b in bots)
     min_y = min(b[1] for b in bots)

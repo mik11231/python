@@ -11,6 +11,17 @@ DIRS = [(0, -1), (1, 0), (0, 1), (-1, 0)]
 
 
 def paint(program, start_color=0):
+    """
+    Run `paint` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program, start_color.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     vm = IntcodeComputer(program)
     grid = {(0, 0): start_color}
     painted = set()
@@ -40,6 +51,17 @@ def paint(program, start_color=0):
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     _, painted = paint(program, 0)
     return len(painted)
 

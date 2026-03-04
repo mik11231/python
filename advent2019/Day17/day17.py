@@ -8,6 +8,17 @@ from advent2019.intcode import IntcodeComputer
 
 
 def scaffold_map(program):
+    """
+    Run `scaffold_map` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     vm = IntcodeComputer(program)
     out, _ = vm.run([])
     s = ''.join(chr(c) for c in out)
@@ -15,6 +26,17 @@ def scaffold_map(program):
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     g = scaffold_map(program)
     h, w = len(g), len(g[0])
     ans = 0

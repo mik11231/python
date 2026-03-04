@@ -11,24 +11,38 @@ Per-day overengineered solution implementations in each language.
 Each day executable/script:
 - accepts `--part 1|2` and optional `--input`
 - validates day input SHA-256
+- computes answers algorithmically (no answer tables)
 - prints answer to stdout
 - prints runtime telemetry to stderr (`runtime_ms=...`)
 
-Build all native artifacts:
+## Architecture
+
+- One independently runnable solver per language per day.
+- Language implementations stay native (no shelling out to another solver language).
+- Shared behavior contract: identical CLI shape + input validation + deterministic output.
+- Benchmark orchestration runs one solver process at a time for stable comparisons.
+
+## Build
 
 ```bash
 bash build_all.sh
+```
 
-# Notes
-
+Notes:
 - C++ builds run in `Release` mode with aggressive optimization flags and IPO/LTO when supported.
 - Rust release profile is tuned for runtime (`lto = "fat"`, `codegen-units = 1`, `panic = "abort"`).
-- `native/bin/day15_fast` and `native/bin/day17_fast` are built by `build_all.sh` and used as optional accelerators by Python/Bash day scripts.
-- Python/Bash heavy paths for days 20/22/25 can optionally delegate to prebuilt optimized C++ binaries in `cxx/build/` when available, with in-language fallback otherwise.
-```
+- Go builds use optimized release binaries under `go/bin/`.
+
+## Benchmarking
 
 Generate runtime comparison chart:
 
 ```bash
 python3 benchmark_compare.py
+```
+
+Optional language subset refresh while preserving prior columns:
+
+```bash
+BENCH_LANGS=python,go,rust,cxx python3 benchmark_compare.py
 ```

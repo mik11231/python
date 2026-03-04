@@ -22,6 +22,17 @@ CONNECTIONS = {
 
 
 def _char(grid: list[str], r: int, c: int) -> str:
+    """
+    Run `_char` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid, r, c.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if 0 <= r < len(grid) and 0 <= c < len(grid[r]):
         return grid[r][c]
     return "."

@@ -116,6 +116,17 @@ def min_presses_joltage(targets: Sequence[int], buttons: Sequence[Sequence[int]]
         free_vals: dict[int, int] = {}
 
         def search(idx: int) -> None:
+            """
+            Run `search` as a clearly documented algorithm stage.
+            
+            Methodology:
+            - Treat this function as one deterministic step in the Advent pipeline.
+            - Keep parsing, state transitions, and result emission easy to audit.
+            - Favor explicit control flow so behavior can be reasoned about from docs alone.
+            
+            Parameters: idx.
+            - Returns the computed result for this stage of the pipeline.
+            """
             nonlocal best
             if idx == len(free_cols):
                 x: list[Fraction] = [Fraction(0) for _ in range(k)]

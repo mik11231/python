@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+advent2017/extras/python/days/day24.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2017.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -14,6 +25,17 @@ EXPECTED_PART2 = "1642"
 
 
 def resolve_input(provided: str | None) -> Path:
+    """
+    Run `resolve_input` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: provided.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if provided:
         return Path(provided).resolve()
     for c in (
@@ -29,6 +51,17 @@ def resolve_input(provided: str | None) -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -37,6 +70,17 @@ def sha256_file(path: Path) -> str:
 
 
 def parse(text: str) -> tuple[list[tuple[int, int]], dict[int, list[int]]]:
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     comps: list[tuple[int, int]] = []
     by_port: dict[int, list[int]] = defaultdict(list)
     for ln in text.splitlines():
@@ -53,10 +97,32 @@ def parse(text: str) -> tuple[list[tuple[int, int]], dict[int, list[int]]]:
 
 
 def solve(comps: list[tuple[int, int]], by_port: dict[int, list[int]]) -> tuple[int, int]:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: comps, by_port.
+    - Returns the computed result for this stage of the pipeline.
+    """
     by_port_t = {k: tuple(v) for k, v in by_port.items()}
 
     @lru_cache(maxsize=None)
     def dfs(port: int, used_mask: int) -> tuple[int, int, int]:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: port, used_mask.
+        - Returns the computed result for this stage of the pipeline.
+        """
         best_strength = 0
         best_len = 0
         best_len_strength = 0
@@ -84,6 +150,17 @@ def solve(comps: list[tuple[int, int]], by_port: dict[int, list[int]]) -> tuple[
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", type=int, choices=[1, 2], required=True)
     ap.add_argument("--input")

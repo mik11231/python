@@ -29,6 +29,17 @@ def next_value(r1: int, seed: int, or_mask: int, byte_mask: int, full_mask: int,
 
 
 def solve(path: Path) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     seed, or_mask, byte_mask, full_mask, mul_const = load_constants(path)
     return next_value(0, seed, or_mask, byte_mask, full_mask, mul_const)
 

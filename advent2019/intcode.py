@@ -7,6 +7,17 @@ class IntcodeComputer:
     """Stateful Intcode VM supporting pause-on-input/output and relative base."""
 
     def __init__(self, program):
+        """
+        Run `__init__` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, program.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         self.mem = defaultdict(int)
         for i, v in enumerate(program):
             self.mem[i] = v
@@ -15,6 +26,17 @@ class IntcodeComputer:
         self.halted = False
 
     def _get(self, mode, k):
+        """
+        Run `_get` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, mode, k.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         if mode == 0:
             return self.mem[self.mem[self.ip + k]]
         if mode == 1:
@@ -24,6 +46,17 @@ class IntcodeComputer:
         raise ValueError(mode)
 
     def _addr(self, mode, k):
+        """
+        Run `_addr` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, mode, k.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         if mode == 0:
             return self.mem[self.ip + k]
         if mode == 2:
@@ -31,6 +64,17 @@ class IntcodeComputer:
         raise ValueError(mode)
 
     def run(self, inputs=(), stop_on_output=False):
+        """
+        Run `run` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, inputs, stop_on_output.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         q = deque(inputs)
         outputs = []
 

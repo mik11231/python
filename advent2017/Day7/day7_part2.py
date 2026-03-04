@@ -7,6 +7,17 @@ from pathlib import Path
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     w = {}
     ch = {}
     parent = {}
@@ -26,9 +37,31 @@ def solve(s: str) -> int:
 
     @lru_cache(maxsize=None)
     def total(n: str) -> int:
+        """
+        Run `total` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: n.
+        - Returns the computed result for this stage of the pipeline.
+        """
         return w[n] + sum(total(c) for c in ch[n])
 
     def dfs(n: str) -> int | None:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: n.
+        - Returns the computed result for this stage of the pipeline.
+        """
         ts = [total(c) for c in ch[n]]
         if len(set(ts)) <= 1:
             return None

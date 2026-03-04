@@ -110,6 +110,17 @@ def lint_python_files(files: list[Path], errors: list[str], warnings: list[str])
 
 
 def main(argv: list[str] | None = None) -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: argv.
+    - Returns the computed result for this stage of the pipeline.
+    """
     parser = argparse.ArgumentParser(description="Lint AoC folder/style conventions.")
     parser.add_argument("--strict", action="store_true", help="Fail on warnings too.")
     parser.add_argument(

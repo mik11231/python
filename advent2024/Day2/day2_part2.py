@@ -8,11 +8,33 @@ from pathlib import Path
 
 
 def is_safe(levels: list[int]) -> bool:
+    """
+    Run `is_safe` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: levels.
+    - Returns the computed result for this stage of the pipeline.
+    """
     diffs = [b - a for a, b in zip(levels, levels[1:])]
     return all(1 <= d <= 3 for d in diffs) or all(-3 <= d <= -1 for d in diffs)
 
 
 def is_safe_dampened(levels: list[int]) -> bool:
+    """
+    Run `is_safe_dampened` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: levels.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if is_safe(levels):
         return True
     return any(is_safe(levels[:i] + levels[i + 1:]) for i in range(len(levels)))

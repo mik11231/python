@@ -36,6 +36,17 @@ DAYS = {
 }
 
 def sha256_file(p: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: p.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with p.open('rb') as f:
         while True:
@@ -46,11 +57,33 @@ def sha256_file(p: Path) -> str:
     return h.hexdigest()
 
 def input_path(day: int, provided: str | None) -> Path:
+    """
+    Run `input_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: day, provided.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if provided:
         return Path(provided).resolve()
     return (Path(__file__).resolve().parents[2] / f"Day{day}" / f"d{day}_input.txt").resolve()
 
 def run_one(day: int, part: int, p: Path) -> str:
+    """
+    Run `run_one` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: day, part, p.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rec = DAYS[day]
     got = sha256_file(p)
     if got != rec['sha']:
@@ -58,6 +91,17 @@ def run_one(day: int, part: int, p: Path) -> str:
     return rec['p1'] if part == 1 else rec['p2']
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description='AoC 2017 Python-X standalone solver')
     ap.add_argument('--day', type=int)
     ap.add_argument('--part', type=int, choices=[1, 2])

@@ -26,6 +26,17 @@ def solve(s: str) -> int:
     visited = [[False] * cols for _ in range(rows)]
 
     def same(r, c, ch):
+        """
+        Run `same` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: r, c, ch.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         return 0 <= r < rows and 0 <= c < cols and grid[r][c] == ch
 
     total = 0

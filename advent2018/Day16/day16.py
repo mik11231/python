@@ -34,6 +34,17 @@ OPS = {
 
 
 def parse(path: Path):
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     text = path.read_text().rstrip('\n')
     parts = text.split('\n\n\n\n')
     sample_block, prog_block = parts[0], parts[1]

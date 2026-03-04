@@ -11,6 +11,17 @@ from day18_part2 import solve as solve2
 
 def main() -> None:
     # Example 3x3: .#. / ..# / ###
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     inp = ".#.\n..#\n###\n"
     grid = parse(inp)
     assert len(grid) == 3 and len(grid[0]) == 3

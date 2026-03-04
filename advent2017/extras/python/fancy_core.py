@@ -22,11 +22,33 @@ class DaySpec:
 
 class FancyDayRuntime:
     def __init__(self, spec: DaySpec) -> None:
+        """
+        Run `__init__` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, spec.
+        - Returns the computed result for this stage of the pipeline.
+        """
         self.spec = spec
         self.repo_root = Path(__file__).resolve().parents[2]
         self.day_dir = self.repo_root / f"Day{spec.day}"
 
     def default_input_path(self) -> Path:
+        """
+        Run `default_input_path` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self.
+        - Returns the computed result for this stage of the pipeline.
+        """
         cands = [
             Path(f"advent2017/Day{self.spec.day}/d{self.spec.day}_input.txt"),
             Path(f"Day{self.spec.day}/d{self.spec.day}_input.txt"),
@@ -41,6 +63,17 @@ class FancyDayRuntime:
 
     @staticmethod
     def sha256_file(path: Path) -> str:
+        """
+        Run `sha256_file` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: path.
+        - Returns the computed result for this stage of the pipeline.
+        """
         h = hashlib.sha256()
         with path.open("rb") as f:
             for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -48,6 +81,17 @@ class FancyDayRuntime:
         return h.hexdigest()
 
     def _load_module(self, path: Path, name: str) -> ModuleType:
+        """
+        Run `_load_module` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, path, name.
+        - Returns the computed result for this stage of the pipeline.
+        """
         spec = importlib.util.spec_from_file_location(name, path)
         if spec is None or spec.loader is None:
             raise RuntimeError(f"unable to load module from {path}")
@@ -56,11 +100,33 @@ class FancyDayRuntime:
         return mod
 
     def _module_for_part(self, part: int) -> ModuleType:
+        """
+        Run `_module_for_part` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, part.
+        - Returns the computed result for this stage of the pipeline.
+        """
         fn = f"day{self.spec.day}.py" if part == 1 else f"day{self.spec.day}_part2.py"
         path = self.day_dir / fn
         return self._load_module(path, f"aoc2017_day{self.spec.day}_p{part}")
 
     def run(self, part: int, input_path: Path, strict: bool) -> str:
+        """
+        Run `run` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, part, input_path, strict.
+        - Returns the computed result for this stage of the pipeline.
+        """
         got_sha = self.sha256_file(input_path)
         if got_sha != self.spec.input_sha256:
             raise SystemExit(
@@ -91,6 +157,17 @@ class FancyDayRuntime:
 
 
 def run_cli(spec: DaySpec) -> int:
+    """
+    Run `run_cli` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: spec.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description=f"AoC 2017 Fancy Python Day {spec.day}")
     ap.add_argument("--part", type=int, choices=[1, 2], required=True)
     ap.add_argument("--input")

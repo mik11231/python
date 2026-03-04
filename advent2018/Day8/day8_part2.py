@@ -4,6 +4,17 @@ from pathlib import Path
 
 
 def parse_node(data: list[int], i: int = 0) -> tuple[int, int, int]:
+    """
+    Run `parse_node` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: data, i.
+    - Returns the computed result for this stage of the pipeline.
+    """
     child_count, meta_count = data[i], data[i + 1]
     i += 2
     meta_sum = 0
@@ -25,10 +36,32 @@ def parse_node(data: list[int], i: int = 0) -> tuple[int, int, int]:
 
 
 def load_data(path: Path) -> list[int]:
+    """
+    Run `load_data` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return [int(x) for x in path.read_text().strip().split()]
 
 
 def solve(data: list[int]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: data.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return parse_node(data)[2]
 
 

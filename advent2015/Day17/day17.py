@@ -24,6 +24,17 @@ def solve(s: str) -> int:
     count = 0
 
     def recurse(i: int, total: int) -> None:
+        """
+        Run `recurse` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: i, total.
+        - Returns the computed result for this stage of the pipeline.
+        """
         nonlocal count
         if total == EGGNOG:
             count += 1

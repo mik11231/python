@@ -9,6 +9,17 @@ from functools import lru_cache
 
 
 def _norm(cells: set[tuple[int, int]]) -> tuple[tuple[int, int], ...]:
+    """
+    Run `_norm` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: cells.
+    - Returns the computed result for this stage of the pipeline.
+    """
     min_r = min(r for r, _ in cells)
     min_c = min(c for _, c in cells)
     shifted = sorted((r - min_r, c - min_c) for r, c in cells)
@@ -16,6 +27,17 @@ def _norm(cells: set[tuple[int, int]]) -> tuple[tuple[int, int], ...]:
 
 
 def _transform(cells: set[tuple[int, int]], op: int) -> set[tuple[int, int]]:
+    """
+    Run `_transform` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: cells, op.
+    - Returns the computed result for this stage of the pipeline.
+    """
     out: set[tuple[int, int]] = set()
     for r, c in cells:
         x, y = r, c
@@ -48,6 +70,17 @@ def all_variants(cells: set[tuple[int, int]]) -> list[tuple[tuple[int, int], int
 
 
 def parse_input(path: Path) -> tuple[list[set[tuple[int, int]]], list[tuple[int, int, list[int]]]]:
+    """
+    Run `parse_input` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     lines = path.read_text(encoding="utf-8").splitlines()
 
     shapes: dict[int, list[str]] = {}
@@ -147,6 +180,17 @@ def can_fit_exact(
 
     @lru_cache(maxsize=None)
     def dfs(remaining: tuple[int, ...], occ_mask: int, rem_area: int) -> bool:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: remaining, occ_mask, rem_area.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if rem_area == 0:
             return True
 

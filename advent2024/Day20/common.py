@@ -37,6 +37,17 @@ def track_distances(grid: list[str], start: Cell) -> dict[Cell, int]:
     rows, cols = len(grid), len(grid[0])
 
     def _neighbors(cell: Cell):
+        """
+        Run `_neighbors` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: cell.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         r, c = cell
         for nr, nc in neighbors4(r, c, rows, cols):
             if grid[nr][nc] != "#":

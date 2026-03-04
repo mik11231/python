@@ -27,6 +27,17 @@ def count_bags_inside(rules: dict[str, list[tuple[int, str]]], target: str = "sh
 
     @lru_cache(maxsize=None)
     def _inner(colour: str) -> int:
+        """
+        Run `_inner` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: colour.
+        - Returns the computed result for this stage of the pipeline.
+        """
         return sum(
             count * (1 + _inner(child))
             for count, child in rules.get(colour, [])

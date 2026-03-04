@@ -33,6 +33,17 @@ def simulate(state: set[int], rules: set[str], generations: int) -> int:
 
 
 def solve(state: set[int], rules: set[str]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: state, rules.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return simulate(state, rules, 20)
 
 

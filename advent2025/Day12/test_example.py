@@ -46,6 +46,17 @@ EXAMPLE = """0:
 
 
 def parse_example() -> tuple[list[set[tuple[int, int]]], list[tuple[int, int, list[int]]]]:
+    """
+    Run `parse_example` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     tmp = Path("Day12") / "_tmp_example_input.txt"
     tmp.write_text(EXAMPLE, encoding="utf-8")
     try:
@@ -55,6 +66,17 @@ def parse_example() -> tuple[list[set[tuple[int, int]]], list[tuple[int, int, li
 
 
 def main() -> None:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     shapes, regions = parse_example()
     variants = [all_variants(s) for s in shapes]
     areas = [len(s) for s in shapes]

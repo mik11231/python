@@ -3,6 +3,17 @@
 
 
 def sparse_round(a: list[int], lengths: list[int], pos: int, skip: int) -> tuple[int, int]:
+    """
+    Run `sparse_round` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: a, lengths, pos, skip.
+    - Returns the computed result for this stage of the pipeline.
+    """
     n = len(a)
     for ln in lengths:
         for i in range(ln // 2):
@@ -15,6 +26,17 @@ def sparse_round(a: list[int], lengths: list[int], pos: int, skip: int) -> tuple
 
 
 def knot_hash(text: str) -> str:
+    """
+    Run `knot_hash` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     a = list(range(256))
     lengths = [ord(c) for c in text] + [17, 31, 73, 47, 23]
     pos = skip = 0

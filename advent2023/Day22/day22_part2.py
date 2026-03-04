@@ -9,6 +9,17 @@ from collections import deque
 
 
 def settle(bricks):
+    """
+    Run `settle` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: bricks.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     bricks.sort(key=lambda b: min(b[2], b[5]))
     n = len(bricks)
     supports = [set() for _ in range(n)]
@@ -41,6 +52,17 @@ def settle(bricks):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     bricks = []
     for line in s.strip().splitlines():
         a, b = line.split("~")

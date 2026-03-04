@@ -22,6 +22,17 @@ def count_paths_part2(graph: dict[str, list[str]]) -> int:
     """Count paths allowing one small cave (not start/end) to be visited twice."""
 
     def dfs(node: str, visited: set[str], double_used: bool) -> int:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: node, visited, double_used.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if node == "end":
             return 1
         total = 0

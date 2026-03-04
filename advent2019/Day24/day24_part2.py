@@ -5,6 +5,17 @@ from pathlib import Path
 
 
 def nbrs(z, x, y):
+    """
+    Run `nbrs` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: z, x, y.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)):
         nx, ny = x + dx, y + dy
         if (nx, ny) == (2, 2):
@@ -35,6 +46,17 @@ def nbrs(z, x, y):
 
 
 def solve(s: str, minutes=200) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s, minutes.
+    - Returns the computed result for this stage of the pipeline.
+    """
     bugs = set()
     g = [list(r.strip()) for r in s.splitlines() if r.strip()]
     for y in range(5):

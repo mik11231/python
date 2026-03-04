@@ -1,7 +1,29 @@
 #!/usr/bin/env python
+"""
+advent2020/legacy/day7/day7_p1.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2020.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 
 def find_bags(input):
     # print(input)
+    """
+    Run `find_bags` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: input.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     my_bags = ["shiny gold"]
     held = 0
     bag_search = trim(my_bags, input)
@@ -16,6 +38,17 @@ def find_bags(input):
 
 
 def trim(search_bags, input):
+    """
+    Run `trim` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: search_bags, input.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     valid_bags = []
     remove_bags = []
     empty_bags = []

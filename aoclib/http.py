@@ -6,6 +6,17 @@ import requests
 
 
 def _headers(user_agent: str, session_cookie: str | None = None) -> dict[str, str]:
+    """
+    Run `_headers` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: user_agent, session_cookie.
+    - Returns the computed result for this stage of the pipeline.
+    """
     headers = {"User-Agent": user_agent}
     if session_cookie:
         headers["Cookie"] = f"session={session_cookie}"

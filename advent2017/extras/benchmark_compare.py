@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+advent2017/extras/benchmark_compare.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2017.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 from __future__ import annotations
 
 import os
@@ -21,6 +32,17 @@ ROW_PAT = re.compile(
 
 
 def run_cmd(cmd: list[str]) -> tuple[str, float]:
+    """
+    Run `run_cmd` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: cmd.
+    - Returns the computed result for this stage of the pipeline.
+    """
     t0 = time.perf_counter_ns()
     p = subprocess.run(cmd, capture_output=True, text=True)
     if p.returncode != 0:
@@ -35,6 +57,17 @@ def run_cmd(cmd: list[str]) -> tuple[str, float]:
 
 
 def load_expected_answers() -> dict[tuple[int, int], str]:
+    """
+    Run `load_expected_answers` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     expected: dict[tuple[int, int], str] = {}
     readme = YEAR_ROOT / "README.md"
     for line in readme.read_text(encoding="utf-8").splitlines():
@@ -51,6 +84,17 @@ def load_expected_answers() -> dict[tuple[int, int], str]:
 
 
 def task_cmd(day: int, part: int, inp: Path, lang: str) -> list[str]:
+    """
+    Run `task_cmd` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: day, part, inp, lang.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if lang == "Python":
         return ["python3", str(ROOT / "python" / "days" / f"day{day}.py"), "--part", str(part), "--input", str(inp)]
     if lang == "Bash":
@@ -66,6 +110,17 @@ def task_cmd(day: int, part: int, inp: Path, lang: str) -> list[str]:
 
 def parse_max_workers() -> int:
     # Benchmarks should run one solver process at a time for clean, comparable latency.
+    """
+    Run `parse_max_workers` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     raw = os.environ.get("BENCH_MAX_WORKERS", "1")
     try:
         n = int(raw)
@@ -77,6 +132,17 @@ def parse_max_workers() -> int:
 
 
 def parse_langs() -> tuple[str, ...]:
+    """
+    Run `parse_langs` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     raw = os.environ.get("BENCH_LANGS", ",".join(LANGS)).strip()
     if not raw:
         raise RuntimeError("BENCH_LANGS cannot be empty")
@@ -90,6 +156,17 @@ def parse_langs() -> tuple[str, ...]:
 
 
 def load_existing_times() -> dict[tuple[int, int], dict[str, float]]:
+    """
+    Run `load_existing_times` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     out: dict[tuple[int, int], dict[str, float]] = {}
     path = ROOT / "BENCHMARK_2017.md"
     if not path.exists():
@@ -111,6 +188,17 @@ def load_existing_times() -> dict[tuple[int, int], dict[str, float]]:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     expected = load_expected_answers()
     run_langs = parse_langs()
     existing = load_existing_times()

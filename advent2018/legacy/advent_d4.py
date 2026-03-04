@@ -1,3 +1,14 @@
+"""
+advent2018/legacy/advent_d4.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2018.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 # day 4 all the things!
 from datetime import datetime
 puzzle = open("puzzle_input_day4", "r")

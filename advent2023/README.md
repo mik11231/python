@@ -39,3 +39,27 @@ All listed answers were submitted and accepted for Advent of Code 2023.
 - Day 23: Part 1 = `2030`, Part 2 = `6390`
 - Day 24: Part 1 = `28266`, Part 2 = `786617045860267`
 - Day 25: Part 1 = `602151` (no separate computational Part 2 in AoC 2023)
+
+## Architecture
+
+- Day-centric boundaries: each `DayN/` directory isolates input, prompt artifact, part 1, part 2, and example checks.
+- Shared operational utilities live outside year folders (`aoclib` + `tools`) so puzzle logic remains focused and portable.
+- Solution modules favor pure `solve(...)`/`solve_part*` style functions with thin CLI wrappers for reproducible execution.
+
+## Methodology
+
+- Parse once into explicit in-memory structures (lists, dicts, sets, tuples, lightweight dataclasses where useful).
+- Encode puzzle rules as deterministic transformations with testable helper functions.
+- Prefer asymptotically sound approaches first; then optimize hotspots using caching, pruning, cycle detection, or tighter data layout.
+- Validate against AoC examples before running full input and synchronizing accepted answers.
+
+## Theme and Story Summary
+
+- Theme: Calibration and machine workflows with rich interval/range reasoning and directed process pipelines.
+- Story Summary: The 2023 season leans into transforming structured records through staged rules, where algorithmic selection and pruning dominate runtime.
+
+## What Our Solutions Addressed
+
+- Correctness: each day/part implementation matches accepted AoC outputs recorded in this README.
+- Maintainability: consistent file naming/layout keeps long-term navigation predictable.
+- Operability: scripts integrate with repo tooling for download, verify, style lint, and answer synchronization.

@@ -13,6 +13,17 @@ CARD_STRENGTH = {c: i for i, c in enumerate("23456789TJQKA")}
 
 
 def hand_type(cards: str) -> int:
+    """
+    Run `hand_type` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: cards.
+    - Returns the computed result for this stage of the pipeline.
+    """
     counts = sorted(Counter(cards).values(), reverse=True)
     if counts[0] == 5:
         return 6
@@ -30,6 +41,17 @@ def hand_type(cards: str) -> int:
 
 
 def hand_key(hand_bid: tuple[str, int]) -> tuple[int, ...]:
+    """
+    Run `hand_key` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: hand_bid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cards = hand_bid[0]
     return (hand_type(cards),) + tuple(CARD_STRENGTH[c] for c in cards)
 

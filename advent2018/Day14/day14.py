@@ -18,6 +18,17 @@ def recipes_after(n: int) -> str:
 
 
 def solve(n: int) -> str:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: n.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return recipes_after(n)
 
 

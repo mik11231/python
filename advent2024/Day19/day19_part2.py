@@ -15,6 +15,17 @@ def solve(s: str) -> int:
     designs = parts[1].splitlines()
 
     def count_ways(design):
+        """
+        Run `count_ways` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: design.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         n = len(design)
         dp = [0] * (n + 1)
         dp[0] = 1

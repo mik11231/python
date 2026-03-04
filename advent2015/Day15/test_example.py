@@ -6,6 +6,17 @@ from day15_part2 import solve as solve2
 
 
 def main() -> None:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     example = """Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8
 Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3"""
     # 44 butterscotch, 56 cinnamon: cap=44*(-1)+56*2=68, dur=44*(-2)+56*3=80, flv=44*6+56*(-2)=152, tex=44*3+56*(-1)=76 -> 68*80*152*76 = 62842880

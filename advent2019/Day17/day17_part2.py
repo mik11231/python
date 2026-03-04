@@ -14,6 +14,17 @@ ROBOT = {'^': 0, '>': 1, 'v': 2, '<': 3}
 
 
 def get_grid(program):
+    """
+    Run `get_grid` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     vm = IntcodeComputer(program)
     out, _ = vm.run([])
     s = ''.join(chr(c) for c in out)
@@ -22,11 +33,33 @@ def get_grid(program):
 
 
 def inb(g, x, y):
+    """
+    Run `inb` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: g, x, y.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return 0 <= y < len(g) and 0 <= x < len(g[0])
 
 
 def path_tokens(g):
     # Find robot start + direction.
+    """
+    Run `path_tokens` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: g.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     for y, row in enumerate(g):
         for x, ch in enumerate(row):
             if ch in ROBOT:
@@ -65,14 +98,47 @@ def path_tokens(g):
 
 
 def enc(tokens):
+    """
+    Run `enc` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: tokens.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return ','.join(tokens)
 
 
 def fits(tokens):
+    """
+    Run `fits` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: tokens.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return len(enc(tokens)) <= 20
 
 
 def compress(tokens):
+    """
+    Run `compress` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: tokens.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     n = len(tokens)
     for a_end in range(2, min(11, n + 1), 2):
         A = tokens[:a_end]
@@ -80,6 +146,17 @@ def compress(tokens):
             continue
 
         def replace(seq, pat, sym):
+            """
+            Run `replace` as a clearly documented algorithm stage.
+            
+            Methodology:
+            - Treat this function as one deterministic step in the Advent pipeline.
+            - Keep parsing, state transitions, and result emission easy to audit.
+            - Favor explicit control flow so behavior can be reasoned about from docs alone.
+            
+            Parameters: seq, pat, sym.
+            - Produces side effects required by the caller (output/mutation/control flow).
+            """
             out = []
             i = 0
             while i < len(seq):
@@ -117,6 +194,17 @@ def compress(tokens):
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     g = get_grid(program)
     tokens = path_tokens(g)
     main, A, B, C = compress(tokens)

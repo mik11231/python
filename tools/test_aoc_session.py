@@ -19,6 +19,17 @@ from aoclib.http import aoc_get
 
 
 def load_cookie_from_b64() -> str:
+    """
+    Run `load_cookie_from_b64` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cookie = load_session_cookie(root=Path("."))
     if not cookie:
         raise ValueError("No valid session cookie found in .aoc_session_b64")
@@ -26,6 +37,17 @@ def load_cookie_from_b64() -> str:
 
 
 def main() -> None:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cookie = load_cookie_from_b64()
     print(f"Decoded cookie length: {len(cookie)} characters")
 

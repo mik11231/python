@@ -8,6 +8,17 @@ DIR = {'N': (0, -1), 'S': (0, 1), 'W': (-1, 0), 'E': (1, 0)}
 
 
 def load_regex(path: Path) -> str:
+    """
+    Run `load_regex` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return path.read_text().strip()
 
 
@@ -45,6 +56,17 @@ def build_graph(regex: str):
 
 
 def distances(graph, start=(0, 0)):
+    """
+    Run `distances` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: graph, start.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     dist = {start: 0}
     q = deque([start])
     while q:
@@ -57,6 +79,17 @@ def distances(graph, start=(0, 0)):
 
 
 def solve(regex: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: regex.
+    - Returns the computed result for this stage of the pipeline.
+    """
     d = distances(build_graph(regex))
     return max(d.values())
 

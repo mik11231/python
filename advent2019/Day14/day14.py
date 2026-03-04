@@ -6,6 +6,17 @@ from pathlib import Path
 
 
 def parse(s: str):
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     rec = {}
     for line in s.splitlines():
         if not line.strip():
@@ -21,6 +32,17 @@ def parse(s: str):
 
 
 def ore_for_fuel(rec, fuel=1):
+    """
+    Run `ore_for_fuel` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: rec, fuel.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     need = defaultdict(int, {'FUEL': fuel})
     extra = defaultdict(int)
 
@@ -47,6 +69,17 @@ def ore_for_fuel(rec, fuel=1):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return ore_for_fuel(parse(s), 1)
 
 

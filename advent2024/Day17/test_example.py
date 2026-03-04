@@ -26,16 +26,49 @@ Program: 0,3,5,4,3,0
 
 
 def test_part1():
+    """
+    Run `test_part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(EXAMPLE_P1) == "4,6,3,5,6,3,5,2,1,0"
 
 
 def test_individual_ops():
+    """
+    Run `test_individual_ops` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert run([2, 6], 0, 0, 9)[0:0] == [] and True  # B becomes 1
     assert run([5, 0, 5, 1, 5, 4], 10, 0, 0) == [0, 1, 2]
     assert run([0, 1, 5, 4, 3, 0], 2024, 0, 0) == [4, 2, 5, 6, 7, 7, 7, 7, 3, 1, 0]
 
 
 def test_part2():
+    """
+    Run `test_part2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p2(EXAMPLE_P2) == 117440
 
 

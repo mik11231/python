@@ -73,10 +73,32 @@ tnw OR pbm -> gnj
 
 
 def test_small():
+    """
+    Run `test_small` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(SMALL) == 4
 
 
 def test_large():
+    """
+    Run `test_large` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     assert solve_p1(LARGE) == 2024
 
 

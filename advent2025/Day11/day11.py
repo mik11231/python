@@ -37,6 +37,17 @@ def count_paths_you_to_out(graph: dict[str, list[str]]) -> int:
     visiting: set[str] = set()
 
     def dfs(node: str) -> int:
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: node.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if node == "out":
             return 1
         if node in memo:

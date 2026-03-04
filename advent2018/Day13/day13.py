@@ -17,6 +17,17 @@ class Cart:
     """Track cart position, heading, and next turn state at intersections."""
 
     def __init__(self, x: int, y: int, d: str):
+        """
+        Run `__init__` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, x, y, d.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         self.x = x
         self.y = y
         self.d = d
@@ -73,6 +84,17 @@ def first_crash(grid, carts) -> tuple[int, int]:
 
 
 def solve(grid, carts) -> str:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid, carts.
+    - Returns the computed result for this stage of the pipeline.
+    """
     x, y = first_crash(grid, carts)
     return f"{x},{y}"
 

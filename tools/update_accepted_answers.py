@@ -13,6 +13,17 @@ OUT = Path(__file__).with_name("accepted_answers.json")
 
 
 def build_answers() -> dict[str, dict[str, dict[str, str]]]:
+    """
+    Run `build_answers` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     data: dict[str, dict[str, dict[str, str]]] = {}
     pattern = re.compile(
         r"- Day\s+(\d+):\s+Part\s+1\s*=\s*`([^`]*)`(?:,\s*Part\s*2\s*=\s*`([^`]*)`)?"
@@ -37,6 +48,17 @@ def build_answers() -> dict[str, dict[str, dict[str, str]]]:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     data = build_answers()
     OUT.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"Wrote {OUT} (years: {', '.join(sorted(data.keys()))})")

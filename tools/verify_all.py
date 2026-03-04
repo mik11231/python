@@ -35,10 +35,32 @@ class CheckResult:
 
 
 def normalize_text(s: str) -> str:
+    """
+    Run `normalize_text` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return "".join(s.lower().split())
 
 
 def output_matches(expected: str, output: str, year: str, day: int, part: int) -> bool:
+    """
+    Run `output_matches` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: expected, output, year, day, part.
+    - Returns the computed result for this stage of the pipeline.
+    """
     text = output.strip()
     if not text:
         return False
@@ -70,6 +92,17 @@ def output_matches(expected: str, output: str, year: str, day: int, part: int) -
 
 
 def script_path(year: str, day: int, part: int) -> Path:
+    """
+    Run `script_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: year, day, part.
+    - Returns the computed result for this stage of the pipeline.
+    """
     base = ROOT / f"advent{year}" / f"Day{day}"
     if part == 1:
         return base / f"day{day}.py"
@@ -77,10 +110,32 @@ def script_path(year: str, day: int, part: int) -> Path:
 
 
 def load_answers() -> dict[str, dict[str, dict[str, str]]]:
+    """
+    Run `load_answers` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return json.loads(ANSWERS_PATH.read_text(encoding="utf-8"))
 
 
 def run_one(path: Path, timeout: int) -> tuple[int | str, str]:
+    """
+    Run `run_one` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path, timeout.
+    - Returns the computed result for this stage of the pipeline.
+    """
     try:
         proc = subprocess.run(
             [sys.executable, str(path)],
@@ -96,6 +151,17 @@ def run_one(path: Path, timeout: int) -> tuple[int | str, str]:
 
 
 def verify(years: list[str] | None, timeout: int) -> tuple[list[CheckResult], float]:
+    """
+    Run `verify` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: years, timeout.
+    - Returns the computed result for this stage of the pipeline.
+    """
     answers = load_answers()
     selected = years if years else sorted(answers.keys())
 
@@ -127,6 +193,17 @@ def verify(years: list[str] | None, timeout: int) -> tuple[list[CheckResult], fl
 
 
 def main(argv: list[str] | None = None) -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: argv.
+    - Returns the computed result for this stage of the pipeline.
+    """
     parser = argparse.ArgumentParser(description="Verify Advent solutions against accepted answers.")
     parser.add_argument("--year", action="append", help="Year to verify (repeatable), e.g. 2022")
     parser.add_argument("--timeout", type=int, default=180, help="Per-script timeout in seconds")

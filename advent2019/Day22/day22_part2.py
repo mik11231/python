@@ -4,11 +4,33 @@ from pathlib import Path
 
 
 def modinv(a, m):
+    """
+    Run `modinv` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: a, m.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return pow(a, -1, m)
 
 
 def solve(lines, m=119315717514047, reps=101741582076661, pos=2020):
     # Forward transform one shuffle: f(x)=a*x+b (x is original position).
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: lines, m, reps, pos.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     a, b = 1, 0
     for ln in lines:
         if ln.startswith('deal into new stack'):

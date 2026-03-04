@@ -1,3 +1,8 @@
+// Architecture Notes:
+// - This translation unit is documented for codebase-wide recoverability.
+// - Solver stages are explicit to simplify verification and benchmarking.
+// - Low-level optimizations are annotated with rationale and invariants.
+
 #include <filesystem>
 #include <fstream>
 #include <chrono>

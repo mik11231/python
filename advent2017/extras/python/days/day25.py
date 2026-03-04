@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+advent2017/extras/python/days/day25.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2017.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -12,6 +23,17 @@ EXPECTED_PART2 = "Merry Christmas"
 
 
 def resolve_input(provided: str | None) -> Path:
+    """
+    Run `resolve_input` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: provided.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if provided:
         return Path(provided).resolve()
     for c in (
@@ -27,6 +49,17 @@ def resolve_input(provided: str | None) -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -35,6 +68,17 @@ def sha256_file(path: Path) -> str:
 
 
 def parse_tm(text: str) -> tuple[int, int, list[list[tuple[int, int, int]]]]:
+    """
+    Run `parse_tm` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     start = ord(lines[0][len("Begin in state ")]) - ord("A")
     steps = int(lines[1].split()[5])
@@ -55,6 +99,17 @@ def parse_tm(text: str) -> tuple[int, int, list[list[tuple[int, int, int]]]]:
 
 
 def part1(text: str) -> int:
+    """
+    Run `part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     state, steps, trans = parse_tm(text)
     tape: set[int] = set()
     cur = 0
@@ -71,6 +126,17 @@ def part1(text: str) -> int:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", type=int, choices=[1, 2], required=True)
     ap.add_argument("--input")

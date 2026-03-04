@@ -14,6 +14,17 @@ EXPECTED_PART2 = "8038"
 
 
 def default_input_path() -> Path:
+    """
+    Run `default_input_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cands = [
         Path("advent2017/Day6/d6_input.txt"),
         Path("Day6/d6_input.txt"),
@@ -28,6 +39,17 @@ def default_input_path() -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -36,10 +58,32 @@ def sha256_file(path: Path) -> str:
 
 
 def parse_banks(raw: str) -> list[int]:
+    """
+    Run `parse_banks` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: raw.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return [int(x) for x in raw.split()]
 
 
 def redistribute(a: list[int]) -> None:
+    """
+    Run `redistribute` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: a.
+    - Returns the computed result for this stage of the pipeline.
+    """
     i = max(range(len(a)), key=lambda k: (a[k], -k))
     blocks = a[i]
     a[i] = 0
@@ -53,6 +97,17 @@ def redistribute(a: list[int]) -> None:
 
 
 def solve_part1(banks: list[int]) -> int:
+    """
+    Run `solve_part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: banks.
+    - Returns the computed result for this stage of the pipeline.
+    """
     a = banks[:]
     seen: set[tuple[int, ...]] = set()
     steps = 0
@@ -64,6 +119,17 @@ def solve_part1(banks: list[int]) -> int:
 
 
 def solve_part2(banks: list[int]) -> int:
+    """
+    Run `solve_part2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: banks.
+    - Returns the computed result for this stage of the pipeline.
+    """
     a = banks[:]
     seen: dict[tuple[int, ...], int] = {}
     steps = 0
@@ -75,6 +141,17 @@ def solve_part2(banks: list[int]) -> int:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description="AoC 2017 Day 6 fancy Python")
     ap.add_argument("--part", type=int, required=True, choices=[1, 2])
     ap.add_argument("--input")

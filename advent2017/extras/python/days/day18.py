@@ -15,6 +15,17 @@ EXPECTED_PART2 = "8001"
 
 
 def default_input_path() -> Path:
+    """
+    Run `default_input_path` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cands = [
         Path("advent2017/Day18/d18_input.txt"),
         Path("Day18/d18_input.txt"),
@@ -29,6 +40,17 @@ def default_input_path() -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -37,6 +59,17 @@ def sha256_file(path: Path) -> str:
 
 
 def parse(raw: str) -> list[tuple[str, str, str | None]]:
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: raw.
+    - Returns the computed result for this stage of the pipeline.
+    """
     out: list[tuple[str, str, str | None]] = []
     for line in raw.splitlines():
         if not line.strip():
@@ -47,12 +80,34 @@ def parse(raw: str) -> list[tuple[str, str, str | None]]:
 
 
 def val(tok: str, regs: dict[str, int]) -> int:
+    """
+    Run `val` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: tok, regs.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if tok.lstrip("-").isdigit():
         return int(tok)
     return regs.get(tok, 0)
 
 
 def solve_part1(prog: list[tuple[str, str, str | None]]) -> int:
+    """
+    Run `solve_part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: prog.
+    - Returns the computed result for this stage of the pipeline.
+    """
     regs: dict[str, int] = {}
     ip = 0
     last = 0
@@ -83,6 +138,17 @@ def solve_part1(prog: list[tuple[str, str, str | None]]) -> int:
 
 class Proc:
     def __init__(self, pid: int, prog: list[tuple[str, str, str | None]]) -> None:
+        """
+        Run `__init__` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, pid, prog.
+        - Returns the computed result for this stage of the pipeline.
+        """
         self.pid = pid
         self.prog = prog
         self.regs: dict[str, int] = {"p": pid}
@@ -93,6 +159,17 @@ class Proc:
         self.terminated = False
 
     def step(self, outq: deque[int]) -> bool:
+        """
+        Run `step` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, outq.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if not (0 <= self.ip < len(self.prog)):
             self.terminated = True
             self.waiting = False
@@ -146,6 +223,17 @@ class Proc:
 
 
 def solve_part2(prog: list[tuple[str, str, str | None]]) -> int:
+    """
+    Run `solve_part2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: prog.
+    - Returns the computed result for this stage of the pipeline.
+    """
     p0 = Proc(0, prog)
     p1 = Proc(1, prog)
 
@@ -158,6 +246,17 @@ def solve_part2(prog: list[tuple[str, str, str | None]]) -> int:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser(description="AoC 2017 Day 18 fancy Python")
     ap.add_argument("--part", type=int, required=True, choices=[1, 2])
     ap.add_argument("--input")

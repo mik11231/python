@@ -2,6 +2,17 @@
 """Test with the example from Day 3 Part 1 problem"""
 
 def find_max_joltage(bank):
+    """
+    Run `find_max_joltage` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: bank.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     max_joltage = 0
     for i in range(len(bank)):
         for j in range(i + 1, len(bank)):

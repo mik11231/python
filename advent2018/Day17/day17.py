@@ -35,6 +35,17 @@ def simulate(clay: set[tuple[int, int]], min_y: int, max_y: int):
     settled = set()
 
     def blocked(x: int, y: int) -> bool:
+        """
+        Run `blocked` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: x, y.
+        - Returns the computed result for this stage of the pipeline.
+        """
         return (x, y) in clay or (x, y) in settled
 
     stack = [(500, min_y)]
@@ -107,6 +118,17 @@ def simulate(clay: set[tuple[int, int]], min_y: int, max_y: int):
 
 
 def solve(path: Path) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     clay, min_y, max_y = load_clay(path)
     flowing, settled = simulate(clay, min_y, max_y)
     all_water = flowing | settled

@@ -7,6 +7,17 @@ DIR = {'U': (0, 1), 'D': (0, -1), 'L': (-1, 0), 'R': (1, 0)}
 
 
 def steps_map(wire: str) -> dict[tuple[int, int], int]:
+    """
+    Run `steps_map` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: wire.
+    - Returns the computed result for this stage of the pipeline.
+    """
     x = y = 0
     steps = 0
     out = {}
@@ -23,6 +34,17 @@ def steps_map(wire: str) -> dict[tuple[int, int], int]:
 
 
 def solve(w1: str, w2: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: w1, w2.
+    - Returns the computed result for this stage of the pipeline.
+    """
     a = steps_map(w1)
     b = steps_map(w2)
     inter = a.keys() & b.keys()

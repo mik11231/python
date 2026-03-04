@@ -11,6 +11,17 @@ from day25_part2 import solve as solve2
 
 def main() -> None:
     # (1,1)=1, (2,1)=2, (1,2)=3, (3,1)=4, (2,2)=5, (1,3)=6
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     assert index_of(1, 1) == 1
     assert index_of(2, 1) == 2
     assert index_of(1, 2) == 3

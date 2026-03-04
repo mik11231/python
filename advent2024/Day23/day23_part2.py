@@ -9,6 +9,17 @@ from collections import defaultdict
 
 
 def solve(s: str) -> str:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     adj = defaultdict(set)
     for line in s.strip().splitlines():
         a, b = line.split('-')
@@ -18,6 +29,17 @@ def solve(s: str) -> str:
     best = []
 
     def bron_kerbosch(r, p, x):
+        """
+        Run `bron_kerbosch` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: r, p, x.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         nonlocal best
         if not p and not x:
             if len(r) > len(best):

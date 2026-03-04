@@ -18,16 +18,49 @@ REV = {1: 2, 2: 1, 3: 4, 4: 3}
 
 
 def step(vm: IntcodeComputer, cmd: int) -> int:
+    """
+    Run `step` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: vm, cmd.
+    - Returns the computed result for this stage of the pipeline.
+    """
     out, _ = vm.run([cmd], stop_on_output=True)
     return out[-1]
 
 
 def explore(program):
+    """
+    Run `explore` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     vm = IntcodeComputer(program)
     grid = {(0, 0): 1}
     oxygen = None
 
     def dfs(x, y):
+        """
+        Run `dfs` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: x, y.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         nonlocal oxygen
         for cmd, (dx, dy) in DIRS.items():
             nx, ny = x + dx, y + dy
@@ -48,6 +81,17 @@ def explore(program):
 
 
 def shortest(grid, src, dst):
+    """
+    Run `shortest` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid, src, dst.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     q = deque([(src, 0)])
     seen = {src}
     while q:
@@ -67,6 +111,17 @@ def shortest(grid, src, dst):
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     grid, oxy = explore(program)
     return shortest(grid, (0, 0), oxy)
 

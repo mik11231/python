@@ -25,6 +25,17 @@ def solve(s):
         if c=='E': return ord('z')
         return ord(c)
     def _neighbors(cell):
+        """
+        Run `_neighbors` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: cell.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         x, y = cell
         for ny, nx in neighbors4(y, x, h, w):
             if ht(g[ny][nx]) <= ht(g[y][x]) + 1:

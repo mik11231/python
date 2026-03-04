@@ -9,6 +9,17 @@ from advent2019.intcode import IntcodeComputer
 
 
 def solve(program: list[int]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Returns the computed result for this stage of the pipeline.
+    """
     best = 0
     for perm in permutations([5, 6, 7, 8, 9]):
         vms = [IntcodeComputer(program) for _ in range(5)]

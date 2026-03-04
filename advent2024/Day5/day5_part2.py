@@ -17,6 +17,17 @@ def solve(s: str) -> int:
         after.add((int(a), int(b)))
 
     def cmp(a: int, b: int) -> int:
+        """
+        Run `cmp` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: a, b.
+        - Returns the computed result for this stage of the pipeline.
+        """
         if (a, b) in after:
             return -1
         if (b, a) in after:

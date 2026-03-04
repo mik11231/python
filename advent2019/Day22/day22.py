@@ -4,6 +4,17 @@ from pathlib import Path
 
 
 def solve(lines, n=10007, card=2019):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: lines, n, card.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     pos = card
     for ln in lines:
         if ln.startswith('deal into new stack'):

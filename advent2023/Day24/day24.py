@@ -9,6 +9,17 @@ from itertools import combinations
 
 
 def solve(s: str, lo=200000000000000, hi=400000000000000) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s, lo, hi.
+    - Returns the computed result for this stage of the pipeline.
+    """
     stones = []
     for line in s.strip().splitlines():
         pos, vel = line.split("@")

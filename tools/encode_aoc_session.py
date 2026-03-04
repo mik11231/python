@@ -21,6 +21,17 @@ from aoclib.auth import encode_session_cookie
 
 
 def main() -> None:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     cookie = getpass.getpass("Enter your Advent of Code session cookie: ").strip()
     if not cookie:
         print("No cookie entered, aborting.")

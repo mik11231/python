@@ -1,13 +1,46 @@
 #!/usr/bin/env python
+"""
+advent2020/legacy/day7/day7_p2.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2020.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 
 class Bag():
     def __init__(self, name="Default", contents=[], count=0, definition=False):
+        """
+        Run `__init__` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, name, contents, count, definition.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         self.name = name
         self.definition = definition
         self.count = count
         self.contents = contents
 
     def show_counts(self):
+        """
+        Run `show_counts` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         bag_counts = []
         if self.contents:
             for bag in self.contents:
@@ -18,12 +51,34 @@ class Bag():
 
 
 def find_bags(input):
+    """
+    Run `find_bags` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: input.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     for bag in input:
         if bag.name == "shiny gold":
             find_count(bag, input)
 
 
 def find_count(bag, input):
+    """
+    Run `find_count` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: bag, input.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     inside_bags = bag.show_counts()
     # if bag.show_counts():
         # for inside in

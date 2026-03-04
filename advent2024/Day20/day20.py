@@ -14,6 +14,17 @@ from common import parse_track, track_distances
 
 
 def solve(s: str, threshold: int = 100) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s, threshold.
+    - Returns the computed result for this stage of the pipeline.
+    """
     grid, start, _ = parse_track(s)
     dist = track_distances(grid, start)
 

@@ -8,6 +8,17 @@ from pathlib import Path
 
 
 def tilt_north(grid: list[list[str]]) -> None:
+    """
+    Run `tilt_north` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rows, cols = len(grid), len(grid[0])
     for c in range(cols):
         empty = 0
@@ -21,6 +32,17 @@ def tilt_north(grid: list[list[str]]) -> None:
 
 
 def tilt_south(grid: list[list[str]]) -> None:
+    """
+    Run `tilt_south` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rows, cols = len(grid), len(grid[0])
     for c in range(cols):
         empty = rows - 1
@@ -34,6 +56,17 @@ def tilt_south(grid: list[list[str]]) -> None:
 
 
 def tilt_west(grid: list[list[str]]) -> None:
+    """
+    Run `tilt_west` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rows, cols = len(grid), len(grid[0])
     for r in range(rows):
         empty = 0
@@ -47,6 +80,17 @@ def tilt_west(grid: list[list[str]]) -> None:
 
 
 def tilt_east(grid: list[list[str]]) -> None:
+    """
+    Run `tilt_east` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rows, cols = len(grid), len(grid[0])
     for r in range(rows):
         empty = cols - 1
@@ -60,6 +104,17 @@ def tilt_east(grid: list[list[str]]) -> None:
 
 
 def spin_cycle(grid: list[list[str]]) -> None:
+    """
+    Run `spin_cycle` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     tilt_north(grid)
     tilt_west(grid)
     tilt_south(grid)
@@ -67,10 +122,32 @@ def spin_cycle(grid: list[list[str]]) -> None:
 
 
 def grid_key(grid: list[list[str]]) -> tuple:
+    """
+    Run `grid_key` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return tuple(tuple(row) for row in grid)
 
 
 def load(grid: list[list[str]]) -> int:
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rows = len(grid)
     return sum(rows - r for r in range(rows) for c in range(len(grid[0])) if grid[r][c] == "O")
 

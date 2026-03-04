@@ -7,6 +7,17 @@ import math
 class UnionFind:
     """Union-Find (Disjoint Set) data structure for tracking circuits."""
     def __init__(self, n):
+        """
+        Run `__init__` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: self, n.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         self.parent = list(range(n))
         self.rank = [0] * n
         self.size = [1] * n  # Track size of each circuit

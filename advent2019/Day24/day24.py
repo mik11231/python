@@ -4,6 +4,17 @@ from pathlib import Path
 
 
 def step(g):
+    """
+    Run `step` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: g.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     h, w = 5, 5
     out = [['.' for _ in range(w)] for _ in range(h)]
     for y in range(h):
@@ -21,6 +32,17 @@ def step(g):
 
 
 def bio(g):
+    """
+    Run `bio` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: g.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     b = 0
     k = 0
     for y in range(5):
@@ -32,6 +54,17 @@ def bio(g):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     g = [list(r.strip()) for r in s.splitlines() if r.strip()]
     seen = set()
     while True:

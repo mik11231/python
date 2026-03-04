@@ -14,6 +14,17 @@ from aoclib.search import bfs_distances
 
 
 def solve(s: str, steps: int = 64) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s, steps.
+    - Returns the computed result for this stage of the pipeline.
+    """
     grid = s.strip().splitlines()
     rows, cols = len(grid), len(grid[0])
 
@@ -24,6 +35,17 @@ def solve(s: str, steps: int = 64) -> int:
                 sr, sc = r, c
 
     def _neighbors(cell: tuple[int, int]):
+        """
+        Run `_neighbors` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: cell.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         r, c = cell
         for nr, nc in neighbors4(r, c, rows, cols):
             if grid[nr][nc] != "#":

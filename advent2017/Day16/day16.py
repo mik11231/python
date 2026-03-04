@@ -5,6 +5,17 @@ from pathlib import Path
 
 
 def dance(arr: list[str], ops: list[str]) -> list[str]:
+    """
+    Run `dance` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: arr, ops.
+    - Returns the computed result for this stage of the pipeline.
+    """
     pos = {c: i for i, c in enumerate(arr)}
     for op in ops:
         t = op[0]
@@ -26,6 +37,17 @@ def dance(arr: list[str], ops: list[str]) -> list[str]:
 
 
 def solve(s: str) -> str:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ops = s.strip().split(",")
     return "".join(dance(list("abcdefghijklmnop"), ops))
 

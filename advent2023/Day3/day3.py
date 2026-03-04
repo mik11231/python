@@ -15,6 +15,17 @@ def solve(s: str) -> int:
     rows, cols = len(grid), len(grid[0])
 
     def has_adjacent_symbol(r: int, c_start: int, c_end: int) -> bool:
+        """
+        Run `has_adjacent_symbol` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: r, c_start, c_end.
+        - Returns the computed result for this stage of the pipeline.
+        """
         for dr in (-1, 0, 1):
             for c in range(c_start - 1, c_end + 1):
                 nr = r + dr

@@ -14,6 +14,17 @@ from collections import defaultdict
 
 
 def solve(s: str) -> str:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     sections = s.strip().split('\n\n')
     gates = []
     for line in sections[1].splitlines():

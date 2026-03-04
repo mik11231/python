@@ -11,6 +11,17 @@ from collections import deque
 
 
 def count_reachable(grid, rows, cols, sr, sc, steps):
+    """
+    Run `count_reachable` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid, rows, cols, sr, sc, steps.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     dist = {(sr, sc): 0}
     queue = deque([(sr, sc, 0)])
     while queue:
@@ -26,6 +37,17 @@ def count_reachable(grid, rows, cols, sr, sc, steps):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     grid = s.strip().splitlines()
     rows, cols = len(grid), len(grid[0])
 

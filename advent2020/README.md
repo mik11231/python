@@ -40,3 +40,27 @@ All listed answers were submitted and accepted for Advent of Code 2020.
 - Day 23: Part 1 = `97245386`, Part 2 = `156180332979`
 - Day 24: Part 1 = `411`, Part 2 = `4092`
 - Day 25: Part 1 = `15467093` (no separate computational Part 2 in AoC 2020)
+
+## Architecture
+
+- Day-centric boundaries: each `DayN/` directory isolates input, prompt artifact, part 1, part 2, and example checks.
+- Shared operational utilities live outside year folders (`aoclib` + `tools`) so puzzle logic remains focused and portable.
+- Solution modules favor pure `solve(...)`/`solve_part*` style functions with thin CLI wrappers for reproducible execution.
+
+## Methodology
+
+- Parse once into explicit in-memory structures (lists, dicts, sets, tuples, lightweight dataclasses where useful).
+- Encode puzzle rules as deterministic transformations with testable helper functions.
+- Prefer asymptotically sound approaches first; then optimize hotspots using caching, pruning, cycle detection, or tighter data layout.
+- Validate against AoC examples before running full input and synchronizing accepted answers.
+
+## Theme and Story Summary
+
+- Theme: Rule systems and compositional parsing: bags, adapters, bitmasks, tickets, grammars, and recursive games.
+- Story Summary: The 2020 arc emphasizes constrained combinatorics and parser-driven logic, balancing correctness and pruning for exponential search spaces.
+
+## What Our Solutions Addressed
+
+- Correctness: each day/part implementation matches accepted AoC outputs recorded in this README.
+- Maintainability: consistent file naming/layout keeps long-term navigation predictable.
+- Operability: scripts integrate with repo tooling for download, verify, style lint, and answer synchronization.

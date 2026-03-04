@@ -1,4 +1,15 @@
 #!/usr/bin/env python
+"""
+advent2022/legacy/day1/calories.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2022.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 
 with open("input") as input:
     elves = []

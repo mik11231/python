@@ -4,6 +4,17 @@ from pathlib import Path
 
 
 def run(mem: list[int]) -> list[int]:
+    """
+    Run `run` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: mem.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ip = 0
     while True:
         op = mem[ip]
@@ -20,6 +31,17 @@ def run(mem: list[int]) -> list[int]:
 
 
 def solve(program: list[int]) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Returns the computed result for this stage of the pipeline.
+    """
     mem = program.copy()
     mem[1] = 12
     mem[2] = 2

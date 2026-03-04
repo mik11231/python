@@ -5,6 +5,17 @@ from pathlib import Path
 
 
 def parse(s: str):
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     g = [list(r.rstrip('\n')) for r in s.splitlines()]
     h, w = len(g), max(len(r) for r in g)
     for r in g:
@@ -43,6 +54,17 @@ def parse(s: str):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     g, start, goal, portals = parse(s)
     q = deque([(start, 0)])
     seen = {start}

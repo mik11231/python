@@ -8,6 +8,17 @@ from advent2019.intcode import IntcodeComputer
 
 
 def run_script(program, lines):
+    """
+    Run `run_script` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program, lines.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     vm = IntcodeComputer(program)
     inp = [ord(c) for c in '\n'.join(lines) + '\n']
     out, _ = vm.run(inp)
@@ -15,6 +26,17 @@ def run_script(program, lines):
 
 
 def solve(program):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: program.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     script = [
         'NOT A J',
         'NOT B T',

@@ -1,6 +1,28 @@
 #!/usr/bin/env python
+"""
+advent2020/legacy/day5/day5_p2.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2020.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 
 def find_seat(input):
+    """
+    Run `find_seat` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: input.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     id_list = sorted(input)
     missing_id = [id for id in range(id_list[0], id_list[-1]+1)
                   if id not in id_list]

@@ -9,6 +9,17 @@ from collections import deque
 
 
 def count_energized(grid: list[str], start: tuple[int, int, int, int]) -> int:
+    """
+    Run `count_energized` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: grid, start.
+    - Returns the computed result for this stage of the pipeline.
+    """
     rows, cols = len(grid), len(grid[0])
     seen: set[tuple[int, int, int, int]] = set()
     q: deque[tuple[int, int, int, int]] = deque([start])

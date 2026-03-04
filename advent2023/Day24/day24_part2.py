@@ -13,6 +13,17 @@ from itertools import combinations
 
 
 def _cross(a: tuple[int, int, int], b: tuple[int, int, int]) -> tuple[int, int, int]:
+    """
+    Run `_cross` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: a, b.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return (
         a[1] * b[2] - a[2] * b[1],
         a[2] * b[0] - a[0] * b[2],
@@ -26,6 +37,17 @@ def _pair_equations(
     p2: tuple[int, int, int],
     v2: tuple[int, int, int],
 ) -> tuple[list[list[int]], list[int]]:
+    """
+    Run `_pair_equations` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: p1, v1, p2, v2.
+    - Returns the computed result for this stage of the pipeline.
+    """
     dv = (v2[0] - v1[0], v2[1] - v1[1], v2[2] - v1[2])
     dp = (p2[0] - p1[0], p2[1] - p1[1], p2[2] - p1[2])
     rhs = tuple(a - b for a, b in zip(_cross(p2, v2), _cross(p1, v1)))
@@ -42,6 +64,17 @@ def _pair_equations(
 
 
 def _solve_linear_6x6(mat: list[list[int]], rhs: list[int]) -> list[Fraction]:
+    """
+    Run `_solve_linear_6x6` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: mat, rhs.
+    - Returns the computed result for this stage of the pipeline.
+    """
     aug: list[list[Fraction]] = [
         [Fraction(v) for v in row] + [Fraction(rhs[i])] for i, row in enumerate(mat)
     ]
@@ -72,6 +105,17 @@ def _solve_linear_6x6(mat: list[list[int]], rhs: list[int]) -> list[Fraction]:
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     stones = []
     for line in s.strip().splitlines():
         pos, vel = line.split("@")

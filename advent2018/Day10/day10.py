@@ -7,6 +7,17 @@ LINE_RE = re.compile(r"position=<\s*(-?\d+),\s*(-?\d+)> velocity=<\s*(-?\d+),\s*
 
 
 def load(path: Path):
+    """
+    Run `load` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     pts = []
     for line in path.read_text().splitlines():
         if not line.strip():
@@ -17,16 +28,49 @@ def load(path: Path):
 
 
 def at_time(pts, t):
+    """
+    Run `at_time` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: pts, t.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     return [(x + vx * t, y + vy * t) for x, y, vx, vy in pts]
 
 
 def bbox_area(pos):
+    """
+    Run `bbox_area` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: pos.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     xs = [x for x, _ in pos]
     ys = [y for _, y in pos]
     return (max(xs) - min(xs) + 1) * (max(ys) - min(ys) + 1)
 
 
 def find_best_time(pts):
+    """
+    Run `find_best_time` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: pts.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     t = 0
     prev = bbox_area(at_time(pts, 0))
     while True:
@@ -38,6 +82,17 @@ def find_best_time(pts):
 
 
 def render(pos):
+    """
+    Run `render` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: pos.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     xs = [x for x, _ in pos]
     ys = [y for _, y in pos]
     min_x, max_x = min(xs), max(xs)
@@ -50,6 +105,17 @@ def render(pos):
 
 
 def solve(path: Path):
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     pts = load(path)
     t = find_best_time(pts)
     msg = render(at_time(pts, t))

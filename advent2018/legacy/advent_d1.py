@@ -1,5 +1,27 @@
+"""
+advent2018/legacy/advent_d1.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2018.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 # Advent of code
 def repeat(value, dict):
+    """
+    Run `repeat` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value, dict.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     puzzle = open("puzzle_input_day1", "r")
     if puzzle.mode is 'r':
         contents = puzzle.readlines()

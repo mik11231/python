@@ -11,6 +11,17 @@ from day22_part2 import solve as solve2
 
 def main() -> None:
     # Example: Boss HP 13, Damage 8. Min mana = 212 (four Magic Missiles: 4*53).
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     example = "Hit Points: 13\nDamage: 8\n"
     assert min_mana_to_win(13, 8, hard_mode=False) == 212
     assert solve1(example) == 212

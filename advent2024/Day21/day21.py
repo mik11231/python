@@ -26,6 +26,17 @@ DPAD_GAP = (0, 0)
 
 
 def _build_paths(positions, gap):
+    """
+    Run `_build_paths` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: positions, gap.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     paths = {}
     for a, (r1, c1) in positions.items():
         for b, (r2, c2) in positions.items():
@@ -50,6 +61,17 @@ DPAD_PATHS = _build_paths(DPAD, DPAD_GAP)
 
 @lru_cache(maxsize=None)
 def _dpad_cost(a, b, depth):
+    """
+    Run `_dpad_cost` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: a, b, depth.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     if depth == 0:
         return 1
     best = float('inf')
@@ -65,6 +87,17 @@ def _dpad_cost(a, b, depth):
 
 
 def solve(s: str, num_robots: int = 2) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s, num_robots.
+    - Returns the computed result for this stage of the pipeline.
+    """
     codes = s.strip().splitlines()
     total = 0
     for code in codes:

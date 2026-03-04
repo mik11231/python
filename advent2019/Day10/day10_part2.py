@@ -6,6 +6,17 @@ from pathlib import Path
 
 
 def parse(s: str):
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     pts = []
     for y, row in enumerate(s.splitlines()):
         for x, ch in enumerate(row.strip()):
@@ -15,7 +26,29 @@ def parse(s: str):
 
 
 def best_station(pts):
+    """
+    Run `best_station` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: pts.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     def vis(a):
+        """
+        Run `vis` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: a.
+        - Produces side effects required by the caller (output/mutation/control flow).
+        """
         ax, ay = a
         dirs = set()
         for bx, by in pts:
@@ -29,6 +62,17 @@ def best_station(pts):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     pts = parse(s)
     sx, sy = best_station(pts)
 

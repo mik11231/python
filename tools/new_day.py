@@ -11,11 +11,33 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def write_if_missing(path: Path, content: str) -> None:
+    """
+    Run `write_if_missing` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path, content.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if not path.exists():
         path.write_text(content, encoding="utf-8")
 
 
 def solve_template(year: int, day: int, part2: bool = False) -> str:
+    """
+    Run `solve_template` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: year, day, part2.
+    - Returns the computed result for this stage of the pipeline.
+    """
     suffix = " Part 2" if part2 else ""
     filename = f"d{day}_input.txt"
     return f'''#!/usr/bin/env python3
@@ -36,6 +58,17 @@ if __name__ == "__main__":
 
 
 def test_template(day: int) -> str:
+    """
+    Run `test_template` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: day.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return f'''#!/usr/bin/env python3
 """Example smoke tests for Day {day}."""
 
@@ -52,6 +85,17 @@ if __name__ == "__main__":
 
 
 def main(argv: list[str] | None = None) -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: argv.
+    - Returns the computed result for this stage of the pipeline.
+    """
     parser = argparse.ArgumentParser(description="Create day scaffold files for adventYYYY/DayN")
     parser.add_argument("year", type=int)
     parser.add_argument("day", type=int)

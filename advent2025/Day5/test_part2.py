@@ -2,6 +2,17 @@
 """Test Part 2 with the example from the problem"""
 
 def merge_ranges(ranges):
+    """
+    Run `merge_ranges` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: ranges.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     if not ranges:
         return []
     

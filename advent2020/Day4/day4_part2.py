@@ -31,18 +31,62 @@ def _in_range(value: str, lo: int, hi: int) -> bool:
 
 
 def validate_byr(value: str) -> bool:
+    """
+    Run `validate_byr` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return len(value) == 4 and _in_range(value, 1920, 2002)
 
 
 def validate_iyr(value: str) -> bool:
+    """
+    Run `validate_iyr` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return len(value) == 4 and _in_range(value, 2010, 2020)
 
 
 def validate_eyr(value: str) -> bool:
+    """
+    Run `validate_eyr` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return len(value) == 4 and _in_range(value, 2020, 2030)
 
 
 def validate_hgt(value: str) -> bool:
+    """
+    Run `validate_hgt` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if value.endswith("cm"):
         return _in_range(value[:-2], 150, 193)
     if value.endswith("in"):
@@ -51,14 +95,47 @@ def validate_hgt(value: str) -> bool:
 
 
 def validate_hcl(value: str) -> bool:
+    """
+    Run `validate_hcl` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return bool(re.fullmatch(r"#[0-9a-f]{6}", value))
 
 
 def validate_ecl(value: str) -> bool:
+    """
+    Run `validate_ecl` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return value in VALID_EYE_COLORS
 
 
 def validate_pid(value: str) -> bool:
+    """
+    Run `validate_pid` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: value.
+    - Returns the computed result for this stage of the pipeline.
+    """
     return len(value) == 9 and value.isdigit()
 
 

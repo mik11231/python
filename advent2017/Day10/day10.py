@@ -9,6 +9,17 @@ from knot import sparse_round
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     lengths = [int(x) for x in s.strip().split(",") if x]
     a = list(range(256))
     sparse_round(a, lengths, 0, 0)

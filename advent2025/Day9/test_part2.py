@@ -14,6 +14,17 @@ example_tiles = [
 ]
 
 def get_line_tiles(p1, p2):
+    """
+    Run `get_line_tiles` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: p1, p2.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     x1, y1 = p1
     x2, y2 = p2
     tiles = set()
@@ -28,6 +39,17 @@ def get_line_tiles(p1, p2):
     return tiles
 
 def solve_example():
+    """
+    Run `solve_example` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     n = len(example_tiles)
     print(f"Example: {n} red tiles")
     

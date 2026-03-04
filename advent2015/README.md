@@ -44,3 +44,27 @@ All listed answers were submitted and accepted for Advent of Code 2015.
 - Day 23: Part 1 = `170`, Part 2 = `247`
 - Day 24: Part 1 = `11266889531`, Part 2 = `77387711`
 - Day 25: Part 1 = `19980801` (no separate computational Part 2 in AoC 2015)
+
+## Architecture
+
+- Day-centric boundaries: each `DayN/` directory isolates input, prompt artifact, part 1, part 2, and example checks.
+- Shared operational utilities live outside year folders (`aoclib` + `tools`) so puzzle logic remains focused and portable.
+- Solution modules favor pure `solve(...)`/`solve_part*` style functions with thin CLI wrappers for reproducible execution.
+
+## Methodology
+
+- Parse once into explicit in-memory structures (lists, dicts, sets, tuples, lightweight dataclasses where useful).
+- Encode puzzle rules as deterministic transformations with testable helper functions.
+- Prefer asymptotically sound approaches first; then optimize hotspots using caching, pruning, cycle detection, or tighter data layout.
+- Validate against AoC examples before running full input and synchronizing accepted answers.
+
+## Theme and Story Summary
+
+- Theme: A classic holiday rescue arc: collecting stars while helping Santa stabilize critical systems (floors, lights, routes, molecules, and combat simulations).
+- Story Summary: The 2015 narrative centers on restoring holiday operations by solving increasingly varied computational tasks, ending with the weather machine code grid puzzle.
+
+## What Our Solutions Addressed
+
+- Correctness: each day/part implementation matches accepted AoC outputs recorded in this README.
+- Maintainability: consistent file naming/layout keeps long-term navigation predictable.
+- Operability: scripts integrate with repo tooling for download, verify, style lint, and answer synchronization.

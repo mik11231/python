@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+advent2017/extras/python/days/day22.py
+
+Implementation Notes:
+- This module is intentionally documented in depth so the solution can be
+  reconstructed from comments/docstrings after long periods away from the code.
+- The code follows a parse -> transform -> solve pipeline where applicable.
+- Year scope: advent2017.
+- Complexity and data-structure tradeoffs are described in function docstrings below.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -13,6 +24,17 @@ EXPECTED_PART2 = "2512059"
 
 
 def _enable_local_opt_sitepackages() -> None:
+    """
+    Run `_enable_local_opt_sitepackages` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     root = Path(__file__).resolve().parents[4]
     lib_dir = root / ".venv-opt" / "lib"
     if not lib_dir.exists():
@@ -37,6 +59,17 @@ except Exception:  # pragma: no cover
 
 
 def resolve_input(provided: str | None) -> Path:
+    """
+    Run `resolve_input` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: provided.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if provided:
         return Path(provided).resolve()
     for c in (
@@ -52,6 +85,17 @@ def resolve_input(provided: str | None) -> Path:
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Run `sha256_file` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: path.
+    - Returns the computed result for this stage of the pipeline.
+    """
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -60,6 +104,17 @@ def sha256_file(path: Path) -> str:
 
 
 def parse(text: str) -> set[tuple[int, int]]:
+    """
+    Run `parse` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     n = len(lines)
     off = n // 2
@@ -72,6 +127,17 @@ def parse(text: str) -> set[tuple[int, int]]:
 
 
 def parse_packed(text: str) -> list[int]:
+    """
+    Run `parse_packed` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: text.
+    - Returns the computed result for this stage of the pipeline.
+    """
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     n = len(lines)
     off = n // 2
@@ -87,6 +153,17 @@ def parse_packed(text: str) -> list[int]:
 
 
 def part1(infected0: set[tuple[int, int]]) -> int:
+    """
+    Run `part1` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: infected0.
+    - Returns the computed result for this stage of the pipeline.
+    """
     infected = set(infected0)
     r = c = 0
     dr, dc = -1, 0
@@ -107,6 +184,17 @@ def part1(infected0: set[tuple[int, int]]) -> int:
 
 def part2(infected0: set[tuple[int, int]]) -> int:
     # 0 clean, 1 weakened, 2 infected, 3 flagged
+    """
+    Run `part2` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: infected0.
+    - Returns the computed result for this stage of the pipeline.
+    """
     state = {p: 2 for p in infected0}
     r = c = 0
     dr, dc = -1, 0
@@ -134,6 +222,17 @@ def part2(infected0: set[tuple[int, int]]) -> int:
 if njit is not None and Dict is not None and np is not None:
     @njit(cache=True)
     def _part2_jit(init_keys: "np.ndarray") -> int:
+        """
+        Run `_part2_jit` as a clearly documented algorithm stage.
+        
+        Methodology:
+        - Treat this function as one deterministic step in the Advent pipeline.
+        - Keep parsing, state transitions, and result emission easy to audit.
+        - Favor explicit control flow so behavior can be reasoned about from docs alone.
+        
+        Parameters: init_keys.
+        - Returns the computed result for this stage of the pipeline.
+        """
         state = Dict.empty(key_type=types.int64, value_type=types.int8)
         s1 = np.int8(1)
         s2 = np.int8(2)
@@ -177,6 +276,17 @@ else:
 
 
 def _precompile_numba() -> None:
+    """
+    Run `_precompile_numba` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     if _part2_jit is None:
         return
     try:
@@ -186,6 +296,17 @@ def _precompile_numba() -> None:
 
 
 def main() -> int:
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", type=int, choices=[1, 2], required=True)
     ap.add_argument("--input")

@@ -11,6 +11,17 @@ PRUNE = 16777216
 
 
 def evolve(secret):
+    """
+    Run `evolve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: secret.
+    - Produces side effects required by the caller (output/mutation/control flow).
+    """
     secret = (secret ^ (secret << 6)) % PRUNE
     secret = (secret ^ (secret >> 5)) % PRUNE
     secret = (secret ^ (secret << 11)) % PRUNE
@@ -18,6 +29,17 @@ def evolve(secret):
 
 
 def solve(s: str) -> int:
+    """
+    Run `solve` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: s.
+    - Returns the computed result for this stage of the pipeline.
+    """
     total = 0
     for line in s.strip().splitlines():
         secret = int(line)

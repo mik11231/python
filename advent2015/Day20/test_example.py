@@ -12,6 +12,17 @@ from day20_part2 import solve as solve2
 def main() -> None:
     # House 1: 10*1 = 10; house 2: 10*(1+2)=30; house 3: 10*(1+3)=40; ...
     # First house with >= 10 is 1; with >= 30 is 2; with >= 150 is 8 (10*(1+2+4+8)=150)
+    """
+    Run `main` as a clearly documented algorithm stage.
+    
+    Methodology:
+    - Treat this function as one deterministic step in the Advent pipeline.
+    - Keep parsing, state transitions, and result emission easy to audit.
+    - Favor explicit control flow so behavior can be reasoned about from docs alone.
+    
+    Parameters: none.
+    - Returns the computed result for this stage of the pipeline.
+    """
     assert solve1("10\n") == 1
     assert solve1("30\n") == 2
     assert solve1("150\n") == 8
