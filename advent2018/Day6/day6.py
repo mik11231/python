@@ -1,6 +1,10 @@
 """Advent of Code 2018 solution module."""
 
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.geometry import manhattan2
 
 
 def load_points(path: Path) -> list[tuple[int, int]]:
@@ -24,7 +28,8 @@ def largest_finite_area(points: list[tuple[int, int]]) -> int:
 
     for x in range(min_x, max_x + 1):
         for y in range(min_y, max_y + 1):
-            dists = [abs(x - px) + abs(y - py) for px, py in points]
+            here = (x, y)
+            dists = [manhattan2(here, (px, py)) for px, py in points]
             best = min(dists)
             if dists.count(best) > 1:
                 continue

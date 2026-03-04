@@ -1,3 +1,5 @@
+"""Advent of Code 2018 solution module."""
+
 from collections import Counter
 from pathlib import Path
 

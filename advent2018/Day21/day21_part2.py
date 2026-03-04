@@ -1,3 +1,5 @@
+"""Advent of Code 2018 solution module."""
+
 from pathlib import Path
 from day21 import load_constants, next_value
 

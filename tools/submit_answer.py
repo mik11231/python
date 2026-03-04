@@ -3,35 +3,45 @@
 Advent of Code answer submitter.
 
 Usage:
-    python submit_answer.py <day> <part> <answer> [year]
+    python tools/submit_answer.py <day> <part> <answer> [year]
 
 Example:
-    python submit_answer.py 12 1 408
+    python tools/submit_answer.py 12 1 408
 """
 
 import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import requests
 
-from download_input import get_session_cookie, infer_default_year
+from aoclib.http import aoc_post
+from aoclib.year import infer_default_year
+try:
+    from tools.download_input import get_session_cookie
+except ImportError:
+    from download_input import get_session_cookie
 
 
 def submit_answer(year: int, day: int, part: int, answer: str, session_cookie: str) -> bool:
     """Submit an AoC answer and return True when accepted as correct."""
     url = f"https://adventofcode.com/{year}/day/{day}/answer"
-    headers = {
-        "Cookie": f"session={session_cookie}",
-        "User-Agent": "Mozilla/5.0 (compatible; AOC-Answer-Submitter/1.0)",
-    }
+    user_agent = "Mozilla/5.0 (compatible; AOC-Answer-Submitter/1.0)"
     data = {"level": str(part), "answer": str(answer)}
 
     print(f"Submitting answer for Day {day} Part {part}, Year {year}...")
     print(f"URL: {url}")
 
     try:
-        response = requests.post(url, headers=headers, data=data, timeout=30)
+        response = aoc_post(
+            url=url,
+            user_agent=user_agent,
+            data=data,
+            session_cookie=session_cookie,
+            timeout=30,
+        )
         response.raise_for_status()
     except requests.exceptions.Timeout:
         print("[ERROR] Request timed out after 30 seconds")
@@ -88,9 +98,9 @@ def main() -> None:
     default_year = infer_default_year(2025)
 
     if len(sys.argv) < 4:
-        print("Usage: python submit_answer.py <day> <part> <answer> [year]")
+        print("Usage: python tools/submit_answer.py <day> <part> <answer> [year]")
         print(f"  Default year (if omitted): {default_year}")
-        print("  Example: python submit_answer.py 12 1 408")
+        print("  Example: python tools/submit_answer.py 12 1 408")
         if session_cookie:
             print("\n[OK] Session cookie found in .aoc_session_b64.")
         else:

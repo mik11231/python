@@ -7,6 +7,11 @@ frequency is x*4000000+y.
 """
 from pathlib import Path
 import re
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.geometry import manhattan2
+from aoclib.intervals import clamp_interval, first_gap
 
 def solve(s,lim=4000000):
     """Solve Part 2: find hidden beacon and return tuning frequency."""
@@ -14,23 +19,18 @@ def solve(s,lim=4000000):
     for ln in s.splitlines():
         if not ln: continue
         sx,sy,bx,by=map(int,re.findall(r'-?\d+',ln))
-        d=abs(sx-bx)+abs(sy-by)
+        d = manhattan2((sx, sy), (bx, by))
         sens.append((sx,sy,d))
     for y in range(lim+1):
         ints=[]
         for sx,sy,d in sens:
             rem=d-abs(sy-y)
             if rem>=0:
-                a=max(0,sx-rem); b=min(lim,sx+rem)
-                ints.append((a,b))
-        ints.sort()
-        x=0
-        for a,b in ints:
-            if a>x:
-                return x*4000000+y
-            x=max(x,b+1)
-            if x>lim: break
-        if x<=lim:
+                clipped = clamp_interval((sx-rem, sx+rem), 0, lim)
+                if clipped is not None:
+                    ints.append(clipped)
+        x = first_gap(ints, 0, lim)
+        if x is not None:
             return x*4000000+y
     raise RuntimeError
 

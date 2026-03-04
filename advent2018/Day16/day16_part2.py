@@ -1,3 +1,5 @@
+"""Advent of Code 2018 solution module."""
+
 from pathlib import Path
 from day16 import OPS, apply, parse
 

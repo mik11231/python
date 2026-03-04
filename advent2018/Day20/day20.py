@@ -1,3 +1,5 @@
+"""Advent of Code 2018 solution module."""
+
 from collections import defaultdict, deque
 from pathlib import Path
 

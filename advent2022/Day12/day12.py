@@ -4,8 +4,12 @@
 Hill Climbing: find shortest path from S to E on an elevation grid. Can only
 step to adjacent cells if target elevation is at most 1 higher. Uses BFS.
 """
-from collections import deque
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.grid import neighbors4
+from aoclib.search import bfs_distances
 
 def solve(s):
     """Solve Part 1: BFS from S to E, return fewest steps."""
@@ -20,15 +24,14 @@ def solve(s):
         if c=='S': return ord('a')
         if c=='E': return ord('z')
         return ord(c)
-    q=deque([(st,0)]); seen={st}
-    while q:
-        (x,y),d=q.popleft()
-        if (x,y)==en: return d
-        for dx,dy in ((1,0),(-1,0),(0,1),(0,-1)):
-            nx,ny=x+dx,y+dy
-            if 0<=nx<w and 0<=ny<h and (nx,ny) not in seen:
-                if ht(g[ny][nx])<=ht(g[y][x])+1:
-                    seen.add((nx,ny)); q.append(((nx,ny),d+1))
+    def _neighbors(cell):
+        x, y = cell
+        for ny, nx in neighbors4(y, x, h, w):
+            if ht(g[ny][nx]) <= ht(g[y][x]) + 1:
+                yield (nx, ny)
+
+    dist = bfs_distances(st, _neighbors)
+    return dist[en]
 
 if __name__=='__main__':
     print(solve(Path(__file__).with_name('d12_input.txt').read_text()))

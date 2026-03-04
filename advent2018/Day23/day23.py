@@ -2,6 +2,10 @@
 
 import re
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.geometry import manhattan3
 
 
 def load(path: Path):
@@ -15,13 +19,14 @@ def load(path: Path):
 
 
 def manhattan(a, b):
-    return abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])
+    return manhattan3(a, b)
 
 
 def solve(bots) -> int:
     strongest = max(bots, key=lambda b: b[3])
     sx, sy, sz, sr = strongest
-    return sum(1 for x, y, z, _ in bots if abs(x - sx) + abs(y - sy) + abs(z - sz) <= sr)
+    center = (sx, sy, sz)
+    return sum(1 for x, y, z, _ in bots if manhattan3((x, y, z), center) <= sr)
 
 
 if __name__ == '__main__':

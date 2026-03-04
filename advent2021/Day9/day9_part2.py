@@ -14,9 +14,13 @@ twice.  Sort the resulting basin sizes and multiply the three largest.
 O(rows × cols).
 """
 
-from collections import deque
 from math import prod
 from pathlib import Path
+from collections import deque
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.grid import neighbors4
 
 from day9 import parse_grid, find_low_points
 
@@ -38,9 +42,8 @@ def basin_sizes(grid: list[list[int]]) -> list[int]:
                 continue
             visited.add((cr, cc))
             size += 1
-            for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-                nr, nc = cr + dr, cc + dc
-                if 0 <= nr < rows and 0 <= nc < cols and (nr, nc) not in visited:
+            for nr, nc in neighbors4(cr, cc, rows, cols):
+                if (nr, nc) not in visited:
                     queue.append((nr, nc))
         sizes.append(size)
 

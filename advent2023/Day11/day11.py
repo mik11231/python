@@ -7,6 +7,10 @@ instead of actually expanding the grid.
 """
 from pathlib import Path
 from itertools import combinations
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.geometry import manhattan2
 
 
 def galaxy_distances(s: str, expansion: int = 2) -> int:
@@ -26,7 +30,7 @@ def galaxy_distances(s: str, expansion: int = 2) -> int:
                 galaxies.append((r + er * (expansion - 1), c + ec * (expansion - 1)))
 
     return sum(
-        abs(a[0] - b[0]) + abs(a[1] - b[1])
+        manhattan2(a, b)
         for a, b in combinations(galaxies, 2)
     )
 

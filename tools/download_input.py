@@ -13,26 +13,15 @@ To get your session cookie:
 """
 
 import sys
-import base64
-import requests
 from pathlib import Path
 
+import requests
 
-def infer_default_year(fallback: int = 2025) -> int:
-    """
-    Infer the Advent of Code year from the current working directory name.
-    Looks for a 4-digit number between 2015 and 2100 in the path; falls back if none found.
-    """
-    cwd = Path.cwd()
-    for part in reversed(cwd.parts):
-        # Split on common separators in folder names like "aoc-2025", "aoc2025", etc.
-        tokens = part.replace("-", " ").replace("_", " ").split()
-        for token in tokens:
-            if token.isdigit():
-                year = int(token)
-                if 2015 <= year <= 2100:
-                    return year
-    return fallback
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from aoclib.auth import load_session_cookie
+from aoclib.http import aoc_get
+from aoclib.year import infer_default_year
 
 
 def get_session_cookie() -> str:
@@ -42,21 +31,8 @@ def get_session_cookie() -> str:
     The ONLY source is `.aoc_session_b64` in the repo root, which must contain
     a base64-encoded session cookie value.
     """
-    root = Path(__file__).resolve().parent
-    b64_path = root / ".aoc_session_b64"
-    if not b64_path.is_file():
-        return ""
-
-    data = b64_path.read_text(encoding="utf-8").strip()
-    if not data:
-        return ""
-
-    try:
-        raw = base64.b64decode(data.encode("utf-8")).decode("utf-8").strip()
-    except Exception:
-        return ""
-
-    return raw
+    root = Path(__file__).resolve().parents[1]
+    return load_session_cookie(root=root)
 
 def download_input(year, day, session_cookie, output_dir=None, verbose=True):
     """
@@ -76,16 +52,18 @@ def download_input(year, day, session_cookie, output_dir=None, verbose=True):
     """
     url = f"https://adventofcode.com/{year}/day/{day}/input"
     
-    headers = {
-        "Cookie": f"session={session_cookie}",
-        "User-Agent": "Mozilla/5.0 (compatible; AOC-Input-Downloader/1.0)"
-    }
+    user_agent = "Mozilla/5.0 (compatible; AOC-Input-Downloader/1.0)"
     
     try:
         if verbose:
             print(f"Downloading input for Day {day}, Year {year}...")
             print(f"URL: {url}")
-        response = requests.get(url, headers=headers, timeout=30)
+        response = aoc_get(
+            url=url,
+            user_agent=user_agent,
+            session_cookie=session_cookie,
+            timeout=30,
+        )
         response.raise_for_status()
         if verbose:
             print(f"[OK] Successfully downloaded {len(response.text)} characters")
@@ -138,7 +116,7 @@ def main():
     session_cookie = get_session_cookie()
 
     if len(sys.argv) < 2:
-        print("Usage: python download_input.py <day> [year] [base_dir]")
+        print("Usage: python tools/download_input.py <day> [year] [base_dir]")
         print(f"  Default year: 2025")
         print(f"  Output: <base_dir>/Day<day>/d<day>_input.txt (base_dir defaults to .)")
         if session_cookie:

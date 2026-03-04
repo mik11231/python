@@ -1,6 +1,10 @@
 """Advent of Code 2018 solution module."""
 
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.geometry import manhattan2
 
 
 def load_points(path: Path) -> list[tuple[int, int]]:
@@ -22,7 +26,8 @@ def region_size(points: list[tuple[int, int]], distance_limit: int) -> int:
     count = 0
     for x in range(min_x, max_x + 1):
         for y in range(min_y, max_y + 1):
-            total = sum(abs(x - px) + abs(y - py) for px, py in points)
+            here = (x, y)
+            total = sum(manhattan2(here, (px, py)) for px, py in points)
             if total < distance_limit:
                 count += 1
     return count

@@ -6,7 +6,11 @@ BFS on garden grid to find how many garden plots are reachable in exactly
 shares the same parity as N.
 """
 from pathlib import Path
-from collections import deque
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.grid import neighbors4
+from aoclib.search import bfs_distances
 
 
 def solve(s: str, steps: int = 64) -> int:
@@ -19,19 +23,14 @@ def solve(s: str, steps: int = 64) -> int:
             if grid[r][c] == "S":
                 sr, sc = r, c
 
-    dist = {(sr, sc): 0}
-    queue = deque([(sr, sc, 0)])
-    while queue:
-        r, c, d = queue.popleft()
-        if d >= steps:
-            continue
-        for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-            nr, nc = r + dr, c + dc
-            if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] != "#" and (nr, nc) not in dist:
-                dist[(nr, nc)] = d + 1
-                queue.append((nr, nc, d + 1))
+    def _neighbors(cell: tuple[int, int]):
+        r, c = cell
+        for nr, nc in neighbors4(r, c, rows, cols):
+            if grid[nr][nc] != "#":
+                yield (nr, nc)
 
-    return sum(1 for v in dist.values() if v % 2 == steps % 2)
+    dist = bfs_distances((sr, sc), _neighbors)
+    return sum(1 for v in dist.values() if v <= steps and v % 2 == steps % 2)
 
 
 if __name__ == "__main__":

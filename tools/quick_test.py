@@ -2,8 +2,16 @@
 """Quick end-to-end connectivity check for Advent of Code tooling."""
 
 import requests
+from pathlib import Path
+import sys
 
-from download_input import get_session_cookie, infer_default_year
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from aoclib.http import aoc_get
+try:
+    from tools.download_input import get_session_cookie, infer_default_year
+except ImportError:
+    from download_input import get_session_cookie, infer_default_year
 
 
 def main() -> None:
@@ -11,21 +19,18 @@ def main() -> None:
     cookie = get_session_cookie()
     if not cookie:
         print("[ERROR] No session cookie found in .aoc_session_b64")
-        print("Run: python encode_aoc_session.py")
+        print("Run: python tools/encode_aoc_session.py")
         raise SystemExit(1)
 
     year = infer_default_year(2025)
     url = f"https://adventofcode.com/{year}/day/1/input"
-    headers = {
-        "Cookie": f"session={cookie}",
-        "User-Agent": "Mozilla/5.0 (compatible; AOC-Quick-Test/1.0)",
-    }
+    user_agent = "Mozilla/5.0 (compatible; AOC-Quick-Test/1.0)"
 
     print(f"[OK] Loaded session cookie from .aoc_session_b64 (length: {len(cookie)})")
     print(f"Testing authenticated request: {url}")
 
     try:
-        resp = requests.get(url, headers=headers, timeout=15)
+        resp = aoc_get(url=url, user_agent=user_agent, session_cookie=cookie, timeout=15)
     except requests.exceptions.Timeout:
         print("[ERROR] Request timed out after 15 seconds")
         raise SystemExit(2)

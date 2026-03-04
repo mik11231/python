@@ -13,6 +13,10 @@ the maximum.
 
 from itertools import combinations
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.geometry import manhattan3
 
 from day19 import parse_scanners, align_scanners
 
@@ -24,7 +28,7 @@ def solve(input_path: str = "advent2021/Day19/d19_input.txt") -> int:
     _, positions = align_scanners(scanners)
     best = 0
     for (ax, ay, az), (bx, by, bz) in combinations(positions, 2):
-        dist = abs(ax - bx) + abs(ay - by) + abs(az - bz)
+        dist = manhattan3((ax, ay, az), (bx, by, bz))
         if dist > best:
             best = dist
     return best

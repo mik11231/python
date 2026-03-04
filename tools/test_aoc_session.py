@@ -9,21 +9,20 @@ It:
 - prints the cookie length and HTTP status code (but never the cookie itself).
 """
 
-import base64
 from pathlib import Path
+import sys
 
-import requests
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from aoclib.auth import load_session_cookie
+from aoclib.http import aoc_get
 
 
 def load_cookie_from_b64() -> str:
-    path = Path(".aoc_session_b64")
-    if not path.is_file():
-        raise FileNotFoundError(".aoc_session_b64 not found in repo root")
-    data = path.read_text(encoding="utf-8").strip()
-    if not data:
-        raise ValueError(".aoc_session_b64 is empty")
-    raw = base64.b64decode(data.encode("utf-8")).decode("utf-8")
-    return raw.strip()
+    cookie = load_session_cookie(root=Path("."))
+    if not cookie:
+        raise ValueError("No valid session cookie found in .aoc_session_b64")
+    return cookie
 
 
 def main() -> None:
@@ -31,13 +30,10 @@ def main() -> None:
     print(f"Decoded cookie length: {len(cookie)} characters")
 
     url = "https://adventofcode.com/2025/day/1/input"
-    headers = {
-        "Cookie": f"session={cookie}",
-        "User-Agent": "AoC-Session-Tester/1.0 (+github.com/mik11231/aoc2025)",
-    }
+    user_agent = "AoC-Session-Tester/1.0 (+github.com/mik11231/aoc2025)"
 
     try:
-        resp = requests.get(url, headers=headers, timeout=15)
+        resp = aoc_get(url=url, user_agent=user_agent, session_cookie=cookie, timeout=15)
     except Exception as e:
         print(f"Request failed: {e}")
         return

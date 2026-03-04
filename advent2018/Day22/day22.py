@@ -1,3 +1,5 @@
+"""Advent of Code 2018 solution module."""
+
 from functools import lru_cache
 from pathlib import Path
 

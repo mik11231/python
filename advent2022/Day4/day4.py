@@ -6,6 +6,10 @@ fully contains the other. Algorithm: parse ranges, check if one contains the
 other (a1<=b1 and a2>=b2, or vice versa).
 """
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.intervals import contains_interval, parse_int_range
 
 def solve(s:str)->int:
     """Return count of pairs where one range fully contains the other."""
@@ -13,8 +17,9 @@ def solve(s:str)->int:
     for ln in s.splitlines():
         if not ln: continue
         a,b=ln.split(',')
-        a1,a2=map(int,a.split('-')); b1,b2=map(int,b.split('-'))
-        if (a1<=b1 and a2>=b2) or (b1<=a1 and b2>=a2): ans+=1
+        ra = parse_int_range(a)
+        rb = parse_int_range(b)
+        if contains_interval(ra, rb) or contains_interval(rb, ra): ans+=1
     return ans
 
 if __name__=='__main__':

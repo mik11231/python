@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aoc-monorepo"
+version = "0.1.0"
+description = "Advent of Code multi-year solutions, tooling, and reusable library"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0"
+]
+
+[project.scripts]
+aoc = "aoclib.cli:main"
+aoc-verify = "tools.verify_all:main"
+aoc-audit = "tools.audit_aoc:main"
+aoc-sync-answers = "tools.update_accepted_answers:main"
+aoc-new-year = "tools.new_year:main"
+aoc-new-day = "tools.new_day:main"
+
+[tool.setuptools]
+packages = ["aoclib", "tools"]
+
+[tool.setuptools.package-data]
+tools = ["accepted_answers.json", "README.md", "VERIFICATION_REPORT.md"]

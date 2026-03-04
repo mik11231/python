@@ -14,8 +14,12 @@ neighbours with weight equal to the destination cell's risk level.  A
 min-heap (priority queue) always expands the lowest-cost frontier node.
 """
 
-import heapq
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.grid import neighbors4
+from aoclib.search import dijkstra_distances
 
 
 def parse_grid(text: str) -> list[list[int]]:
@@ -26,25 +30,16 @@ def parse_grid(text: str) -> list[list[int]]:
 def dijkstra(grid: list[list[int]]) -> int:
     """Return the minimum total risk from top-left to bottom-right of *grid*."""
     rows, cols = len(grid), len(grid[0])
-    dist = [[float("inf")] * cols for _ in range(rows)]
-    dist[0][0] = 0
-    heap: list[tuple[int, int, int]] = [(0, 0, 0)]
+    start = (0, 0)
+    target = (rows - 1, cols - 1)
 
-    while heap:
-        cost, r, c = heapq.heappop(heap)
-        if r == rows - 1 and c == cols - 1:
-            return cost
-        if cost > dist[r][c]:
-            continue
-        for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-            nr, nc = r + dr, c + dc
-            if 0 <= nr < rows and 0 <= nc < cols:
-                new_cost = cost + grid[nr][nc]
-                if new_cost < dist[nr][nc]:
-                    dist[nr][nc] = new_cost
-                    heapq.heappush(heap, (new_cost, nr, nc))
+    def _neighbors(cell: tuple[int, int]):
+        r, c = cell
+        for nr, nc in neighbors4(r, c, rows, cols):
+            yield (nr, nc), grid[nr][nc]
 
-    return int(dist[rows - 1][cols - 1])
+    dist = dijkstra_distances(start, _neighbors)
+    return dist[target]
 
 
 def solve(input_path: str = "advent2021/Day15/d15_input.txt") -> int:

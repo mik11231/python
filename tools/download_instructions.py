@@ -11,26 +11,18 @@ released days, instructions are usually public, so the cookie is optional.
 """
 
 import sys
-import requests
 from pathlib import Path
 
-from download_input import get_session_cookie
+import requests
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-def infer_default_year(fallback: int = 2025) -> int:
-    """
-    Infer the Advent of Code year from the current working directory name.
-    Looks for a 4-digit number between 2015 and 2100 in the path; falls back if none found.
-    """
-    cwd = Path.cwd()
-    for part in reversed(cwd.parts):
-        tokens = part.replace("-", " ").replace("_", " ").split()
-        for token in tokens:
-            if token.isdigit():
-                year = int(token)
-                if 2015 <= year <= 2100:
-                    return year
-    return fallback
+from aoclib.http import aoc_get
+from aoclib.year import infer_default_year
+try:
+    from tools.download_input import get_session_cookie
+except ImportError:
+    from download_input import get_session_cookie
 
 
 def download_instructions(year, day, session_cookie=None, output_dir=None, verbose=True):
@@ -51,17 +43,18 @@ def download_instructions(year, day, session_cookie=None, output_dir=None, verbo
     """
     url = f"https://adventofcode.com/{year}/day/{day}"
 
-    headers = {
-        "User-Agent": "Mozilla/5.0 (compatible; AOC-Instructions-Downloader/1.0)"
-    }
-    if session_cookie:
-        headers["Cookie"] = f"session={session_cookie}"
+    user_agent = "Mozilla/5.0 (compatible; AOC-Instructions-Downloader/1.0)"
 
     try:
         if verbose:
             print(f"Downloading instructions for Day {day}, Year {year}...")
             print(f"URL: {url}")
-        response = requests.get(url, headers=headers, timeout=30)
+        response = aoc_get(
+            url=url,
+            user_agent=user_agent,
+            session_cookie=session_cookie,
+            timeout=30,
+        )
         response.raise_for_status()
         if verbose:
             print(f"[OK] Successfully downloaded {len(response.text)} characters of instructions")
@@ -116,7 +109,7 @@ def main():
     DEFAULT_YEAR = infer_default_year(2025)
 
     if len(sys.argv) < 2:
-        print("Usage: python download_instructions.py <day> [year] [base_dir]")
+        print("Usage: python tools/download_instructions.py <day> [year] [base_dir]")
         print(f"  Default year (if omitted): {DEFAULT_YEAR}")
         print("  Output: <base_dir>/Day<day>/d<day>_instructions.html (base_dir defaults to .)")
         if session_cookie:

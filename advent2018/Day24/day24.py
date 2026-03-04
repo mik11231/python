@@ -1,3 +1,5 @@
+"""Advent of Code 2018 solution module."""
+
 import re
 from dataclasses import dataclass
 from pathlib import Path
