@@ -59,7 +59,7 @@ jobs:
 
       - name: Style lint
         run: |
-          python tools/lint_aoc_style.py
+          python tools/lint_aoc_style.py --strict
 
       - name: Verify (scoped to changed years)
         env:

@@ -202,6 +202,10 @@ Exit codes:
 - `0` no errors (warnings allowed unless `--strict`)
 - non-zero on style errors (and warnings in `--strict`)
 
+Repository policy:
+
+- CI runs this linter in `--strict` mode.
+
 ## `tools/accepted_answers.json`
 
 Canonical accepted-answer dataset used by `tools/verify_all.py`.

@@ -138,6 +138,7 @@ Run:
 
 ```bash
 python -m aoclib lint-style
+python -m aoclib lint-style --strict
 ```
 
 This linter enforces lightweight repo conventions:
@@ -145,6 +146,7 @@ This linter enforces lightweight repo conventions:
 - year README format and required sections
 - Day folder naming and required `dayN.py` part 1 file
 - module docstrings and solve entrypoints in day scripts
+- strict mode also fails on warnings and is used in CI
 
 
 ## Quick Commands

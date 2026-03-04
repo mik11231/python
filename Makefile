@@ -42,5 +42,5 @@ verify:
 sync-answers:
 	$(PYTHON) -m aoclib sync-answers
 
-verify-report: verify audit lint-style
+verify-report: verify audit lint-style-strict
 	@echo "Verification and audit completed. See tools/VERIFICATION_REPORT.md for latest snapshot format."
