@@ -13,6 +13,7 @@ from .intervals import (
     parse_int_range,
 )
 from .parsing import as_grid, blocks, comma_ints, ints, lines
+from .runner import print_answer, read_input_for
 from .search import bfs_distances, dijkstra_distances
 from .year import infer_default_year
 
@@ -27,6 +28,8 @@ __all__ = [
     "blocks",
     "comma_ints",
     "as_grid",
+    "read_input_for",
+    "print_answer",
     "bfs_distances",
     "dijkstra_distances",
     "manhattan2",

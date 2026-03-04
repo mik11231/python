@@ -7,19 +7,22 @@ import argparse
 import ast
 from pathlib import Path
 import re
-import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
 YEAR_RE = re.compile(r"^advent(20\d{2})$")
 DAY_DIR_RE = re.compile(r"^Day(\d+)$")
 SOLUTION_FILE_RE = re.compile(r"^day\d+(?:_part2)?\.py$")
+MAIN_GUARD_RE = re.compile(r"""if\s+__name__\s*==\s*['"]__main__['"]\s*:""")
 
 
-def iter_solution_files(base: Path) -> list[Path]:
+def iter_solution_files(base: Path, years: set[int] | None = None) -> list[Path]:
     """Return all AoC day solution scripts under year folders."""
     files: list[Path] = []
     for year_dir in sorted(p for p in base.iterdir() if p.is_dir() and YEAR_RE.match(p.name)):
+        year = int(YEAR_RE.match(year_dir.name).group(1))  # type: ignore[union-attr]
+        if years is not None and year not in years:
+            continue
         for day_dir in sorted(p for p in year_dir.iterdir() if p.is_dir() and DAY_DIR_RE.match(p.name)):
             files.extend(
                 sorted(
@@ -32,16 +35,15 @@ def iter_solution_files(base: Path) -> list[Path]:
 
 def has_main_guard(source: str) -> bool:
     """Return True if source contains a conventional __main__ guard."""
-    return (
-        "if __name__ == '__main__':" in source
-        or 'if __name__ == "__main__":' in source
-    )
+    return bool(MAIN_GUARD_RE.search(source))
 
 
-def lint_readmes(base: Path, errors: list[str]) -> None:
+def lint_readmes(base: Path, errors: list[str], years: set[int] | None = None) -> None:
     """Validate year README shape and required sections."""
     for year_dir in sorted(p for p in base.iterdir() if p.is_dir() and YEAR_RE.match(p.name)):
         year = YEAR_RE.match(year_dir.name).group(1)  # type: ignore[union-attr]
+        if years is not None and int(year) not in years:
+            continue
         readme = year_dir / "README.md"
         if not readme.exists():
             errors.append(f"{readme}: missing README.md")
@@ -53,9 +55,12 @@ def lint_readmes(base: Path, errors: list[str]) -> None:
             errors.append(f"{readme}: missing '## Completed Days' section")
 
 
-def lint_day_structure(base: Path, errors: list[str]) -> None:
+def lint_day_structure(base: Path, errors: list[str], years: set[int] | None = None) -> None:
     """Validate DayN folder naming and required part 1 file presence."""
     for year_dir in sorted(p for p in base.iterdir() if p.is_dir() and YEAR_RE.match(p.name)):
+        year = int(YEAR_RE.match(year_dir.name).group(1))  # type: ignore[union-attr]
+        if years is not None and year not in years:
+            continue
         for day_dir in sorted(p for p in year_dir.iterdir() if p.is_dir() and p.name.startswith("Day")):
             match = DAY_DIR_RE.match(day_dir.name)
             if not match:
@@ -82,11 +87,22 @@ def lint_python_files(files: list[Path], errors: list[str], warnings: list[str])
             errors.append(f"{rel}: missing module docstring")
 
         solve_names = {"solve", "solve_part1", "solve_part2"}
-        has_solve = any(
+        has_local_solve = any(
             isinstance(node, ast.FunctionDef) and node.name in solve_names
             for node in tree.body
         )
-        if not has_solve:
+        has_imported_solve = any(
+            (
+                isinstance(node, ast.ImportFrom)
+                and any(alias.name in solve_names for alias in node.names)
+            )
+            or (
+                isinstance(node, ast.Import)
+                and any((alias.asname in solve_names if alias.asname else False) for alias in node.names)
+            )
+            for node in tree.body
+        )
+        if not (has_local_solve or has_imported_solve):
             warnings.append(f"{rel}: missing solve entrypoint ({sorted(solve_names)})")
 
         if not has_main_guard(source):
@@ -96,14 +112,21 @@ def lint_python_files(files: list[Path], errors: list[str], warnings: list[str])
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Lint AoC folder/style conventions.")
     parser.add_argument("--strict", action="store_true", help="Fail on warnings too.")
+    parser.add_argument(
+        "--year",
+        type=int,
+        action="append",
+        help="Limit linting to specific year(s), repeatable.",
+    )
     args = parser.parse_args(argv)
 
     errors: list[str] = []
     warnings: list[str] = []
+    years = set(args.year) if args.year else None
 
-    lint_readmes(ROOT, errors)
-    lint_day_structure(ROOT, errors)
-    lint_python_files(iter_solution_files(ROOT), errors, warnings)
+    lint_readmes(ROOT, errors, years=years)
+    lint_day_structure(ROOT, errors, years=years)
+    lint_python_files(iter_solution_files(ROOT, years=years), errors, warnings)
 
     if errors:
         print("style-errors:")

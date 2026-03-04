@@ -61,7 +61,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("lint-style", help="Run lightweight style/convention linter")
     p.add_argument("--strict", action="store_true")
-    p.set_defaults(func=lambda a: run_tool("lint_aoc_style.py", ["--strict"] if a.strict else []))
+    p.add_argument("--year", action="append", help="Year to lint (repeatable)")
+    def _run_lint_style(a: argparse.Namespace) -> int:
+        args: list[str] = []
+        if a.strict:
+            args.append("--strict")
+        if a.year:
+            for y in a.year:
+                args.extend(["--year", str(y)])
+        return run_tool("lint_aoc_style.py", args)
+    p.set_defaults(func=_run_lint_style)
 
     p = sub.add_parser("verify", help="Run answer verification against accepted answers")
     p.add_argument("--year", action="append", help="Year to verify (repeatable)")

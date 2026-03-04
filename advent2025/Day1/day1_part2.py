@@ -2,6 +2,12 @@
 """Advent of Code 2025 - Day 1 Part 2: Secret Entrance (Method 0x434C49434B)"""
 
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.runner import print_answer, read_input_for
+
+
 def count_zero_occurrences_during_rotation(start_pos, direction, distance):
     """
     Count how many distinct times the dial is at position 0 during a rotation.
@@ -34,11 +40,9 @@ def count_zero_occurrences_during_rotation(start_pos, direction, distance):
     
     return count
 
-def solve_part2():
+def solve_part2(s: str) -> int:
     """Solve Day 1 Part 2: Count all times dial points at 0 (during and after rotations)."""
-    # Read input
-    with open(Path(__file__).with_name('d1_input.txt'), 'r') as f:
-        rotations = [line.strip() for line in f.readlines()]
+    rotations = [line.strip() for line in s.splitlines() if line.strip()]
     
     # Dial starts at 50
     position = 50
@@ -72,8 +76,7 @@ def solve_part2():
 
 def solve():
     """Compatibility wrapper matching the common `solve()` entrypoint."""
-    return solve_part2()
+    return solve_part2(read_input_for(__file__, "d1_input.txt"))
 
 if __name__ == "__main__":
-    result = solve()
-    print(f"The password (method 0x434C49434B) is: {result}")
+    print_answer(solve(), label="The password (method 0x434C49434B) is")

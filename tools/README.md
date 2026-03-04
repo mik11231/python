@@ -193,6 +193,8 @@ Usage:
 ```bash
 python tools/lint_aoc_style.py
 python tools/lint_aoc_style.py --strict
+python tools/lint_aoc_style.py --year 2022
+python tools/lint_aoc_style.py --strict --year 2022
 ```
 
 Exit codes:

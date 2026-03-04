@@ -54,6 +54,8 @@ Use the package CLI from repo root:
 python -m aoclib --help
 python -m aoclib verify --year 2025
 python -m aoclib audit
+python -m aoclib lint-style --year 2022
+python -m aoclib lint-style --strict --year 2022
 python -m aoclib sync-answers
 python -m aoclib new-year 2026        # auto-detect released days
 python -m aoclib new-day 2026 1
@@ -66,6 +68,7 @@ pip install -e .
 aoc --help
 aoc verify --year 2024
 aoc sync-answers
+aoc lint-style --year 2022
 aoc new-year 2026
 aoc new-day 2026 1
 ```
@@ -150,6 +153,8 @@ This linter enforces lightweight repo conventions:
 make help
 make audit
 make lint-style
+make lint-style YEAR=2022
+make lint-style-strict YEAR=2022
 make verify
 make verify YEAR=2025
 make sync-answers

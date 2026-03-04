@@ -5,6 +5,10 @@ Calorie counting: find the sum of calories carried by the top 3 elves.
 Algorithm: split by double newlines, sum each group, sort descending, sum top 3.
 """
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from aoclib.runner import print_answer, read_input_for
 
 def solve(s:str)->int:
     """Return the sum of calories carried by the top 3 elves."""
@@ -13,4 +17,4 @@ def solve(s:str)->int:
     return sum(vals[:3])
 
 if __name__=='__main__':
-    print(solve(Path(__file__).with_name('d1_input.txt').read_text()))
+    print_answer(solve(read_input_for(__file__, "d1_input.txt")))

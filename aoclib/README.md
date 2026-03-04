@@ -93,6 +93,15 @@ Graph shortest-path helpers.
 
 Used directly in several day solutions after standardization passes.
 
+## `aoclib.runner`
+
+Execution helpers for standard day-script I/O patterns.
+
+- `read_input_for(script_file, input_name) -> str`
+  - Reads an input file located next to a day script.
+- `print_answer(answer, label=None) -> None`
+  - Prints answer in a consistent way, optionally prefixed by a label.
+
 ## `aoclib.geometry`
 
 Distance helpers.

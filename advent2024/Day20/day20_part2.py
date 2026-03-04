@@ -10,6 +10,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from aoclib.geometry import manhattan2
+from aoclib.runner import print_answer, read_input_for
 from common import parse_track, track_distances
 
 
@@ -31,4 +32,4 @@ def solve(s: str, threshold: int = 100) -> int:
 
 
 if __name__ == "__main__":
-    print(solve(Path(__file__).with_name("d20_input.txt").read_text()))
+    print_answer(solve(read_input_for(__file__, "d20_input.txt")))
