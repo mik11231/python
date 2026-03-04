@@ -86,6 +86,11 @@ python advent2025/Day12/day12_part2.py
 python -m aoclib submit <day> <part> <answer> <year>
 ```
 
+Submission pacing:
+
+- wait `5` seconds between successful submissions
+- wait `60` seconds after any wrong-answer submission
+
 ## E) Update accepted answer records
 
 1. Update `adventYYYY/README.md` completed-day list.

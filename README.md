@@ -164,6 +164,9 @@ It documents:
    - `python advent2024/Day7/day7_part2.py`
 5. Submit answer:
    - `python tools/submit_answer.py <day> <part> <answer> <year>`
+   - pacing rules:
+     - wait `5` seconds between successful submissions
+     - wait `60` seconds after any wrong-answer submission before retrying
 
 ## Consistency Audit
 

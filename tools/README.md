@@ -148,6 +148,11 @@ Response handling:
 - detects already-completed part
 - detects wrong answer/rate limit and parses wait hints where present
 
+Submission pacing policy:
+
+- wait `5` seconds between successful submissions
+- wait `60` seconds after a wrong answer submission before the next attempt
+
 ## `tools/test_download.py`
 
 Quick non-invasive diagnostics:
