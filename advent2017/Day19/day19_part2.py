@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+"""Advent of Code 2017 Day 19 Part 2."""
+
+from pathlib import Path
+
+
+def solve(s: str) -> int:
+    g = s.splitlines()
+    w = max(len(r) for r in g)
+    g = [r.ljust(w) for r in g]
+    r = 0
+    c = g[0].index("|")
+    dr, dc = 1, 0
+    steps = 0
+    while True:
+        ch = g[r][c]
+        if ch == " ":
+            break
+        if ch == "+":
+            for nr, nc in ((r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)):
+                if (nr, nc) == (r - dr, c - dc):
+                    continue
+                if 0 <= nr < len(g) and 0 <= nc < w and g[nr][nc] != " ":
+                    dr, dc = nr - r, nc - c
+                    break
+        r += dr
+        c += dc
+        steps += 1
+    return steps
+
+
+if __name__ == "__main__":
+    print(solve(Path(__file__).with_name("d19_input.txt").read_text(encoding="utf-8")))

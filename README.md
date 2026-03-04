@@ -34,9 +34,9 @@ Then read:
 
 ## Year Coverage
 
-- `advent2018`: complete (Day 1-25)
 - `advent2015`: complete (Day 1-25)
 - `advent2016`: complete (Day 1-25)
+- `advent2017`: complete (Day 1-25)
 - `advent2018`: complete (Day 1-25)
 - `advent2019`: complete (Day 1-25)
 - `advent2020`: complete (Day 1-25)
