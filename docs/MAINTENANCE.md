@@ -19,6 +19,21 @@ Read:
 - `tools/README.md`
 - `docs/ARCHITECTURE.md`
 
+Then confirm installed entry points (if using editable install):
+
+```bash
+aoc --help
+```
+
+Expected packaged aliases from `pyproject.toml`:
+
+- `aoc`
+- `aoc-verify`
+- `aoc-audit`
+- `aoc-sync-answers`
+- `aoc-new-year`
+- `aoc-new-day`
+
 ## 2) Health check (before making changes)
 
 ```bash
@@ -177,7 +192,16 @@ python tools/update_accepted_answers.py
 python tools/verify_all.py --timeout 240
 ```
 
-## 8) Update verification report snapshot
+## 8) Tooling docs synchronization checklist
+
+When adding or changing tooling behavior, update these docs in the same commit:
+
+1. `README.md` command examples and Tool Index section.
+2. `tools/README.md` script/CLI mapping and arguments.
+3. `aoclib/README.md` if shared API behavior changed.
+4. `docs/ARCHITECTURE.md` if component boundaries or entry points changed.
+
+## 9) Update verification report snapshot
 
 After significant structural changes, refresh:
 
@@ -190,14 +214,14 @@ Include:
 - check/failure counts
 - notable caveats
 
-## 9) Git hygiene recommendations
+## 10) Git hygiene recommendations
 
 - avoid sweeping format/noise changes unless intentional
 - commit functional changes and docs together
 - keep README answer tables and `accepted_answers.json` aligned
 - avoid deleting historical scripts unless replaced by audited equivalents
 
-## 10) Long-term maintenance strategy
+## 11) Long-term maintenance strategy
 
 If returning years later:
 

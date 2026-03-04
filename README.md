@@ -7,20 +7,30 @@ Python solutions and tooling for multiple Advent of Code years.
 - `advent2018` through `advent2025`: year folders
 - `advent20XX/DayN`: day-level solutions and inputs
 - `aoclib`: shared utilities for AoC tooling and future solution reuse
-- tool scripts:
-  - `tools/download_input.py`
-  - `tools/download_instructions.py`
-  - `tools/submit_answer.py`
-  - `tools/encode_aoc_session.py`
-  - `tools/test_aoc_session.py`
-  - `tools/test_download.py`
-  - `tools/quick_test.py`
-- `tools/audit_aoc.py`: consistency audit across all year/day solution files
-- `tools/verify_all.py`: accepted-answer runtime verification across years
+- `tools`: operational and quality tooling scripts (download, submit, scaffold,
+  audit, style lint, verify, answer sync, diagnostics)
 - `tools/accepted_answers.json`: canonical accepted answers used by verifier
 - `tools/README.md`: detailed reference for all tooling scripts
 - `tools/VERIFICATION_REPORT.md`: latest full-run verification snapshot
 - `pyproject.toml`: package metadata and console entry points
+
+## Return-After-Years Starter
+
+If you are coming back after a long break, run these first:
+
+```bash
+make help
+python -m aoclib --help
+make audit
+make lint-style
+make verify
+```
+
+Then read:
+
+- `docs/MAINTENANCE.md` for runbook/checklists
+- `tools/README.md` for every script and CLI equivalent
+- `docs/ARCHITECTURE.md` for how components fit together
 
 ## Year Coverage
 
@@ -72,6 +82,42 @@ aoc lint-style --year 2022
 aoc new-year 2026
 aoc new-day 2026 1
 ```
+
+Installed console script aliases also exist for common operations:
+
+```bash
+aoc-verify --year 2025 --timeout 240
+aoc-audit
+aoc-sync-answers
+aoc-new-year 2026
+aoc-new-day 2026 1
+```
+
+## Tool Index
+
+Canonical command families:
+
+- Session/auth:
+  - `python -m aoclib encode-session`
+  - `python -m aoclib test-session`
+- Download/submit:
+  - `python -m aoclib download-input <day> [year] [base_dir]`
+  - `python -m aoclib download-instructions <day> [year] [base_dir]`
+  - `python -m aoclib submit <day> <part> <answer> [year]`
+- Scaffolding:
+  - `python -m aoclib new-year <year> [--days N] [--offline-default N] [--force]`
+  - `python -m aoclib new-day <year> <day>`
+- Quality/verification:
+  - `python -m aoclib audit [paths...]`
+  - `python -m aoclib lint-style [--strict] [--year YYYY ...]`
+  - `python -m aoclib verify [--year YYYY ...] [--timeout SEC]`
+  - `python -m aoclib sync-answers`
+- Diagnostics:
+  - `python -m aoclib test-download`
+  - `python -m aoclib quick-test`
+
+The exhaustive script-level reference with direct command equivalents is in
+`tools/README.md`.
 
 ## Quick Start
 

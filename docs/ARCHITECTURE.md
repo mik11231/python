@@ -126,8 +126,17 @@ Unified CLI style:
 python -m aoclib verify --timeout 240
 ```
 
-After editable install (`pip install -e .`), console entry points are available
-(e.g., `aoc`, `aoc-verify`, `aoc-audit`, `aoc-sync-answers`).
+After editable install (`pip install -e .`), console entry points are available:
+
+- `aoc` (full subcommand surface)
+- `aoc-verify`
+- `aoc-audit`
+- `aoc-sync-answers`
+- `aoc-new-year`
+- `aoc-new-day`
+
+For long-term maintainability, prefer documenting and using the `aoc`
+subcommand interface as canonical; alias commands are convenience wrappers.
 
 ## Verification Model
 

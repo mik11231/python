@@ -10,6 +10,32 @@ You can invoke tools either directly (script path) or through the unified CLI:
 - Direct: `python tools/<script>.py ...`
 - Unified CLI: `python -m aoclib <subcommand> ...` (or `aoc ...` after install)
 
+## Command Map
+
+Use this section as a fast lookup after a long break.
+
+| Purpose | Direct script | Unified CLI | Installed alias |
+| --- | --- | --- | --- |
+| Store session cookie | `python tools/encode_aoc_session.py` | `python -m aoclib encode-session` | `aoc encode-session` |
+| Validate session cookie | `python tools/test_aoc_session.py` | `python -m aoclib test-session` | `aoc test-session` |
+| Download puzzle input | `python tools/download_input.py <day> [year] [base_dir]` | `python -m aoclib download-input <day> [year] [base_dir]` | `aoc download-input ...` |
+| Download instructions HTML | `python tools/download_instructions.py <day> [year] [base_dir]` | `python -m aoclib download-instructions <day> [year] [base_dir]` | `aoc download-instructions ...` |
+| Submit answer | `python tools/submit_answer.py <day> <part> <answer> [year]` | `python -m aoclib submit <day> <part> <answer> [year]` | `aoc submit ...` |
+| Run static audit | `python tools/audit_aoc.py [paths...]` | `python -m aoclib audit [paths...]` | `aoc-audit` or `aoc audit` |
+| Run style linter | `python tools/lint_aoc_style.py [--strict] [--year YYYY ...]` | `python -m aoclib lint-style [--strict] [--year YYYY ...]` | `aoc lint-style ...` |
+| Verify accepted answers | `python tools/verify_all.py [--year YYYY ...] [--timeout SEC]` | `python -m aoclib verify [--year YYYY ...] [--timeout SEC]` | `aoc-verify ...` or `aoc verify ...` |
+| Regenerate accepted answers | `python tools/update_accepted_answers.py` | `python -m aoclib sync-answers` | `aoc-sync-answers` or `aoc sync-answers` |
+| Scaffold new year | `python tools/new_year.py <year> [--days N] [--offline-default N] [--force]` | `python -m aoclib new-year <year> ...` | `aoc-new-year ...` or `aoc new-year ...` |
+| Scaffold new day | `python tools/new_day.py <year> <day>` | `python -m aoclib new-day <year> <day>` | `aoc-new-day ...` or `aoc new-day ...` |
+| Network/cookie diagnostics | `python tools/test_download.py` | `python -m aoclib test-download` | `aoc test-download` |
+| One-request auth smoke test | `python tools/quick_test.py` | `python -m aoclib quick-test` | `aoc quick-test` |
+
+Notes:
+
+- `aoc` subcommands are the preferred canonical interface for daily use.
+- Default verify timeout via CLI is `180` seconds per script; `Makefile` wraps
+  this with `TIMEOUT=240` unless overridden.
+
 ## Scripts
 
 ## `tools/encode_aoc_session.py`
