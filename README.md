@@ -4,7 +4,7 @@ Python solutions and tooling for multiple Advent of Code years.
 
 ## Repository Layout
 
-- `advent2018` through `advent2025`: year folders
+- `advent2015` through `advent2025`: year folders
 - `advent20XX/DayN`: day-level solutions and inputs
 - `aoclib`: shared utilities for AoC tooling and future solution reuse
 - `tools`: operational and quality tooling scripts (download, submit, scaffold,
@@ -34,6 +34,8 @@ Then read:
 
 ## Year Coverage
 
+- `advent2018`: complete (Day 1-25)
+- `advent2015`: complete (Day 1-25)
 - `advent2018`: complete (Day 1-25)
 - `advent2019`: complete (Day 1-25)
 - `advent2020`: complete (Day 1-25)

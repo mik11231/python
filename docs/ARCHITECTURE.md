@@ -17,7 +17,7 @@ The repository is designed for four things:
 
 ## Top-Level Layout
 
-- `advent2018` ... `advent2025`
+- `advent2015` ... `advent2025`
   - year folders
   - each contains `DayN` subfolders with solution scripts + inputs
 - `aoclib`
