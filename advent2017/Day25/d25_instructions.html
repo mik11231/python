@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="/2017">2017</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/*</span><a href="/2017">2017</a><span class="title-event-wrap">*/</span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=http%3A%2F%2Fkx%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Kx Systems</a> - kdb+, the in-memory time series technology standard</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=https%3A%2F%2Fwww%2Ewearedevelopers%2Ecom%2Fcongress" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">WeAreDevelopers</a> - The conference for devs - use discount AOC20</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 25: The Halting Problem ---</h2><p>Following the twisty passageways deeper and deeper into the CPU, you finally reach the <span title="Get it? CPU core?">core</span> of the computer. Here, in the expansive central chamber, you find a grand apparatus that fills the entire room, suspended nanometers above your head.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 25: The Halting Problem ---</h2><p>Following the twisty passageways deeper and deeper into the CPU, you finally reach the <span title="Get it? CPU core?">core</span> of the computer. Here, in the expansive central chamber, you find a grand apparatus that fills the entire room, suspended nanometers above your head.</p>
 <p>You had always imagined CPUs to be noisy, chaotic places, bustling with activity. Instead, the room is quiet, motionless, and dark.</p>
 <p>Suddenly, you and the CPU's <em>garbage collector</em> startle each other. "It's not often we get  many visitors here!", he says. You inquire about the stopped machinery.</p>
 <p>"It stopped milliseconds ago; not sure why. I'm a garbage collector, not a doctor." You ask what the machine is for.</p>
@@ -143,12 +143,25 @@ In state B:
 <p>The CPU can confirm that the Turing machine is working by taking a <em>diagnostic checksum</em> after a specific number of steps (given in the blueprint). Once the specified number of steps have been executed, the Turing machine should pause; once it does, count the number of times <code>1</code> appears on the tape. In the above example, the <em>diagnostic checksum</em> is <em><code>3</code></em>.</p>
 <p>Recreate the Turing machine and save the computer! <em>What is the diagnostic checksum</em> it produces once it's working again?</p>
 </article>
-<p>To begin, <a href="25/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="25/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>3145</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The Turing machine, and soon the entire computer, springs back to life.  A console glows dimly nearby, awaiting your command.</p>
+<pre><code>&gt; reboot printer
+Error: That command requires <em>priority 50</em>. You currently have <em>priority 0</em>.
+You must deposit <em class="star">50 stars</em> to increase your priority to the required level.
+</code></pre>
+<p>The console flickers for a moment, and then prints another message:</p>
+<pre><code><em class="star">Star</em> accepted.
+You must deposit <em class="star">49 stars</em> to increase your priority to the required level.
+</code></pre>
+<p>The <em>garbage collector</em> winks at you, then continues sweeping.</p>
+</article>
+<form method="post" action="25/answer"><input type="hidden" name="level" value="2"/><input type="hidden" name="answer" value="0"/><p>If you like, you can <input type="submit" value="[Reboot the Printer Again]"/>.</p></form>
+<p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2017">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="25/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

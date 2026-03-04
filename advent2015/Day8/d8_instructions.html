@@ -87,13 +87,13 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2015/about">[About]</a></li><li><a href="/2015/events">[Events]</a></li><li><a href="/2015/shop">[Shop]</a></li><li><a href="/2015/settings">[Settings]</a></li><li><a href="/2015/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">0.0.0.0:</span><a href="/2015">2015</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2015">[Calendar]</a></li><li><a href="/2015/support">[AoC++]</a></li><li><a href="/2015/sponsors">[Sponsors]</a></li><li><a href="/2015/leaderboard">[Leaderboards]</a></li><li><a href="/2015/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2015/about">[About]</a></li><li><a href="/2015/events">[Events]</a></li><li><a href="/2015/shop">[Shop]</a></li><li><a href="/2015/settings">[Settings]</a></li><li><a href="/2015/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">var y=</span><a href="/2015">2015</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2015">[Calendar]</a></li><li><a href="/2015/support">[AoC++]</a></li><li><a href="/2015/sponsors">[Sponsors]</a></li><li><a href="/2015/leaderboard">[Leaderboards]</a></li><li><a href="/2015/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 8: Matchsticks ---</h2><p>Space on the sleigh is limited this year, and so Santa will be bringing his list as a digital copy. He needs to know how much space it will take up when stored.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 8: Matchsticks ---</h2><p>Space on the sleigh is limited this year, and so Santa will be bringing his list as a digital copy. He needs to know how much space it will take up when stored.</p>
 <p>It is common in many programming languages to provide a way to <span title="It is common for many programmers to try to escape from string escaping.  No such luck here.">escape</span> special characters in strings.  For example, <a href="https://en.wikipedia.org/wiki/Escape_sequences_in_C">C</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">JavaScript</a>, <a href="http://perldoc.perl.org/perlop.html#Quote-and-Quote-like-Operators">Perl</a>, <a href="https://docs.python.org/2.0/ref/strings.html">Python</a>, and even <a href="http://php.net/manual/en/language.types.string.php#language.types.string.syntax.double">PHP</a> handle special characters in very similar ways.</p>
 <p>However, it is important to realize the difference between the number of characters <em>in the code representation of the string literal</em> and the number of characters <em>in the in-memory string itself</em>.</p>
 <p>For example:</p>
@@ -107,12 +107,23 @@ on Mastodon.
 <p>Disregarding the whitespace in the file, what is <em>the number of characters of code for string literals</em> minus <em>the number of characters in memory for the values of the strings</em> in total for the entire file?</p>
 <p>For example, given the four strings above, the total number of characters of string code (<code>2 + 5 + 10 + 6 = 23</code>) minus the total number of characters in memory for string values (<code>0 + 3 + 7 + 1 = 11</code>) is <code>23 - 11 = 12</code>.</p>
 </article>
-<p>To begin, <a href="8/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="8/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1371</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now, let's go the other way.  In addition to finding the number of characters of code, you should now <em>encode each code representation as a new string</em> and find the number of characters of the new encoded representation, including the surrounding double quotes.</p>
+<p>For example:</p>
+<ul>
+<li><code>""</code> encodes to <code>"\"\""</code>, an increase from <code>2</code> characters to <code>6</code>.</li>
+<li><code>"abc"</code> encodes to <code>"\"abc\""</code>, an increase from <code>5</code> characters to <code>9</code>.</li>
+<li><code>"aaa\"aaa"</code> encodes to <code>"\"aaa\\\"aaa\""</code>, an increase from <code>10</code> characters to <code>16</code>.</li>
+<li><code>"\x27"</code> encodes to <code>"\"\\x27\""</code>, an increase from <code>6</code> characters to <code>11</code>.</li>
+</ul>
+<p>Your task is to find <em>the total number of characters to represent the newly encoded strings</em> minus <em>the number of characters of code in each original string literal</em>. For example, for the strings above, the total encoded length (<code>6 + 9 + 16 + 11 = 42</code>) minus the characters in the original code representation (<code>23</code>, just like in the first part of this puzzle) is <code>42 - 23 = 19</code>.</p>
+</article>
+<p>Your puzzle answer was <code>2117</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2015">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="8/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Matchsticks%22+%2D+Day+8+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F8" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Matchsticks%22+%2D+Day+8+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F8&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Matchsticks%22+%2D+Day+8+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F8';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Matchsticks%22+%2D+Day+8+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F8" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Matchsticks%22+%2D+Day+8+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F8&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Matchsticks%22+%2D+Day+8+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F8';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

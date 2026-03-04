@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">26*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">sub y{</span><a href="/2018">2018</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0x0000|</span><a href="/2018">2018</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Frainway%2Eio%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Rainway</a> - Play all your favorite PC games anytime, anywhere, across a variety of different devices.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fcoinid%2Eorg%2F%3Futm%5Fsource%3Daoc2018" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">COINiD</a> - New open-source cryptocurrency wallet with cold storage support!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 14: Chocolate Charts ---</h2><p>You finally have a chance to look at all of the produce moving around. Chocolate, cinnamon, mint, chili peppers, nutmeg, vanilla... the Elves must be growing these plants to <span title="Please do not use a programming puzzle as a recipe for hot chocolate. I cannot guarantee your safety.">make</span> <em>hot chocolate</em>! As you realize this, you hear a conversation in the distance. When you go to investigate, you discover two Elves in what appears to be a makeshift underground kitchen/laboratory.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Chocolate Charts ---</h2><p>You finally have a chance to look at all of the produce moving around. Chocolate, cinnamon, mint, chili peppers, nutmeg, vanilla... the Elves must be growing these plants to <span title="Please do not use a programming puzzle as a recipe for hot chocolate. I cannot guarantee your safety.">make</span> <em>hot chocolate</em>! As you realize this, you hear a conversation in the distance. When you go to investigate, you discover two Elves in what appears to be a makeshift underground kitchen/laboratory.</p>
 <p>The Elves are trying to come up with the ultimate hot chocolate recipe; they're even maintaining a scoreboard which tracks the quality <em>score</em> (<code>0</code>-<code>9</code>) of each recipe.</p>
 <p>Only two recipes are on the board: the first recipe got a score of <code>3</code>, the second, <code>7</code>. Each of the two Elves has a <em>current recipe</em>: the first Elf starts with the first recipe, and the second Elf starts with the second recipe.</p>
 <p>To create new recipes, the two Elves combine their current recipes.  This creates new recipes from the <em>digits of the sum</em> of the current recipes' scores.  With the current recipes' scores of <code>3</code> and <code>7</code>, their sum is <code>10</code>, and so two new recipes would be created: the first with score <code>1</code> and the second with score <code>0</code>. If the current recipes' scores were <code>2</code> and <code>3</code>, the sum, <code>5</code>, would only create one recipe (with a score of <code>5</code>) with its single digit.</p>
@@ -127,12 +127,22 @@ on Mastodon.
 </ul>
 <p><em>What are the scores of the ten recipes immediately after the number of recipes in your puzzle input?</em></p>
 </article>
-<p>Your puzzle input is <code class="puzzle-input">939601</code>.</p>
-<form method="post" action="14/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>5832873106</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>As it turns out, you got the Elves' plan backwards.  They actually want to know how many recipes appear on the scoreboard to the left of the first recipes whose scores are the digits from your puzzle input.</p>
+<ul>
+<li><code>51589</code> first appears after <code>9</code> recipes.</li>
+<li><code>01245</code> first appears after <code>5</code> recipes.</li>
+<li><code>92510</code> first appears after <code>18</code> recipes.</li>
+<li><code>59414</code> first appears after <code>2018</code> recipes.</li>
+</ul>
+<p><em>How many recipes appear on the scoreboard to the left of the score sequence in your puzzle input?</em></p>
+</article>
+<p>Your puzzle answer was <code>20273708</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2018">admire your Advent calendar</a>.</p>
+<p>Your puzzle input was <code class="puzzle-input">939601</code>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Chocolate+Charts%22+%2D+Day+14+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F14" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Chocolate+Charts%22+%2D+Day+14+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Chocolate+Charts%22+%2D+Day+14+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Chocolate+Charts%22+%2D+Day+14+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F14" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Chocolate+Charts%22+%2D+Day+14+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Chocolate+Charts%22+%2D+Day+14+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2021/about">[About]</a></li><li><a href="/2021/events">[Events]</a></li><li><a href="/2021/shop">[Shop]</a></li><li><a href="/2021/settings">[Settings]</a></li><li><a href="/2021/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">0.0.0.0:</span><a href="/2021">2021</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2021">[Calendar]</a></li><li><a href="/2021/support">[AoC++]</a></li><li><a href="/2021/sponsors">[Sponsors]</a></li><li><a href="/2021/leaderboard">[Leaderboards]</a></li><li><a href="/2021/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2021/about">[About]</a></li><li><a href="/2021/events">[Events]</a></li><li><a href="/2021/shop">[Shop]</a></li><li><a href="/2021/settings">[Settings]</a></li><li><a href="/2021/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;<span class="title-event-wrap">{&apos;year&apos;:</span><a href="/2021">2021</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2021">[Calendar]</a></li><li><a href="/2021/support">[AoC++]</a></li><li><a href="/2021/sponsors">[Sponsors]</a></li><li><a href="/2021/leaderboard">[Leaderboards]</a></li><li><a href="/2021/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2021/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2021/sponsors/redirect?url=https%3A%2F%2Frick379856%2Etypeform%2Ecom%2Fto%2FoQ0e2jpi%3Futm%5Fsource%3Devent%26utm%5Fmedium%3Dad%26utm%5Fcampaign%3Dadventofcode2021" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Honeycomb</a> - You like performant, correct code. So do we. Distributed systems should be easy to understand. Use Honeycomb for free to debug your distributed systems and get a free shirt. Download our white papers and watch our demo.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2021/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2021/sponsors/redirect?url=https%3A%2F%2Fjobs%2Equickin%2Eio%2Fzbrasolutions" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">ZBRA</a> - JÃ¡ pensou em trabalhar em uma empresa criada *por* devs *para* devs? Venha codificar seu futuro na ZBRA!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 1: Sonar Sweep ---</h2><p>You're minding your own business on a ship at sea when the overboard alarm goes off! You rush to see if you can help. Apparently, one of the Elves tripped and accidentally sent the sleigh keys flying into the ocean!</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 1: Sonar Sweep ---</h2><p>You're minding your own business on a ship at sea when the overboard alarm goes off! You rush to see if you can help. Apparently, one of the Elves tripped and accidentally sent the sleigh keys flying into the ocean!</p>
 <p>Before you know it, you're inside a submarine the Elves keep ready for situations like this. It's covered in Christmas lights (because of course it is), and it even has an experimental antenna that should be able to track the keys if you can boost its signal strength high enough; there's a little meter that indicates the antenna's signal strength by displaying 0-50 <em class="star">stars</em>.</p>
 <p>Your instincts tell you that in order to save Christmas, you'll need to get all <em class="star">fifty stars</em> by December 25th.</p>
 <p>Collect stars by solving puzzles.  Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first.  Each puzzle grants <em class="star">one star</em>. Good luck!</p>
@@ -128,12 +128,41 @@ on Mastodon.
 <p>In this example, there are <em><code>7</code></em> measurements that are larger than the previous measurement.</p>
 <p><em>How many measurements are larger than the previous measurement?</em></p>
 </article>
-<p>To begin, <a href="1/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="1/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1665</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.</p>
+<p>Instead, consider sums of a <em>three-measurement sliding window</em>.  Again considering the above example:</p>
+<pre><code>199  A      
+200  A B    
+208  A B C  
+210    B C D
+200  E   C D
+207  E F   D
+240  E F G  
+269    F G H
+260      G H
+263        H
+</code></pre>
+<p>Start by comparing the first and second three-measurement windows. The measurements in the first window are marked <code>A</code> (<code>199</code>, <code>200</code>, <code>208</code>); their sum is <code>199 + 200 + 208 = 607</code>. The second window is marked <code>B</code> (<code>200</code>, <code>208</code>, <code>210</code>); its sum is <code>618</code>. The sum of measurements in the second window is larger than the sum of the first, so this first comparison <em>increased</em>.</p>
+<p>Your goal now is to count <em>the number of times the sum of measurements in this sliding window increases</em> from the previous sum. So, compare <code>A</code> with <code>B</code>, then compare <code>B</code> with <code>C</code>, then <code>C</code> with <code>D</code>, and so on. Stop when there aren't enough measurements left to create a new three-measurement sum.</p>
+<p>In the above example, the sum of each three-measurement window is as follows:</p>
+<pre><code>A: 607 (N/A - no previous sum)
+B: 618 (<em>increased</em>)
+C: 618 (no change)
+D: 617 (decreased)
+E: 647 (<em>increased</em>)
+F: 716 (<em>increased</em>)
+G: 769 (<em>increased</em>)
+H: 792 (<em>increased</em>)
+</code></pre>
+<p>In this example, there are <em><code>5</code></em> sums that are larger than the previous sum.</p>
+<p>Consider sums of a three-measurement sliding window. <em>How many sums are larger than the previous sum?</em></p>
+</article>
+<p>Your puzzle answer was <code>1702</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2021">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="1/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Sonar+Sweep%22+%2D+Day+1+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F1" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Sonar+Sweep%22+%2D+Day+1+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F1&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Sonar+Sweep%22+%2D+Day+1+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F1';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Sonar+Sweep%22+%2D+Day+1+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F1" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Sonar+Sweep%22+%2D+Day+1+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F1&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Sonar+Sweep%22+%2D+Day+1+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F1';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

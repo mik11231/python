@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2022/about">[About]</a></li><li><a href="/2022/events">[Events]</a></li><li><a href="/2022/shop">[Shop]</a></li><li><a href="/2022/settings">[Settings]</a></li><li><a href="/2022/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">6*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0x0000|</span><a href="/2022">2022</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2022">[Calendar]</a></li><li><a href="/2022/support">[AoC++]</a></li><li><a href="/2022/sponsors">[Sponsors]</a></li><li><a href="/2022/leaderboard">[Leaderboards]</a></li><li><a href="/2022/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2022/about">[About]</a></li><li><a href="/2022/events">[Events]</a></li><li><a href="/2022/shop">[Shop]</a></li><li><a href="/2022/settings">[Settings]</a></li><li><a href="/2022/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">int y=</span><a href="/2022">2022</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2022">[Calendar]</a></li><li><a href="/2022/support">[AoC++]</a></li><li><a href="/2022/sponsors">[Sponsors]</a></li><li><a href="/2022/leaderboard">[Leaderboards]</a></li><li><a href="/2022/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2022/sponsors/redirect?url=https%3A%2F%2Fwww%2Eansys%2Ecom%2Fcareers" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Ansys</a> - Take a leap of certainty in your career, code for Ansys!</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2022/sponsors/redirect?url=https%3A%2F%2Fwww%2Etcgplayer%2Ecom%2Fadventofcode%2F%3Futm%5Fcampaign%3Daoc%26utm%5Fsource%3DadventOfCode%26utm%5Fmedium%3DaocPromo" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">TCGplayer</a> - Join an ever-growing worldwide team in connecting hobbyists to communities, exchanging things and thoughts that fuel passions. Competitive benefits, remote work, participate in hackathons and Advent of Code, &amp; more!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 18: Boiling Boulders ---</h2><p>You and the elephants finally reach fresh air. You've emerged near the base of a large volcano that seems to be actively erupting! Fortunately, the lava seems to be flowing away from you and toward the ocean.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 18: Boiling Boulders ---</h2><p>You and the elephants finally reach fresh air. You've emerged near the base of a large volcano that seems to be actively erupting! Fortunately, the lava seems to be flowing away from you and toward the ocean.</p>
 <p>Bits of lava are still being ejected toward you, so you're sheltering in the cavern exit a little longer. Outside the cave, you can see the lava landing in a pond and hear it loudly hissing as it solidifies.</p>
 <p>Depending on the specific compounds in the lava and speed at which it cools, it might be forming <a href="https://en.wikipedia.org/wiki/Obsidian" target="_blank">obsidian</a>! The cooling rate should be based on the surface area of the lava droplets, so you take a quick scan of a droplet as it flies past you (your puzzle input).</p>
 <p>Because of how quickly the lava is moving, the scan isn't very good; its resolution is quite low and, as a result, it approximates the shape of the lava droplet with <em>1x1x1 <span title="Unfortunately, you forgot your flint and steel in another dimension.">cubes</span> on a 3D grid</em>, each given as its <code>x,y,z</code> position.</p>
@@ -117,12 +117,18 @@ on Mastodon.
 <p>In the above example, after counting up all the sides that aren't connected to another cube, the total surface area is <code><em>64</em></code>.</p>
 <p><em>What is the surface area of your scanned lava droplet?</em></p>
 </article>
-<p>To begin, <a href="18/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="18/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>3636</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Something seems off about your calculation. The cooling rate depends on exterior surface area, but your calculation also included the surface area of air pockets trapped in the lava droplet.</p>
+<p>Instead, consider only cube sides that could be reached by the water and steam as the lava droplet tumbles into the pond. The steam will expand to reach as much as possible, completely displacing any air on the outside of the lava droplet but never expanding diagonally.</p>
+<p>In the larger example above, exactly one cube of air is trapped within the lava droplet (at <code>2,2,5</code>), so the exterior surface area of the lava droplet is <code><em>58</em></code>.</p>
+<p><em>What is the exterior surface area of your scanned lava droplet?</em></p>
+</article>
+<p>Your puzzle answer was <code>2102</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2022">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="18/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Boiling+Boulders%22+%2D+Day+18+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F18" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Boiling+Boulders%22+%2D+Day+18+%2D+Advent+of+Code+2022&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Boiling+Boulders%22+%2D+Day+18+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F18';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Boiling+Boulders%22+%2D+Day+18+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F18" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Boiling+Boulders%22+%2D+Day+18+%2D+Advent+of+Code+2022&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Boiling+Boulders%22+%2D+Day+18+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F18';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

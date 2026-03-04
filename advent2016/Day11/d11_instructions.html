@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">Î»y.</span><a href="/2016">2016</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0x0000|</span><a href="/2016">2016</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2016/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2016/sponsors/redirect?url=http%3A%2F%2Fwww%2Enovetta%2Ecom%2Fcareers%2F%23opportunities" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Novetta</a> - Unleash your imagination. Innovate at Novetta.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2016/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2016/sponsors/redirect?url=https%3A%2F%2Fwww%2Edetroitlabs%2Ecom%2Fcareers" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Detroit Labs</a> - Build beautiful mobile apps.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 11: Radioisotope Thermoelectric Generators ---</h2><p>You come upon a column of four floors that have been entirely sealed off from the rest of the building except for a small dedicated lobby.  There are some radiation warnings and a big sign which reads "Radioisotope Testing Facility".</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 11: Radioisotope Thermoelectric Generators ---</h2><p>You come upon a column of four floors that have been entirely sealed off from the rest of the building except for a small dedicated lobby.  There are some radiation warnings and a big sign which reads "Radioisotope Testing Facility".</p>
 <p>According to the project status board, this facility is currently being used to experiment with <a href="https://en.wikipedia.org/wiki/Radioisotope_thermoelectric_generator">Radioisotope Thermoelectric Generators</a> (RTGs, or simply "generators") that are designed to be paired with specially-constructed microchips. Basically, an RTG is a highly radioactive rock that generates electricity through heat.</p>
 <p>The <span title="The previous version, model number PB-NUK, used Blutonium.">experimental RTGs</span> have poor radiation containment, so they're dangerously radioactive. The chips are prototypes and don't have normal radiation shielding, but they do have the ability to <em>generate an electromagnetic radiation shield when powered</em>.  Unfortunately, they can <em>only</em> be powered by their corresponding RTG. An RTG powering a microchip is still dangerous to other microchips.</p>
 <p>In other words, if a chip is ever left in the same area as another RTG, and it's not connected to its own RTG, the chip will be <em>fried</em>. Therefore, it is assumed that you will follow procedure and keep chips connected to their corresponding RTG when they're in the same room, and away from other RTGs otherwise.</p>
@@ -175,12 +175,24 @@ F1 .  .  .  .  .
 <p>In this arrangement, it takes <code>11</code> steps to collect all of the objects at the fourth floor for assembly. (Each elevator stop counts as one step, even if nothing is added to or removed from it.)</p>
 <p>In your situation, what is the <em>minimum number of steps</em> required to bring all of the objects to the fourth floor?</p>
 </article>
-<p>To begin, <a href="11/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="11/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>47</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>You step into the cleanroom separating the lobby from the isolated area and put on the hazmat suit.</p>
+<p>Upon entering the isolated containment area, however, you notice some extra parts on the first floor that weren't listed on the record outside:</p>
+<ul>
+<li>An elerium generator.</li>
+<li>An elerium-compatible microchip.</li>
+<li>A dilithium generator.</li>
+<li>A dilithium-compatible microchip.</li>
+</ul>
+<p>These work just like the other generators and microchips. You'll have to get them up to assembly as well.</p>
+<p>What is the <em>minimum number of steps</em> required to bring all of the objects, including these four new ones, to the fourth floor?</p>
+</article>
+<p>Your puzzle answer was <code>71</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2016">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="11/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

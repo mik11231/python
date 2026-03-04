@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2020/about">[About]</a></li><li><a href="/2020/events">[Events]</a></li><li><a href="/2020/shop">[Shop]</a></li><li><a href="/2020/settings">[Settings]</a></li><li><a href="/2020/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">14*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="/2020">2020</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2020">[Calendar]</a></li><li><a href="/2020/support">[AoC++]</a></li><li><a href="/2020/sponsors">[Sponsors]</a></li><li><a href="/2020/leaderboard">[Leaderboards]</a></li><li><a href="/2020/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2020/about">[About]</a></li><li><a href="/2020/events">[Events]</a></li><li><a href="/2020/shop">[Shop]</a></li><li><a href="/2020/settings">[Settings]</a></li><li><a href="/2020/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">var y=</span><a href="/2020">2020</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2020">[Calendar]</a></li><li><a href="/2020/support">[AoC++]</a></li><li><a href="/2020/sponsors">[Sponsors]</a></li><li><a href="/2020/leaderboard">[Leaderboards]</a></li><li><a href="/2020/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2020/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2020/sponsors/redirect?url=https%3A%2F%2Fwww%2Eeducative%2Eio%2Fadventofcode" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Educative.io</a> - From CSS to System Design, gain in-demand tech skills at the speed you want. Text-based courses with live coding environments help you learn without the fluff</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2020/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2020/sponsors/redirect?url=https%3A%2F%2Fengineering%2Eatspotify%2Ecom" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Spotify</a> - Follow our engineering blog to see how our developers solve complex tech problems, at scale, every day.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 10: Adapter Array ---</h2><p>Patched into the aircraft's data port, you discover weather forecasts of a massive tropical storm. Before you can figure out whether it will impact your vacation plans, however, your device suddenly turns off!</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 10: Adapter Array ---</h2><p>Patched into the aircraft's data port, you discover weather forecasts of a massive tropical storm. Before you can figure out whether it will impact your vacation plans, however, your device suddenly turns off!</p>
 <p>Its battery is dead.</p>
 <p>You'll need to plug it in. There's only one problem: the charging outlet near your seat produces the wrong number of <em>jolts</em>. Always prepared, you make a list of all of the joltage adapters in your bag.</p>
 <p>Each of your joltage adapters is rated for a specific <em>output joltage</em> (your puzzle input). Any given adapter can take an input <code>1</code>, <code>2</code>, or <code>3</code> jolts <em>lower</em> than its rating and still produce its rated output joltage.</p>
@@ -164,12 +164,60 @@ on Mastodon.
 <p>In this larger example, in a chain that uses all of the adapters, there are <em><code>22</code></em> differences of 1 jolt and <em><code>10</code></em> differences of 3 jolts.</p>
 <p>Find a chain that uses all of your adapters to connect the charging outlet to your device's built-in adapter and count the joltage differences between the charging outlet, the adapters, and your device. <em>What is the number of 1-jolt differences multiplied by the number of 3-jolt differences?</em></p>
 </article>
-<p>To begin, <a href="10/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="10/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1876</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>To completely determine whether you have enough adapters, you'll need to figure out how many different ways they can be arranged. Every arrangement needs to connect the charging outlet to your device. The previous rules about when adapters can successfully connect still apply.</p>
+<p>The first example above (the one that starts with <code>16</code>, <code>10</code>, <code>15</code>) supports the following arrangements:</p>
+<pre><code>(0), 1, 4, 5, 6, 7, 10, 11, 12, 15, 16, 19, (22)
+(0), 1, 4, 5, 6, 7, 10, 12, 15, 16, 19, (22)
+(0), 1, 4, 5, 7, 10, 11, 12, 15, 16, 19, (22)
+(0), 1, 4, 5, 7, 10, 12, 15, 16, 19, (22)
+(0), 1, 4, 6, 7, 10, 11, 12, 15, 16, 19, (22)
+(0), 1, 4, 6, 7, 10, 12, 15, 16, 19, (22)
+(0), 1, 4, 7, 10, 11, 12, 15, 16, 19, (22)
+(0), 1, 4, 7, 10, 12, 15, 16, 19, (22)
+</code></pre>
+<p>(The charging outlet and your device's built-in adapter are shown in parentheses.) Given the adapters from the first example, the total number of arrangements that connect the charging outlet to your device is <em><code>8</code></em>.</p>
+<p>The second example above (the one that starts with <code>28</code>, <code>33</code>, <code>18</code>) has many arrangements. Here are a few:</p>
+<pre><code>(0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+32, 33, 34, 35, 38, 39, 42, 45, 46, 47, 48, 49, (52)
+
+(0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+32, 33, 34, 35, 38, 39, 42, 45, 46, 47, 49, (52)
+
+(0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+32, 33, 34, 35, 38, 39, 42, 45, 46, 48, 49, (52)
+
+(0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+32, 33, 34, 35, 38, 39, 42, 45, 46, 49, (52)
+
+(0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+32, 33, 34, 35, 38, 39, 42, 45, 47, 48, 49, (52)
+
+(0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+46, 48, 49, (52)
+
+(0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+46, 49, (52)
+
+(0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+47, 48, 49, (52)
+
+(0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+47, 49, (52)
+
+(0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+48, 49, (52)
+</code></pre>
+<p>In total, this set of adapters can connect the charging outlet to your device in <em><code>19208</code></em> distinct arrangements.</p>
+<p>You glance back down at your bag and try to remember why you brought so many adapters; there must be <em>more than a trillion</em> valid ways to arrange them! Surely, there must be <span title="Definitely itertools.">an efficient way</span> to count the arrangements.</p>
+<p><em>What is the total number of distinct ways you can arrange the adapters to connect the charging outlet to your device?</em></p>
+</article>
+<p>Your puzzle answer was <code>14173478093824</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2020">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="10/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Adapter+Array%22+%2D+Day+10+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F10" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Adapter+Array%22+%2D+Day+10+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Adapter+Array%22+%2D+Day+10+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F10';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Adapter+Array%22+%2D+Day+10+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F10" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Adapter+Array%22+%2D+Day+10+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Adapter+Array%22+%2D+Day+10+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F10';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2022/about">[About]</a></li><li><a href="/2022/events">[Events]</a></li><li><a href="/2022/shop">[Shop]</a></li><li><a href="/2022/settings">[Settings]</a></li><li><a href="/2022/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">6*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/^</span><a href="/2022">2022</a><span class="title-event-wrap">$/</span></h1><nav><ul><li><a href="/2022">[Calendar]</a></li><li><a href="/2022/support">[AoC++]</a></li><li><a href="/2022/sponsors">[Sponsors]</a></li><li><a href="/2022/leaderboard">[Leaderboards]</a></li><li><a href="/2022/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2022/about">[About]</a></li><li><a href="/2022/events">[Events]</a></li><li><a href="/2022/shop">[Shop]</a></li><li><a href="/2022/settings">[Settings]</a></li><li><a href="/2022/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{:year </span><a href="/2022">2022</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2022">[Calendar]</a></li><li><a href="/2022/support">[AoC++]</a></li><li><a href="/2022/sponsors">[Sponsors]</a></li><li><a href="/2022/leaderboard">[Leaderboards]</a></li><li><a href="/2022/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2022/sponsors/redirect?url=https%3A%2F%2Fbit%2Ely%2Fshopifyatadventofcode22" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Shopify</a> - Check out our engineering blog and learn how Yule be able to solve commerce problems at scale by joining Shopify. Happy Holidays!</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2022/sponsors/redirect?url=https%3A%2F%2Foptiver%2Ecom%2Fadvent%2Dof%2Dcode" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Optiver</a> - Love solving puzzles? So do we! We&apos;re hiring engineers to code trading systems with sub-nanosecond performance. Get ready for daily challenges, continuous learning and the freedom to bring your software solutions to life</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 21: Monkey Math ---</h2><p>The <a href="11">monkeys</a> are back! You're worried they're going to try to steal your stuff again, but it seems like they're just holding their ground and making various monkey noises at you.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: Monkey Math ---</h2><p>The <a href="11">monkeys</a> are back! You're worried they're going to try to steal your stuff again, but it seems like they're just holding their ground and making various monkey noises at you.</p>
 <p>Eventually, one of the elephants realizes you don't speak monkey and comes over to interpret. As it turns out, they overheard you talking about trying to find the grove; they can show you a shortcut if you answer their <em>riddle</em>.</p>
 <p>Each monkey is given a <em>job</em>: either to <em>yell a specific number</em> or to <em>yell the result of a math operation</em>. All of the number-yelling monkeys know their number from the start; however, the math operation monkeys need to wait for two other monkeys to yell a number, and those two other monkeys might <em>also</em> be waiting on other monkeys.</p>
 <p>Your job is to <em>work out the number the monkey named <code>root</code> will yell</em> before the monkeys figure it out themselves.</p>
@@ -128,12 +128,19 @@ hmdt: 32
 <p>This process continues until <code>root</code> yells a number: <code><em>152</em></code>.</p>
 <p>However, your actual situation involves <span title="Advent of Code 2022: Now With Considerably More Monkeys">considerably more monkeys</span>. <em>What number will the monkey named <code>root</code> yell?</em></p>
 </article>
-<p>To begin, <a href="21/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="21/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>268597611536314</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Due to some kind of monkey-elephant-human mistranslation, you seem to have misunderstood a few key details about the riddle.</p>
+<p>First, you got the wrong job for the monkey named <code>root</code>; specifically, you got the wrong math operation. The correct operation for monkey <code>root</code> should be <code>=</code>, which means that it still listens for two numbers (from the same two monkeys as before), but now checks that the two numbers <em>match</em>.</p>
+<p>Second, you got the wrong monkey for the job starting with <code>humn:</code>. It isn't a monkey - it's <em>you</em>. Actually, you got the job wrong, too: you need to figure out <em>what number you need to yell</em> so that <code>root</code>'s equality check passes. (The number that appears after <code>humn:</code> in your input is now irrelevant.)</p>
+<p>In the above example, the number you need to yell to pass <code>root</code>'s equality test is <code><em>301</em></code>. (This causes <code>root</code> to get the same number, <code>150</code>, from both of its monkeys.)</p>
+<p><em>What number do you yell to pass <code>root</code>'s equality test?</em></p>
+</article>
+<p>Your puzzle answer was <code>3451534022348</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2022">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="21/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Monkey+Math%22+%2D+Day+21+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F21" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Monkey+Math%22+%2D+Day+21+%2D+Advent+of+Code+2022&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Monkey+Math%22+%2D+Day+21+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Monkey+Math%22+%2D+Day+21+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F21" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Monkey+Math%22+%2D+Day+21+%2D+Advent+of+Code+2022&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Monkey+Math%22+%2D+Day+21+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

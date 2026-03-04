@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">48*</span></div></div><div><h1 class="title-event">&nbsp;<span class="title-event-wrap">{&apos;year&apos;:</span><a href="/2018">2018</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">//</span><a href="/2018">2018</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Frainway%2Eio%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Rainway</a> - Play all your favorite PC games anytime, anywhere, across a variety of different devices.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fwww%2Ewearedevelopers%2Ecom%2Fworld%2Dcongress%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">WeAreDevelopers</a> - Use &quot;AOC-25&quot;, save EUR 25 and join 10^4 devs on June 6-7 at the WeAreDevelopers World Congress in Berlin ticket.get(now)</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 25: Four-Dimensional Adventure ---</h2><p>The reindeer's symptoms are getting worse, and neither you nor the white-bearded man have a solution. At least the reindeer has a warm place to rest: a small bed near where you're sitting.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 25: Four-Dimensional Adventure ---</h2><p>The reindeer's symptoms are getting worse, and neither you nor the white-bearded man have a solution. At least the reindeer has a warm place to rest: a small bed near where you're sitting.</p>
 <p>As you reach down, the reindeer looks up at you, <span title="It was not an accident.">accidentally</span> bumping a button on your wrist-mounted device with its nose in the process - a button labeled <em>"help"</em>.</p>
 <p>"Hello, and welcome to the Time Travel Support Hotline! If you are lost in time and space, press 1. If you are trapped in a time paradox, press 2. If you need help caring for a sick reindeer, press 3. If you--"</p>
 <p><em>Beep.</em></p>
@@ -155,12 +155,19 @@ on Mastodon.
 <p>The portly man nervously strokes his white beard. It's time to get that hot chocolate.</p>
 <p><em>How many constellations are formed by the fixed points in spacetime?</em></p>
 </article>
-<p>To begin, <a href="25/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="25/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>396</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>A small glowing portal opens above the mug you prepared and just enough hot chocolate streams in to fill it. You suspect the reindeer has never encountered hot chocolate before, but seems to enjoy it anyway. You hope it works.</p>
+<p>It's time to start worrying about that <em>integer underflow in time itself</em> you <a href="21">set up a few days ago</a>. You check the status of the device: "Insufficient chronal energy for activation. Energy required: <em class="star">50 stars</em>."</p>
+<p>The reindeer bumps the device with its nose.</p>
+<p>"Energy required: <em class="star">49 stars</em>."</p>
+</article>
+<form method="post" action="25/answer"><input type="hidden" name="level" value="2"/><input type="hidden" name="answer" value="0"/><p>If you like, you can <input type="submit" value="[Trigger the Underflow again]"/>.</p></form>
+<p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2018">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="25/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

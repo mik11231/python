@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2022/about">[About]</a></li><li><a href="/2022/events">[Events]</a></li><li><a href="/2022/shop">[Shop]</a></li><li><a href="/2022/settings">[Settings]</a></li><li><a href="/2022/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">6*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">int y=</span><a href="/2022">2022</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2022">[Calendar]</a></li><li><a href="/2022/support">[AoC++]</a></li><li><a href="/2022/sponsors">[Sponsors]</a></li><li><a href="/2022/leaderboard">[Leaderboards]</a></li><li><a href="/2022/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2022/about">[About]</a></li><li><a href="/2022/events">[Events]</a></li><li><a href="/2022/shop">[Shop]</a></li><li><a href="/2022/settings">[Settings]</a></li><li><a href="/2022/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">y(</span><a href="/2022">2022</a><span class="title-event-wrap">)</span></h1><nav><ul><li><a href="/2022">[Calendar]</a></li><li><a href="/2022/support">[AoC++]</a></li><li><a href="/2022/sponsors">[Sponsors]</a></li><li><a href="/2022/leaderboard">[Leaderboards]</a></li><li><a href="/2022/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2022/sponsors/redirect?url=https%3A%2F%2Fwww%2Epantherainvestment%2Ecom" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Panthera Investment</a> - We solve Financial Markets. Do you want to join?</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2022/sponsors/redirect?url=https%3A%2F%2Fwww%2Eximedes%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Ximedes</a> - From Kotlin in the cloud to NodeJS in the terminal, our software powers payments and public transport ticketing all over the world.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 22: Monkey Map ---</h2><p>The monkeys take you on a surprisingly easy trail through the jungle. They're even going in roughly the right direction according to your handheld device's Grove Positioning System.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 22: Monkey Map ---</h2><p>The monkeys take you on a surprisingly easy trail through the jungle. They're even going in roughly the right direction according to your handheld device's Grove Positioning System.</p>
 <p>As you walk, the monkeys explain that the grove is protected by a <em>force field</em>. To pass through the force field, you have to enter a password; doing so involves tracing a specific <em>path</em> on a strangely-shaped board.</p>
 <p>At least, you're pretty sure that's what you have to do; the elephants aren't exactly fluent in monkey.</p>
 <p>The monkeys give you notes that they took when they last saw the password entered (your puzzle input).</p>
@@ -156,12 +156,75 @@ on Mastodon.
 <p>In the above example, the final row is <code>6</code>, the final column is <code>8</code>, and the final facing is <code>0</code>. So, the final password is 1000 * 6 + 4 * 8 + 0: <code><em>6032</em></code>.</p>
 <p>Follow the path given in the monkeys' notes. <em>What is the final password?</em></p>
 </article>
-<p>To begin, <a href="22/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="22/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>165094</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>As you reach the force field, you think you hear some Elves in the distance. Perhaps they've already arrived?</p>
+<p>You approach the strange <em>input device</em>, but it isn't quite what the monkeys drew in their notes. Instead, you are met with a large <em>cube</em>; each of its six faces is a square of 50x50 tiles.</p>
+<p>To be fair, the monkeys' map <em>does</em> have six 50x50 regions on it. If you were to <em>carefully fold the map</em>, you should be able to shape it into a cube!</p>
+<p>In the example above, the six (smaller, 4x4) faces of the cube are:</p>
+<pre><code>        1111
+        1111
+        1111
+        1111
+222233334444
+222233334444
+222233334444
+222233334444
+        55556666
+        55556666
+        55556666
+        55556666
+</code></pre>
+<p>You still start in the same position and with the same facing as before, but the <em>wrapping</em> rules are different. Now, if you would walk off the board, you instead <em>proceed around the cube</em>. From the perspective of the map, this can look a little strange. In the above example, if you are at A and move to the right, you would arrive at B facing down; if you are at C and move down, you would arrive at D facing up:</p>
+<pre><code>        ...#
+        .#..
+        #...
+        ....
+...#.......#
+........#..<em>A</em>
+..#....#....
+.<em>D</em>........#.
+        ...#..<em>B</em>.
+        .....#..
+        .#......
+        ..<em>C</em>...#.
+</code></pre>
+<p>Walls still block your path, even if they are on a different face of the cube. If you are at E facing up, your movement is blocked by the wall marked by the arrow:</p>
+<pre><code>        ...#
+        .#..
+     <em>--&gt;#</em>...
+        ....
+...#..<em>E</em>....#
+........#...
+..#....#....
+..........#.
+        ...#....
+        .....#..
+        .#......
+        ......#.
+</code></pre>
+<p>Using the same method of drawing the <em>last facing you had</em> with an arrow on each tile you visit, the full path taken by the above example now looks like this:</p>
+<pre><code>        &gt;&gt;v#    
+        .#v.    
+        #.v.    
+        ..v.    
+...#..<em>^</em>...v#    
+.&gt;&gt;&gt;&gt;&gt;^.#.&gt;&gt;    
+.^#....#....    
+.^........#.    
+        ...#..v.
+        .....#v.
+        .#v&lt;&lt;&lt;&lt;.
+        ..v...#.
+</code></pre>
+<p>The final password is still calculated from your final position and facing from the perspective of the map. In this example, the final row is <code>5</code>, the final column is <code>7</code>, and the final facing is <code>3</code>, so the final password is 1000 * 5 + 4 * 7 + 3 = <code><em>5031</em></code>.</p>
+<p>Fold the map into a cube, <em>then</em> follow the path given in the monkeys' notes. <em>What is the final password?</em></p>
+</article>
+<p>Your puzzle answer was <code>95316</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2022">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="22/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Monkey+Map%22+%2D+Day+22+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F22" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Monkey+Map%22+%2D+Day+22+%2D+Advent+of+Code+2022&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Monkey+Map%22+%2D+Day+22+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F22';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Monkey+Map%22+%2D+Day+22+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F22" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Monkey+Map%22+%2D+Day+22+%2D+Advent+of+Code+2022&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Monkey+Map%22+%2D+Day+22+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F22';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

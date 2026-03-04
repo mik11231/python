@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="/2023/shop">[Shop]</a></li><li><a href="/2023/settings">[Settings]</a></li><li><a href="/2023/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">2*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{year=&gt;</span><a href="/2023">2023</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboards]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="/2023/shop">[Shop]</a></li><li><a href="/2023/settings">[Settings]</a></li><li><a href="/2023/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;<span class="title-event-wrap">{&apos;year&apos;:</span><a href="/2023">2023</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboards]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2023/sponsors/redirect?url=https%3A%2F%2Fwww%2Eboot%2Edev%3Fpromo%3DADVENTOFCODE" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Boot.dev</a> - Ready to become a backend developer? If you like AoC, you might be like us. We think smartest way to learn to code is to ensure you&apos;re never bored. Try the most captivating, addictive way to learn to code on Boot.dev.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2023/sponsors/redirect?url=https%3A%2F%2Fbareways%2Ecom%2Fjobs%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">BAREWAYS</a> - Unique maps &amp; navigation for Santa, elves &amp; all mankind. We hire!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 21: Step Counter ---</h2><p>You manage to catch the <a href="7">airship</a> right as it's dropping someone else off on their all-expenses-paid trip to Desert Island! It even helpfully drops you off near the <a href="5">gardener</a> and his massive farm.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: Step Counter ---</h2><p>You manage to catch the <a href="7">airship</a> right as it's dropping someone else off on their all-expenses-paid trip to Desert Island! It even helpfully drops you off near the <a href="5">gardener</a> and his massive farm.</p>
 <p>"You got the sand flowing again! Great work! Now we just need to wait until we have enough sand to filter the water for Snow Island and we'll have snow again in no time."</p>
 <p>While you wait, one of the Elves that works with the gardener heard how good you are at solving problems and would like your help. He needs to get his <a href="https://en.wikipedia.org/wiki/Pedometer" target="_blank">steps</a> in for the day, and so he'd like to know <em>which garden plots he can reach with exactly his remaining <code>64</code> steps</em>.</p>
 <p>He gives you an up-to-date map (your puzzle input) of his starting position (<code>S</code>), garden plots (<code>.</code>), and rocks (<code>#</code>). For example:</p>
@@ -167,12 +167,64 @@ O.O.#.#.O..
 <p>However, the Elf <em>actually needs to get <code>64</code> steps today</em>, and the map he's handed you is much larger than the example map.</p>
 <p>Starting from the garden plot marked <code>S</code> on your map, <em>how many garden plots could the Elf reach in exactly <code>64</code> steps?</em></p>
 </article>
-<p>To begin, <a href="21/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="21/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>3740</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The Elf seems confused by your answer until he realizes his mistake: he was reading from a <span title="Next up: 729.">list</span> of his favorite numbers that are both perfect squares and perfect cubes, not his step counter.</p>
+<p>The <em>actual</em> number of steps he needs to get today is exactly <code><em>26501365</em></code>.</p>
+<p>He also points out that the garden plots and rocks are set up so that the map <em>repeats infinitely</em> in every direction.</p>
+<p>So, if you were to look one additional map-width or map-height out from the edge of the example map above, you would find that it keeps repeating:</p>
+<pre><code>.................................
+.....###.#......###.#......###.#.
+.###.##..#..###.##..#..###.##..#.
+..#.#...#....#.#...#....#.#...#..
+....#.#........#.#........#.#....
+.##...####..##...####..##...####.
+.##..#...#..##..#...#..##..#...#.
+.......##.........##.........##..
+.##.#.####..##.#.####..##.#.####.
+.##..##.##..##..##.##..##..##.##.
+.................................
+.................................
+.....###.#......###.#......###.#.
+.###.##..#..###.##..#..###.##..#.
+..#.#...#....#.#...#....#.#...#..
+....#.#........#.#........#.#....
+.##...####..##..S####..##...####.
+.##..#...#..##..#...#..##..#...#.
+.......##.........##.........##..
+.##.#.####..##.#.####..##.#.####.
+.##..##.##..##..##.##..##..##.##.
+.................................
+.................................
+.....###.#......###.#......###.#.
+.###.##..#..###.##..#..###.##..#.
+..#.#...#....#.#...#....#.#...#..
+....#.#........#.#........#.#....
+.##...####..##...####..##...####.
+.##..#...#..##..#...#..##..#...#.
+.......##.........##.........##..
+.##.#.####..##.#.####..##.#.####.
+.##..##.##..##..##.##..##..##.##.
+.................................
+</code></pre>
+<p>This is just a tiny three-map-by-three-map slice of the inexplicably-infinite farm layout; garden plots and rocks repeat as far as you can see. The Elf still starts on the one middle tile marked <code>S</code>, though - every other repeated <code>S</code> is replaced with a normal garden plot (<code>.</code>).</p>
+<p>Here are the number of reachable garden plots in this new infinite version of the example map for different numbers of steps:</p>
+<ul>
+<li>In exactly <code>6</code> steps, he can still reach <code><em>16</em></code> garden plots.</li>
+<li>In exactly <code>10</code> steps, he can reach any of <code><em>50</em></code> garden plots.</li>
+<li>In exactly <code>50</code> steps, he can reach <code><em>1594</em></code> garden plots.</li>
+<li>In exactly <code>100</code> steps, he can reach <code><em>6536</em></code> garden plots.</li>
+<li>In exactly <code>500</code> steps, he can reach <code><em>167004</em></code> garden plots.</li>
+<li>In exactly <code>1000</code> steps, he can reach <code><em>668697</em></code> garden plots.</li>
+<li>In exactly <code>5000</code> steps, he can reach <code><em>16733044</em></code> garden plots.</li>
+</ul>
+<p>However, the step count the Elf needs is much larger! Starting from the garden plot marked <code>S</code> on your infinite map, <em>how many garden plots could the Elf reach in exactly <code>26501365</code> steps?</em></p>
+</article>
+<p>Your puzzle answer was <code>620962518745459</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2023">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="21/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Step+Counter%22+%2D+Day+21+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F21" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Step+Counter%22+%2D+Day+21+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Step+Counter%22+%2D+Day+21+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Step+Counter%22+%2D+Day+21+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F21" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Step+Counter%22+%2D+Day+21+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Step+Counter%22+%2D+Day+21+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

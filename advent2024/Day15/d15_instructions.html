@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/*</span><a href="/2024">2024</a><span class="title-event-wrap">*/</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="/2024">2024</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Fcodspeed%2Eio%2Fadvent%3Futm%5Fsource%3Daoc" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">CodSpeed: Performance Leaderboard</a> - Too slow to make it on the official leaderboard? Join the CodSpeed performance challenge and win BIG PRIZES!</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Fwww%2Elightricks%2Ecom%2Fltxv" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Lightricks</a> - Are you nerdy but also creative? Do you love AI, but truly believe the human hand doesnât have six fingers? If you answered yes and want to help the future of creation, weâre hiring software engineers, developers, and more.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 15: Warehouse Woes ---</h2><p>You appear back inside your own mini submarine! Each Historian drives their mini submarine in a different direction; maybe the Chief has his own submarine down here somewhere as well?</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 15: Warehouse Woes ---</h2><p>You appear back inside your own mini submarine! Each Historian drives their mini submarine in a different direction; maybe the Chief has his own submarine down here somewhere as well?</p>
 <p>You look up to see a vast school of <a href="/2021/day/6">lanternfish</a> swimming past you. On closer inspection, they seem quite anxious, so you drive your mini submarine over to see if you can help.</p>
 <p>Because lanternfish populations grow rapidly, they need a lot of food, and that food needs to be stored somewhere. That's why these lanternfish have built elaborate warehouse complexes operated by robots!</p>
 <p>These lanternfish seem so anxious because they have lost control of the robot that operates one of their most important warehouses! It is currently running <span title="Wesnoth players might solve their Warehouse Woes with a Warehouse Wose!">amok</span>, pushing around boxes in the warehouse with no regard for lanternfish logistics <em>or</em> lanternfish inventory management strategies.</p>
@@ -319,12 +319,175 @@ Move &lt;:
 <p>The lanternfish would like to know the <em>sum of all boxes' GPS coordinates</em> after the robot finishes moving. In the larger example, the sum of all boxes' GPS coordinates is <code><em>10092</em></code>. In the smaller example, the sum is <code><em>2028</em></code>.</p>
 <p>Predict the motion of the robot and boxes in the warehouse. After the robot is finished moving, <em>what is the sum of all boxes' GPS coordinates?</em></p>
 </article>
-<p>To begin, <a href="15/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="15/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1559280</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The lanternfish use your information to find a safe moment to swim in and turn off the malfunctioning robot! Just as they start preparing a festival in your honor, reports start coming in that a <em>second</em> warehouse's robot is <em>also</em> malfunctioning.</p>
+<p>This warehouse's layout is surprisingly similar to the one you just helped. There is one key difference: everything except the robot is <em>twice as wide</em>! The robot's list of movements doesn't change.</p>
+<p>To get the wider warehouse's map, start with your original map and, for each tile, make the following changes:</p>
+<ul>
+<li>If the tile is <code>#</code>, the new map contains <code>##</code> instead.</li>
+<li>If the tile is <code>O</code>, the new map contains <code>[]</code> instead.</li>
+<li>If the tile is <code>.</code>, the new map contains <code>..</code> instead.</li>
+<li>If the tile is <code>@</code>, the new map contains <code>@.</code> instead.</li>
+</ul>
+<p>This will produce a new warehouse map which is twice as wide and with wide boxes that are represented by <code>[]</code>. (The robot does not change size.)</p>
+<p>The larger example from before would now look like this:</p>
+<pre><code>####################
+##....[]....[]..[]##
+##............[]..##
+##..[][]....[]..[]##
+##....[]@.....[]..##
+##[]##....[]......##
+##[]....[]....[]..##
+##..[][]..[]..[][]##
+##........[]......##
+####################
+</code></pre>
+<p>Because boxes are now twice as wide but the robot is still the same size and speed, boxes can be aligned such that they directly push two other boxes at once. For example, consider this situation:</p>
+<pre><code>#######
+#...#.#
+#.....#
+#..OO@#
+#..O..#
+#.....#
+#######
+
+&lt;vv&lt;&lt;^^&lt;&lt;^^
+</code></pre>
+<p>After appropriately resizing this map, the robot would push around these boxes as follows:</p>
+<pre><code>Initial state:
+##############
+##......##..##
+##..........##
+##....[][]<em>@</em>.##
+##....[]....##
+##..........##
+##############
+
+Move &lt;:
+##############
+##......##..##
+##..........##
+##...[][]<em>@</em>..##
+##....[]....##
+##..........##
+##############
+
+Move v:
+##############
+##......##..##
+##..........##
+##...[][]...##
+##....[].<em>@</em>..##
+##..........##
+##############
+
+Move v:
+##############
+##......##..##
+##..........##
+##...[][]...##
+##....[]....##
+##.......<em>@</em>..##
+##############
+
+Move &lt;:
+##############
+##......##..##
+##..........##
+##...[][]...##
+##....[]....##
+##......<em>@</em>...##
+##############
+
+Move &lt;:
+##############
+##......##..##
+##..........##
+##...[][]...##
+##....[]....##
+##.....<em>@</em>....##
+##############
+
+Move ^:
+##############
+##......##..##
+##...[][]...##
+##....[]....##
+##.....<em>@</em>....##
+##..........##
+##############
+
+Move ^:
+##############
+##......##..##
+##...[][]...##
+##....[]....##
+##.....<em>@</em>....##
+##..........##
+##############
+
+Move &lt;:
+##############
+##......##..##
+##...[][]...##
+##....[]....##
+##....<em>@</em>.....##
+##..........##
+##############
+
+Move &lt;:
+##############
+##......##..##
+##...[][]...##
+##....[]....##
+##...<em>@</em>......##
+##..........##
+##############
+
+Move ^:
+##############
+##......##..##
+##...[][]...##
+##...<em>@</em>[]....##
+##..........##
+##..........##
+##############
+
+Move ^:
+##############
+##...[].##..##
+##...<em>@</em>.[]...##
+##....[]....##
+##..........##
+##..........##
+##############
+</code></pre>
+<p>This warehouse also uses GPS to locate the boxes. For these larger boxes, distances are measured from the edge of the map to the closest edge of the box in question. So, the box shown below has a distance of <code>1</code> from the top edge of the map and <code>5</code> from the left edge of the map, resulting in a GPS coordinate of <code>100 * 1 + 5 = 105</code>.</p>
+<pre><code>##########
+##...[]...
+##........
+</code></pre>
+<p>In the scaled-up version of the larger example from above, after the robot has finished all of its moves, the warehouse would look like this:</p>
+<pre><code>####################
+##[].......[].[][]##
+##[]...........[].##
+##[]........[][][]##
+##[]......[]....[]##
+##..##......[]....##
+##..[]............##
+##..<em>@</em>......[].[][]##
+##......[][]..[]..##
+####################
+</code></pre>
+<p>The sum of these boxes' GPS coordinates is <code><em>9021</em></code>.</p>
+<p>Predict the motion of the robot and boxes in this new, scaled-up warehouse. <em>What is the sum of all boxes' final GPS coordinates?</em></p>
+</article>
+<p>Your puzzle answer was <code>1576353</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2024">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="15/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Warehouse+Woes%22+%2D+Day+15+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F15" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Warehouse+Woes%22+%2D+Day+15+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F15&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Warehouse+Woes%22+%2D+Day+15+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F15';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Warehouse+Woes%22+%2D+Day+15+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F15" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Warehouse+Woes%22+%2D+Day+15+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F15&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Warehouse+Woes%22+%2D+Day+15+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F15';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">var y=</span><a href="/2024">2024</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">y(</span><a href="/2024">2024</a><span class="title-event-wrap">)</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Fjobs%2Epicnic%2Eapp%2Fen%2Ftech%3Futm%5Fsource%3Dadventofcode%26utm%5Fmedium%3Dcareer%26utm%5Fcampaign%3Dadventofcode" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Picnic</a> - A tech-first approach to online groceries. We are #hiring for Java, React, MLOps, DevOps, DevEx and more!</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Fahrefs%2Ecom%2Fabout" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Ahrefs</a> - We crawl the internet, all of it. Then we parse, store, index and query, all of it. And that&apos;s how we build web analytics and a search engine. What else could we do with 400 billion htmls? :thinking_face: BTW we use OCaml</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 21: Keypad Conundrum ---</h2><p>As you teleport onto Santa's <a href="/2019/day/25">Reindeer-class starship</a>, The Historians begin to panic: someone from their search party is <em>missing</em>. A quick life-form scan by the ship's computer reveals that when the missing Historian teleported, he arrived in another part of the ship.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: Keypad Conundrum ---</h2><p>As you teleport onto Santa's <a href="/2019/day/25">Reindeer-class starship</a>, The Historians begin to panic: someone from their search party is <em>missing</em>. A quick life-form scan by the ship's computer reveals that when the missing Historian teleported, he arrived in another part of the ship.</p>
 <p>The door to that area is locked, but the computer can't open it; it can only be opened by <em>physically typing</em> the door codes (your puzzle input) on the numeric keypad on the door.</p>
 <p>The numeric keypad has four rows of buttons: <code>789</code>, <code>456</code>, <code>123</code>, and finally an empty gap followed by <code>0A</code>. Visually, they are arranged like this:</p>
 <pre><code>+---+---+---+
@@ -168,12 +168,25 @@ v&lt;&lt;A&gt;&gt;^A&lt;A&gt;AvA&lt;^AA&gt;A&lt;vAAA&gt;^A
 <p>In the above example, complexity of the five codes can be found by calculating <code>68 * 29</code>, <code>60 * 980</code>, <code>68 * 179</code>, <code>64 * 456</code>, and <code>64 * 379</code>. Adding these together produces <code><em>126384</em></code>.</p>
 <p>Find the fewest number of button presses you'll need to perform in order to cause the robot in front of the door to type each code. <em>What is the sum of the complexities of the five codes on your list?</em></p>
 </article>
-<p>To begin, <a href="21/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="21/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>248108</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Just as the missing Historian is released, The Historians realize that a <em>second</em> member of their search party has also been missing <span title="bum bum BUUUUUM">this entire time</span>!</p>
+<p>A quick life-form scan reveals the Historian is also trapped in a locked area of the ship. Due to a variety of hazards, robots are once again dispatched, forming another chain of remote control keypads managing robotic-arm-wielding robots.</p>
+<p>This time, many more robots are involved. In summary, there are the following keypads:</p>
+<ul>
+<li>One directional keypad that <em>you</em> are using.</li>
+<li><em>25</em> directional keypads that <em>robots</em> are using.</li>
+<li>One numeric keypad (on a door) that a <em>robot</em> is using.</li>
+</ul>
+<p>The keypads form a chain, just like before: your directional keypad controls a robot which is typing on a directional keypad which controls a robot which is typing on a directional keypad... and so on, ending with the robot which is typing on the numeric keypad.</p>
+<p>The door codes are the same this time around; only the number of robots and directional keypads has changed.</p>
+<p>Find the fewest number of button presses you'll need to perform in order to cause the robot in front of the door to type each code. <em>What is the sum of the complexities of the five codes on your list?</em></p>
+</article>
+<p>Your puzzle answer was <code>303836969158972</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2024">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="21/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Keypad+Conundrum%22+%2D+Day+21+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F21" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Keypad+Conundrum%22+%2D+Day+21+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Keypad+Conundrum%22+%2D+Day+21+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Keypad+Conundrum%22+%2D+Day+21+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F21" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Keypad+Conundrum%22+%2D+Day+21+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Keypad+Conundrum%22+%2D+Day+21+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

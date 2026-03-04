@@ -87,13 +87,13 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2015/about">[About]</a></li><li><a href="/2015/events">[Events]</a></li><li><a href="/2015/shop">[Shop]</a></li><li><a href="/2015/settings">[Settings]</a></li><li><a href="/2015/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0x0000|</span><a href="/2015">2015</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2015">[Calendar]</a></li><li><a href="/2015/support">[AoC++]</a></li><li><a href="/2015/sponsors">[Sponsors]</a></li><li><a href="/2015/leaderboard">[Leaderboards]</a></li><li><a href="/2015/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2015/about">[About]</a></li><li><a href="/2015/events">[Events]</a></li><li><a href="/2015/shop">[Shop]</a></li><li><a href="/2015/settings">[Settings]</a></li><li><a href="/2015/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap"></span><a href="/2015">2015</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2015">[Calendar]</a></li><li><a href="/2015/support">[AoC++]</a></li><li><a href="/2015/sponsors">[Sponsors]</a></li><li><a href="/2015/leaderboard">[Leaderboards]</a></li><li><a href="/2015/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 14: Reindeer Olympics ---</h2><p>This year is the Reindeer Olympics!  Reindeer can fly at high speeds, but must rest occasionally to recover their energy.  Santa would like to know which of his reindeer is fastest, and so he has them race.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Reindeer Olympics ---</h2><p>This year is the Reindeer Olympics!  Reindeer can fly at high speeds, but must rest occasionally to recover their energy.  Santa would like to know which of his reindeer is fastest, and so he has them race.</p>
 <p>Reindeer can only either be <em>flying</em> (always at their top speed) or <em>resting</em> (not moving at all), and always spend whole seconds in either state.</p>
 <p>For example, suppose you have the following Reindeer:</p>
 <ul>
@@ -104,12 +104,19 @@ on Mastodon.
 <p>In this example, after the 1000th second, both reindeer are resting, and Comet is in the lead at <em><code>1120</code></em> km (poor Dancer has only gotten <code>1056</code> km by that point).  So, in this situation, Comet would win (if the race ended at 1000 seconds).</p>
 <p>Given the descriptions of each reindeer (in your puzzle input), after exactly <code>2503</code> seconds, <em>what distance has the winning reindeer traveled</em>?</p>
 </article>
-<p>To begin, <a href="14/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="14/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>2696</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Seeing how reindeer move in bursts, Santa decides he's not pleased with the old scoring system.</p>
+<p>Instead, at the end of each second, he awards one point to the reindeer currently in the lead.  (If there are multiple reindeer tied for the lead, they each get one point.)  He keeps the traditional 2503 second time limit, of course, as doing otherwise would be <span title="It also risks choosing a duration that isn't coprime with the cycle times of each reindeer.">entirely ridiculous</span>.</p>
+<p>Given the example reindeer from above, after the first second, Dancer is in the lead and gets one point.  He stays in the lead until several seconds into Comet's second burst: after the 140th second, Comet pulls into the lead and gets his first point.  Of course, since Dancer had been in the lead for the 139 seconds before that, he has accumulated 139 points by the 140th second.</p>
+<p>After the 1000th second, Dancer has accumulated <em><code>689</code></em> points, while poor Comet, our old champion, only has <code>312</code>.  So, with the new scoring system, Dancer would win (if the race ended at 1000 seconds).</p>
+<p>Again given the descriptions of each reindeer (in your puzzle input), after exactly <code>2503</code> seconds, <em>how many points does the winning reindeer have</em>?</p>
+</article>
+<p>Your puzzle answer was <code>1084</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2015">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="14/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Reindeer+Olympics%22+%2D+Day+14+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F14" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Reindeer+Olympics%22+%2D+Day+14+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Reindeer+Olympics%22+%2D+Day+14+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Reindeer+Olympics%22+%2D+Day+14+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F14" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Reindeer+Olympics%22+%2D+Day+14+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Reindeer+Olympics%22+%2D+Day+14+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

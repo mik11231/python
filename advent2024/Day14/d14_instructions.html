@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{:year </span><a href="/2024">2024</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="/2024">2024</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Flinks%2Ezerotomastery%2Eio%2Faoc2024" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Zero To Mastery</a> - Ready to upgrade your earning power? If you like AoC, you&apos;ll like our courses built by programmers (not influencers), for programmers. ZTM helps you get a better job, and earn more with one trick: quality, not gimmicks.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Fcodecrafters%2Eio%2Faoc2024" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">CodeCrafters.io</a> - Build your own Interpreter, SQLite, or Git. =============== It&apos;s coding practice on steroids. ============== Try it out for free today &gt;&gt; =============== Bonus, solve this: PWFI YFRP, ZIK XVNVC% KTW GOXA MMQEMOTH</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 14: Restroom Redoubt ---</h2><p>One of The Historians needs to use the bathroom; fortunately, you know there's a bathroom near an unvisited location on their list, and so you're all quickly teleported directly to the lobby of Easter Bunny Headquarters.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Restroom Redoubt ---</h2><p>One of The Historians needs to use the bathroom; fortunately, you know there's a bathroom near an unvisited location on their list, and so you're all quickly teleported directly to the lobby of Easter Bunny Headquarters.</p>
 <p>Unfortunately, EBHQ seems to have "improved" bathroom security <em>again</em> after your last <a href="/2016/day/2">visit</a>. The area outside the bathroom is swarming with robots!</p>
 <p>To get The Historian safely to the bathroom, you'll need a way to predict where the robots will be in the future. Fortunately, they all seem to be moving on the tile floor in predictable <em>straight lines</em>.</p>
 <p>You make a list (your puzzle input) of all of the robots' current <em>positions</em> (<code>p</code>) and <em>velocities</em> (<code>v</code>), one robot per line. For example:</p>
@@ -200,12 +200,16 @@ After 5 seconds:
 <p>In this example, the quadrants contain <code>1</code>, <code>3</code>, <code>4</code>, and <code>1</code> robot. Multiplying these together gives a total <em>safety factor</em> of <code><em>12</em></code>.</p>
 <p>Predict the motion of the robots in your list within a space which is <code>101</code> tiles wide and <code>103</code> tiles tall. <em>What will the safety factor be after exactly 100 seconds have elapsed?</em></p>
 </article>
-<p>To begin, <a href="14/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="14/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>232589280</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>During the bathroom break, someone notices that these robots seem awfully similar to ones built and used at the North Pole. If they're the same type of robots, they should have a hard-coded <span title="This puzzle was originally going to be about the motion of space rocks in a fictitious arcade game called Meteoroids, but we just had an arcade puzzle.">Easter egg</span>: very rarely, most of the robots should arrange themselves into <em>a picture of a Christmas tree</em>.</p>
+<p><em>What is the fewest number of seconds that must elapse for the robots to display the Easter egg?</em></p>
+</article>
+<p>Your puzzle answer was <code>7569</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2024">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="14/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Restroom+Redoubt%22+%2D+Day+14+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F14" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Restroom+Redoubt%22+%2D+Day+14+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Restroom+Redoubt%22+%2D+Day+14+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Restroom+Redoubt%22+%2D+Day+14+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F14" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Restroom+Redoubt%22+%2D+Day+14+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Restroom+Redoubt%22+%2D+Day+14+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

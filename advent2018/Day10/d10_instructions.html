@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">18*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="/2018">2018</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{year=&gt;</span><a href="/2018">2018</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Faoc%2Eprodo%2Eai%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Alfie by Prodo</a> - a more immediate, feedback-driven coding experience. Try our online JavaScript playground with Advent of Code!</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fwww%2Ewearedevelopers%2Ecom%2Fworld%2Dcongress%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">WeAreDevelopers</a> - Use &quot;AOC-25&quot;, save EUR 25 and join 10^4 devs on June 6-7 at the WeAreDevelopers World Congress in Berlin ticket.get(now)</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 10: The Stars Align ---</h2><p>It's no use; your navigation system simply isn't capable of providing <span title="At the iceberg, use any lane to turn left. Then, swim for eight thousand miles.">walking directions</span> in the arctic circle, and certainly not in 1018.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 10: The Stars Align ---</h2><p>It's no use; your navigation system simply isn't capable of providing <span title="At the iceberg, use any lane to turn left. Then, swim for eight thousand miles.">walking directions</span> in the arctic circle, and certainly not in 1018.</p>
 <p>The Elves suggest an alternative. In times like these, North Pole rescue operations will arrange points of light in the sky to guide missing Elves back to base. Unfortunately, the message is easy to miss: the points move slowly enough that it takes hours to align them, but have so much momentum that they only stay aligned for a second. If you blink at the wrong time, it might be hours before another message appears.</p>
 <p>You can see these points of light floating in the distance, and record their position in the sky and their velocity, the relative change in position per second (your puzzle input). The coordinates are all given from your perspective; given enough time, those positions and velocities will move the points into a cohesive message!</p>
 <p>Rather than wait, you decide to fast-forward the process and calculate what the points will eventually spell.</p>
@@ -227,12 +227,16 @@ After 4 seconds:
 <p>After 3 seconds, the message appeared briefly: <code><em>HI</em></code>. Of course, your message will be much longer and will take many more seconds to appear.</p>
 <p><em>What message will eventually appear in the sky?</em></p>
 </article>
-<p>To begin, <a href="10/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="10/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>AJZNXHKE</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Good thing you didn't have to wait, because that would have taken a long time - much longer than the <code><em>3</em></code> seconds in the example above.</p>
+<p>Impressed by your sub-hour communication capabilities, the Elves are curious: <em>exactly how many seconds would they have needed to wait for that message to appear?</em></p>
+</article>
+<p>Your puzzle answer was <code>10905</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2018">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="10/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22The+Stars+Align%22+%2D+Day+10+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F10" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22The+Stars+Align%22+%2D+Day+10+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22The+Stars+Align%22+%2D+Day+10+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F10';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22The+Stars+Align%22+%2D+Day+10+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F10" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22The+Stars+Align%22+%2D+Day+10+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22The+Stars+Align%22+%2D+Day+10+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F10';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

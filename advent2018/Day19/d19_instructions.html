@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">36*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">0.0.0.0:</span><a href="/2018">2018</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0xffff&amp;</span><a href="/2018">2018</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fsmartystreets%2Ecom%2Faoc" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">SmartyStreets</a> - Global address validation made by developers, for developers</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fwww%2Eauricsystems%2Ecom%2F%3Fadvent2018" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">AuricVaultÂ®</a> - Store &amp; Share sensitive data. PCI/HIPAA/GDPR compliance.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 19: Go With The Flow ---</h2><p>With the Elves well on their way constructing the North Pole base, you turn your attention back to understanding the inner workings of programming the device.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 19: Go With The Flow ---</h2><p>With the Elves well on their way constructing the North Pole base, you turn your attention back to understanding the inner workings of programming the device.</p>
 <p>You can't help but notice that the <a href="16">device's opcodes</a> don't contain any <em>flow control</em> like jump instructions. The device's <a href="16">manual</a> goes on to explain:</p>
 <p>"In programs where flow control is required, the <a href="https://en.wikipedia.org/wiki/Program_counter">instruction pointer</a> can be <em>bound to a register</em> so that it can be manipulated directly. This way, <code>setr</code>/<code>seti</code> can function as absolute jumps, <code>addr</code>/<code>addi</code> can function as relative jumps, and other opcodes can cause <span title="Good luck maintaining a program that uses a bitwise operation on its instruction pointer, though.">truly fascinating</span> effects."</p>
 <p>This mechanism is achieved through a declaration like <code>#ip 1</code>, which would modify register <code>1</code> so that accesses to it let the program indirectly access the instruction pointer itself. To compensate for this kind of binding, there are now <em>six</em> registers (numbered <code>0</code> through <code>5</code>); the five not bound to the instruction pointer behave as normal. Otherwise, the same rules apply as <a href="16">the last time you worked with this device</a>.</p>
@@ -129,12 +129,16 @@ ip=6 [6, 5, 6, 0, 0, 0] seti 9 0 5 [6, 5, 6, 0, 0, 9]
 </ul>
 <p><em>What value is left in register <code>0</code></em> when the background process halts?</p>
 </article>
-<p>To begin, <a href="19/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="19/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1968</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>A new background process immediately spins up in its place. It appears identical, but on closer inspection, you notice that <em>this time, register <code>0</code> started with the value <code>1</code></em>.</p>
+<p><em>What value is left in register <code>0</code></em> when this new background process halts?</p>
+</article>
+<p>Your puzzle answer was <code>21211200</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2018">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="19/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Go+With+The+Flow%22+%2D+Day+19+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F19" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Go+With+The+Flow%22+%2D+Day+19+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F19&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Go+With+The+Flow%22+%2D+Day+19+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F19';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Go+With+The+Flow%22+%2D+Day+19+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F19" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Go+With+The+Flow%22+%2D+Day+19+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F19&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Go+With+The+Flow%22+%2D+Day+19+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F19';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

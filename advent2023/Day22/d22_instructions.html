@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="/2023/shop">[Shop]</a></li><li><a href="/2023/settings">[Settings]</a></li><li><a href="/2023/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">2*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">var y=</span><a href="/2023">2023</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboards]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="/2023/shop">[Shop]</a></li><li><a href="/2023/settings">[Settings]</a></li><li><a href="/2023/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0x0000|</span><a href="/2023">2023</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboards]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2023/sponsors/redirect?url=https%3A%2F%2Fshopify%2Eengineering%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Shopify</a> - Elves may be great at toy-making, but Shopify engineers code their way on to the nice list! Check out our engineering blog for tips.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2023/sponsors/redirect?url=https%3A%2F%2Fpantherainvestment%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Panthera Investment</a> - We solve Financial Markets. Do you want to join?</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 22: Sand Slabs ---</h2><p>Enough sand has fallen; it can finally filter water for Snow Island.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 22: Sand Slabs ---</h2><p>Enough sand has fallen; it can finally filter water for Snow Island.</p>
 <p>Well, <em>almost</em>.</p>
 <p>The sand has been falling as large compacted <em>bricks</em> of sand, piling up to form an impressive stack here near the edge of Island Island. In order to make use of the sand to filter water, some of the bricks will need to be broken apart - nay, <em><span title="Disintegrate - X,R&#10;Sorcery&#10;Destroy X target bricks of sand. They cannot be regenerated. Create 32768 0/1 colorless Sand artifact creature tokens for each brick of sand destroyed in this way.">disintegrated</span></em> - back into freely flowing sand.</p>
 <p>The stack is tall enough that you'll have to be careful about choosing which bricks to disintegrate; if you disintegrate the wrong brick, large portions of the stack could topple, which sounds pretty dangerous.</p>
@@ -196,12 +196,23 @@ AAA 1
 <p>So, in this example, <code><em>5</em></code> bricks can be safely disintegrated.</p>
 <p>Figure how the blocks will settle based on the snapshot. Once they've settled, consider disintegrating a single brick; <em>how many bricks could be safely chosen as the one to get disintegrated?</em></p>
 </article>
-<p>To begin, <a href="22/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="22/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>465</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Disintegrating bricks one at a time isn't going to be fast enough. While it might sound dangerous, what you really need is a <em>chain reaction</em>.</p>
+<p>You'll need to figure out the best brick to disintegrate. For each brick, determine how many <em>other bricks would fall</em> if that brick were disintegrated.</p>
+<p>Using the same example as above:</p>
+<ul>
+<li>Disintegrating brick <code>A</code> would cause all <code><em>6</em></code> other bricks to fall.</li>
+<li>Disintegrating brick <code>F</code> would cause only <code><em>1</em></code> other brick, <code>G</code>, to fall.</li>
+</ul>
+<p>Disintegrating any other brick would cause <em>no other bricks</em> to fall. So, in this example, the sum of <em>the number of other bricks that would fall</em> as a result of disintegrating each brick is <code><em>7</em></code>.</p>
+<p>For each brick, determine how many <em>other bricks</em> would fall if that brick were disintegrated. <em>What is the sum of the number of other bricks that would fall?</em></p>
+</article>
+<p>Your puzzle answer was <code>79042</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2023">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="22/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Sand+Slabs%22+%2D+Day+22+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F22" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Sand+Slabs%22+%2D+Day+22+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Sand+Slabs%22+%2D+Day+22+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F22';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Sand+Slabs%22+%2D+Day+22+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F22" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Sand+Slabs%22+%2D+Day+22+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Sand+Slabs%22+%2D+Day+22+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F22';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

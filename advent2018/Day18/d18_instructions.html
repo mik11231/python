@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">34*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">Î»y.</span><a href="/2018">2018</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0xffff&amp;</span><a href="/2018">2018</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fxebia%2Ecom%2Fcommunity%2Fadvent%2Dof%2Dcode" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Xebia</a> - an international network of passionate technologists and craftspeople, dedicated to exploring and creating new frontiers in IT</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fwww%2Ewinton%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Winton</a> - a data science and investment management company</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 18: Settlers of The North Pole ---</h2><p>On the outskirts of the North Pole base construction project, many Elves are collecting <span title="Trade wood for sheep?">lumber</span>.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 18: Settlers of The North Pole ---</h2><p>On the outskirts of the North Pole base construction project, many Elves are collecting <span title="Trade wood for sheep?">lumber</span>.</p>
 <p>The lumber collection area is 50 acres by 50 acres; each acre can be either <em>open ground</em> (<code>.</code>), <em>trees</em> (<code>|</code>), or a <em>lumberyard</em> (<code>#</code>). You take a scan of the area (your puzzle input).</p>
 <p>Strange magic is at work here: each minute, the landscape looks entirely different. In exactly <em>one minute</em>, an open acre can fill with trees, a wooded acre can be converted to a lumberyard, or a lumberyard can be cleared to open ground (the lumber having been sent to other projects).</p>
 <p>The change to each acre is based entirely on <em>the contents of that acre</em> as well as <em>the number of open, wooded, or lumberyard acres adjacent to it</em> at the start of each minute. Here, "adjacent" means any of the eight acres surrounding that acre. (Acres on the edges of the lumber collection area might have fewer than eight adjacent acres; the missing acres aren't counted.)</p>
@@ -241,12 +241,16 @@ After 10 minutes:
 <p>After 10 minutes, there are <code>37</code> wooded acres and <code>31</code> lumberyards.  Multiplying the number of wooded acres by the number of lumberyards gives the total <em>resource value</em> after ten minutes: <code>37 * 31 = <em>1147</em></code>.</p>
 <p><em>What will the total resource value of the lumber collection area be after 10 minutes?</em></p>
 </article>
-<p>To begin, <a href="18/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="18/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>483840</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>This important natural resource will need to last for at least thousands of years.  Are the Elves collecting this lumber sustainably?</p>
+<p><em>What will the total resource value of the lumber collection area be after 1000000000 minutes?</em></p>
+</article>
+<p>Your puzzle answer was <code>219919</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2018">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="18/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

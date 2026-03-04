@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{year=&gt;</span><a href="/2017">2017</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">sub y{</span><a href="/2017">2017</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=https%3A%2F%2Fformlabs%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Formlabs</a> - We make powerful, affordable 3D printers for professionals.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=https%3A%2F%2Fcheppers%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Cheppers</a> - xor(Pz0pQUI7Ch cmER8YDAEYAh4L GwEP, ââââââââBA)</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 23: Coprocessor Conflagration ---</h2><p>You decide to head directly to the CPU and fix the printer from there. As you get close, you find an <em>experimental coprocessor</em> doing so much work that the local programs are afraid it will <a href="https://en.wikipedia.org/wiki/Halt_and_Catch_Fire">halt and catch fire</a>. This would cause serious issues for the rest of the computer, so you head in and see what you can do.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 23: Coprocessor Conflagration ---</h2><p>You decide to head directly to the CPU and fix the printer from there. As you get close, you find an <em>experimental coprocessor</em> doing so much work that the local programs are afraid it will <a href="https://en.wikipedia.org/wiki/Halt_and_Catch_Fire">halt and catch fire</a>. This would cause serious issues for the rest of the computer, so you head in and see what you can do.</p>
 <p>The code it's running seems to be a variant of the kind you saw recently on that <a href="18">tablet</a>. The general functionality seems <em>very similar</em>, but some of the instructions are different:</p>
 <ul>
 <li><code>set X Y</code> <em>sets</em> register <code>X</code> to the value of <code>Y</code>.</li>
@@ -106,12 +106,19 @@ on Mastodon.
 <p>The coprocessor is currently set to some kind of <em>debug mode</em>, which allows for testing, but prevents it from doing any meaningful work.</p>
 <p>If you run the program (your puzzle input), <em>how many times is the <code>mul</code> instruction invoked?</em></p>
 </article>
-<p>To begin, <a href="23/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="23/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>3969</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now, it's time to fix the problem.</p>
+<p>The <em>debug mode switch</em> is wired directly to register <code>a</code>.  You <span title="From 'magic' to 'more magic'.">flip the switch</span>, which makes <em>register <code>a</code> now start at <code>1</code></em> when the program is executed.</p>
+<p>Immediately, the coprocessor begins to overheat.  Whoever wrote this program obviously didn't choose a very efficient implementation.  You'll need to <em>optimize the program</em> if it has any hope of completing before Santa needs that printer working.</p>
+<p>The coprocessor's ultimate goal is to determine the final value left in register <code>h</code> once the program completes. Technically, if it had that... it wouldn't even need to run the program.</p>
+<p>After setting register <code>a</code> to <code>1</code>, if the program were to run to completion, <em>what value would be left in register <code>h</code>?</em></p>
+</article>
+<p>Your puzzle answer was <code>917</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2017">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="23/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

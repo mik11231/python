@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{:year </span><a href="/2024">2024</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2024/about">[About]</a></li><li><a href="/2024/events">[Events]</a></li><li><a href="/2024/shop">[Shop]</a></li><li><a href="/2024/settings">[Settings]</a></li><li><a href="/2024/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">&lt;y&gt;</span><a href="/2024">2024</a><span class="title-event-wrap">&lt;/y&gt;</span></h1><nav><ul><li><a href="/2024">[Calendar]</a></li><li><a href="/2024/support">[AoC++]</a></li><li><a href="/2024/sponsors">[Sponsors]</a></li><li><a href="/2024/leaderboard">[Leaderboards]</a></li><li><a href="/2024/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Fyoast%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Yoast</a> - Dreaming of your code on 14M sites worldwide? Make it come true!</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2024/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2024/sponsors/redirect?url=https%3A%2F%2Ftechblog%2Ecriteo%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Criteo</a> - Helping Santa prepare for the peak season since 2005</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 8: Resonant Collinearity ---</h2><p>You find yourselves on the <a href="/2016/day/25">roof</a> of a top-secret Easter Bunny installation.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 8: Resonant Collinearity ---</h2><p>You find yourselves on the <a href="/2016/day/25">roof</a> of a top-secret Easter Bunny installation.</p>
 <p>While The Historians do their thing, you take a look at the familiar <em>huge antenna</em>. Much to your surprise, it seems to have been reconfigured to emit a signal that makes people 0.1% more likely to buy Easter Bunny brand <span title="They could have imitated delicious chocolate, but the mediocre chocolate is WAY easier to imitate.">Imitation Mediocre</span> Chocolate as a Christmas gift! Unthinkable!</p>
 <p>Scanning across the city, you find that there are actually many such antennas. Each antenna is tuned to a specific <em>frequency</em> indicated by a single lowercase letter, uppercase letter, or digit. You create a map (your puzzle input) of these antennas. For example:</p>
 <pre><code>............
@@ -164,12 +164,45 @@ on Mastodon.
 <p>Because the topmost <code>A</code>-frequency antenna overlaps with a <code>0</code>-frequency antinode, there are <code><em>14</em></code> total unique locations that contain an antinode within the bounds of the map.</p>
 <p>Calculate the impact of the signal. <em>How many unique locations within the bounds of the map contain an antinode?</em></p>
 </article>
-<p>To begin, <a href="8/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="8/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>371</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Watching over your shoulder as you work, one of The Historians asks if you took the effects of resonant harmonics into your calculations.</p>
+<p>Whoops!</p>
+<p>After updating your model, it turns out that an antinode occurs at <em>any grid position</em> exactly in line with at least two antennas of the same frequency, regardless of distance. This means that some of the new antinodes will occur at the position of each antenna (unless that antenna is the only one of its frequency).</p>
+<p>So, these three <code>T</code>-frequency antennas now create many antinodes:</p>
+<pre><code>T....#....
+...T......
+.T....#...
+.........#
+..#.......
+..........
+...#......
+..........
+....#.....
+..........
+</code></pre>
+<p>In fact, the three <code>T</code>-frequency antennas are all exactly in line with two antennas, so they are all also antinodes! This brings the total number of antinodes in the above example to <code><em>9</em></code>.</p>
+<p>The original example now has <code><em>34</em></code> antinodes, including the antinodes that appear on every antenna:</p>
+<pre><code>##....#....#
+.#.#....0...
+..#.#0....#.
+..##...0....
+....0....#..
+.#...#A....#
+...#..#.....
+#....#.#....
+..#.....A...
+....#....A..
+.#........#.
+...#......##
+</code></pre>
+<p>Calculate the impact of the signal using this updated model. <em>How many unique locations within the bounds of the map contain an antinode?</em></p>
+</article>
+<p>Your puzzle answer was <code>1229</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2024">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="8/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Resonant+Collinearity%22+%2D+Day+8+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F8" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Resonant+Collinearity%22+%2D+Day+8+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F8&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Resonant+Collinearity%22+%2D+Day+8+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F8';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Resonant+Collinearity%22+%2D+Day+8+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F8" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Resonant+Collinearity%22+%2D+Day+8+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F8&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Resonant+Collinearity%22+%2D+Day+8+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F8';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

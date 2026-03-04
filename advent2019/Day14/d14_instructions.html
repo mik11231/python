@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{year=&gt;</span><a href="/2019">2019</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="/2019">2019</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=https%3A%2F%2Fwww%2Etngtech%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">TNG</a> - The Nerd Group. Solving hard IT problems all year round.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=https%3A%2F%2Fabout%2Esourcegraph%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Sourcegraph</a> - Build the new standard developer platform on a globally-distributed remote-first team. We value ownership, autonomy, communication, and transparency.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 14: Space Stoichiometry ---</h2><p>As you approach the rings of Saturn, your ship's <em>low fuel</em> indicator turns on.  There isn't any fuel here, but the rings have plenty of raw material.  Perhaps your ship's <span title="Yes, the acronym is intentional.">Inter-Stellar Refinery Union</span> brand <em>nanofactory</em> can turn these raw materials into fuel.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Space Stoichiometry ---</h2><p>As you approach the rings of Saturn, your ship's <em>low fuel</em> indicator turns on.  There isn't any fuel here, but the rings have plenty of raw material.  Perhaps your ship's <span title="Yes, the acronym is intentional.">Inter-Stellar Refinery Union</span> brand <em>nanofactory</em> can turn these raw materials into fuel.</p>
 <p>You ask the nanofactory to produce a list of the <em>reactions</em> it can perform that are relevant to this process (your puzzle input). Every reaction turns some quantities of specific <em>input chemicals</em> into some quantity of an <em>output chemical</em>. Almost every <em>chemical</em> is produced by exactly one reaction; the only exception, <code>ORE</code>, is the raw material input to the entire process and is not produced by a reaction.</p>
 <p>You just need to know how much <code><em>ORE</em></code> you'll need to collect before you can produce one unit of <code><em>FUEL</em></code>.</p>
 <p>Each reaction gives specific quantities for its inputs and output; reactions cannot be partially run, so only whole integer multiples of these quantities can be used.  (It's okay to have leftover chemicals when you're done, though.) For example, the reaction <code>1 A, 2 B, 3 C =&gt; 2 D</code> means that exactly 2 units of chemical <code>D</code> can be produced by consuming exactly 1 <code>A</code>, 2 <code>B</code> and 3 <code>C</code>.  You can run the full reaction as many times as necessary; for example, you could produce 10 <code>D</code> by consuming 5 <code>A</code>, 10 <code>B</code>, and 15 <code>C</code>.</p>
@@ -175,12 +175,22 @@ on Mastodon.
 </ul>
 <p>Given the list of reactions in your puzzle input, <em>what is the minimum amount of <code>ORE</code> required to produce exactly 1 <code>FUEL</code>?</em></p>
 </article>
-<p>To begin, <a href="14/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="14/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1046184</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>After collecting <code>ORE</code> for a while, you check your cargo hold: <em>1 trillion</em> (<em>1000000000000</em>) units of <code>ORE</code>.</p>
+<p><em>With that much ore</em>, given the examples above:</p>
+<ul>
+<li>The 13312 <code>ORE</code>-per-<code>FUEL</code> example could produce <em>82892753</em> <code>FUEL</code>.</li>
+<li>The 180697 <code>ORE</code>-per-<code>FUEL</code> example could produce <em>5586022</em> <code>FUEL</code>.</li>
+<li>The 2210736 <code>ORE</code>-per-<code>FUEL</code> example could produce <em>460664</em> <code>FUEL</code>.</li>
+</ul>
+<p>Given 1 trillion <code>ORE</code>, <em>what is the maximum amount of <code>FUEL</code> you can produce?</em></p>
+</article>
+<p>Your puzzle answer was <code>1639374</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2019">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="14/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

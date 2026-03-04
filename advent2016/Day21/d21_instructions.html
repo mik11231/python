@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0xffff&amp;</span><a href="/2016">2016</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0xffff&amp;</span><a href="/2016">2016</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2016/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2016/sponsors/redirect?url=https%3A%2F%2Finfo%2Eesparklearning%2Ecom%2Fjoin%2Dour%2Dteam%2Dfull%2Dstack%2Dengineer" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">eSpark Learning</a> - Solve the greatest puzzle of our day - transform education</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2016/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2016/sponsors/redirect?url=https%3A%2F%2Finfi%2Enl%2Fvacature%2Finfi%2Dzoekt%2Deen%2Dontwikkelaar%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Infi</a> - Fvzcry gbpu? Xbz arkg-yriry glcra va Hgerpug bc baf areqxjnegvre!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 21: Scrambled Letters and Hash ---</h2><p>The computer system you're breaking into uses a <span title="I do not like them, Security-Account-Manager-I-Am! I do not like scrambled letters and hash!">weird scrambling function</span> to store its passwords. It shouldn't be much trouble to create your own scrambled password so you can add it to the system; you just have to implement the scrambler.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: Scrambled Letters and Hash ---</h2><p>The computer system you're breaking into uses a <span title="I do not like them, Security-Account-Manager-I-Am! I do not like scrambled letters and hash!">weird scrambling function</span> to store its passwords. It shouldn't be much trouble to create your own scrambled password so you can add it to the system; you just have to implement the scrambler.</p>
 <p>The scrambling function is a series of operations (the exact list is provided in your puzzle input). Starting with the password to be scrambled, apply each operation in succession to the string. The individual operations behave as follows:</p>
 <ul>
 <li><code>swap position X with position Y</code> means that the letters at indexes <code>X</code> and <code>Y</code> (counting from <code>0</code>) should be <em>swapped</em>.</li>
@@ -118,12 +118,16 @@ on Mastodon.
 <p>After these steps, the resulting scrambled password is <code>decab</code>.</p>
 <p>Now, you just need to generate a new scrambled password and you can access the system. Given the list of scrambling operations in your puzzle input, <em>what is the result of scrambling <code>abcdefgh</code></em>?</p>
 </article>
-<p>To begin, <a href="21/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="21/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>aefgbcdh</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>You scrambled the password correctly, but you discover that you <a href="https://en.wikipedia.org/wiki/File_system_permissions">can't actually modify</a> the <a href="https://en.wikipedia.org/wiki/Passwd">password file</a> on the system. You'll need to un-scramble one of the existing passwords by reversing the scrambling process.</p>
+<p>What is the un-scrambled version of the scrambled password <code>fbgdceah</code>?</p>
+</article>
+<p>Your puzzle answer was <code>egcdahbf</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2016">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="21/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Scrambled+Letters+and+Hash%22+%2D+Day+21+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F21" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Scrambled+Letters+and+Hash%22+%2D+Day+21+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Scrambled+Letters+and+Hash%22+%2D+Day+21+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Scrambled+Letters+and+Hash%22+%2D+Day+21+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F21" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Scrambled+Letters+and+Hash%22+%2D+Day+21+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Scrambled+Letters+and+Hash%22+%2D+Day+21+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

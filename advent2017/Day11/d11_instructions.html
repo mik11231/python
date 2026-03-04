@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{:year </span><a href="/2017">2017</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">Î»y.</span><a href="/2017">2017</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=http%3A%2F%2Fwinton%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Winton</a> - a data science and investment management company</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=https%3A%2F%2Fcheppers%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Cheppers</a> - xor(Pz0pQUI7Ch cmER8YDAEYAh4L GwEP, ââââââââBA)</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 11: Hex Ed ---</h2><p>Crossing the bridge, you've barely reached the other side of the stream when a program comes up to you, clearly in distress.  "It's my child process," she says, "he's gotten lost in an infinite grid!"</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 11: Hex Ed ---</h2><p>Crossing the bridge, you've barely reached the other side of the stream when a program comes up to you, clearly in distress.  "It's my child process," she says, "he's gotten lost in an infinite grid!"</p>
 <p>Fortunately for her, you have plenty of experience with infinite grids.</p>
 <p>Unfortunately for you, it's a <a href="https://en.wikipedia.org/wiki/Hexagonal_tiling">hex grid</a>.</p>
 <p>The hexagons ("hexes") in <span title="Raindrops on roses and whiskers on kittens.">this grid</span> are aligned such that adjacent hexes can be found to the north, northeast, southeast, south, southwest, and northwest:</p>
@@ -115,12 +115,15 @@ sw +--+ se
 <li><code>se,sw,se,sw,sw</code> is <code>3</code> steps away (<code>s,s,sw</code>).</li>
 </ul>
 </article>
-<p>To begin, <a href="11/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="11/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>685</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p><em>How many steps away</em> is the <em>furthest</em> he ever got from his starting position?</p>
+</article>
+<p>Your puzzle answer was <code>1457</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2017">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="11/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Hex+Ed%22+%2D+Day+11+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F11" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Hex+Ed%22+%2D+Day+11+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F11&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Hex+Ed%22+%2D+Day+11+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F11';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Hex+Ed%22+%2D+Day+11+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F11" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Hex+Ed%22+%2D+Day+11+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F11&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Hex+Ed%22+%2D+Day+11+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F11';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

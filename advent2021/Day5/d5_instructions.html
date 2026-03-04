@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2021/about">[About]</a></li><li><a href="/2021/events">[Events]</a></li><li><a href="/2021/shop">[Shop]</a></li><li><a href="/2021/settings">[Settings]</a></li><li><a href="/2021/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">var y=</span><a href="/2021">2021</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2021">[Calendar]</a></li><li><a href="/2021/support">[AoC++]</a></li><li><a href="/2021/sponsors">[Sponsors]</a></li><li><a href="/2021/leaderboard">[Leaderboards]</a></li><li><a href="/2021/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2021/about">[About]</a></li><li><a href="/2021/events">[Events]</a></li><li><a href="/2021/shop">[Shop]</a></li><li><a href="/2021/settings">[Settings]</a></li><li><a href="/2021/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{year=&gt;</span><a href="/2021">2021</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2021">[Calendar]</a></li><li><a href="/2021/support">[AoC++]</a></li><li><a href="/2021/sponsors">[Sponsors]</a></li><li><a href="/2021/leaderboard">[Leaderboards]</a></li><li><a href="/2021/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2021/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2021/sponsors/redirect?url=https%3A%2F%2Fwww%2Ewix%2Eengineering%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Wix Engineering</a> - Wix Engineering is the place to learn how to work at scale, solve robust challenges, and create the highest quality code.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2021/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2021/sponsors/redirect?url=https%3A%2F%2Fwww%2Eolo%2Ecom%2Fcareers%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Olo</a> - If you enjoy solving problems at scale in F#, C# or JS, come join Olo!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 5: Hydrothermal Venture ---</h2><p>You come across a field of <a href="https://en.wikipedia.org/wiki/Hydrothermal_vent" target="_blank">hydrothermal vents</a> on the ocean floor! These vents constantly produce large, opaque clouds, so it would be best to avoid them if possible.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 5: Hydrothermal Venture ---</h2><p>You come across a field of <a href="https://en.wikipedia.org/wiki/Hydrothermal_vent" target="_blank">hydrothermal vents</a> on the ocean floor! These vents constantly produce large, opaque clouds, so it would be best to avoid them if possible.</p>
 <p>They tend to form in <em>lines</em>; the submarine helpfully produces a list of nearby <span title="Maybe they're Bresenham vents.">lines of vents</span> (your puzzle input) for you to review. For example:</p>
 <pre><code>0,9 -&gt; 5,9
 8,0 -&gt; 0,8
@@ -129,12 +129,34 @@ on Mastodon.
 <p>To avoid the most dangerous areas, you need to determine <em>the number of points where at least two lines overlap</em>. In the above example, this is anywhere in the diagram with a <code>2</code> or larger - a total of <code><em>5</em></code> points.</p>
 <p>Consider only horizontal and vertical lines. <em>At how many points do at least two lines overlap?</em></p>
 </article>
-<p>To begin, <a href="5/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="5/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>5169</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Unfortunately, considering only horizontal and vertical lines doesn't give you the full picture; you need to also consider <em>diagonal lines</em>.</p>
+<p>Because of the limits of the hydrothermal vent mapping system, the lines in your list will only ever be horizontal, vertical, or a diagonal line at exactly 45 degrees. In other words:</p>
+<ul>
+<li>An entry like <code>1,1 -&gt; 3,3</code> covers points <code>1,1</code>, <code>2,2</code>, and <code>3,3</code>.</li>
+<li>An entry like <code>9,7 -&gt; 7,9</code> covers points <code>9,7</code>, <code>8,8</code>, and <code>7,9</code>.</li>
+</ul>
+<p>Considering all lines from the above example would now produce the following diagram:</p>
+<pre><code>1.1....11.
+.111...2..
+..2.1.111.
+...1.2.2..
+.112313211
+...1.2....
+..1...1...
+.1.....1..
+1.......1.
+222111....
+</code></pre>
+<p>You still need to determine <em>the number of points where at least two lines overlap</em>. In the above example, this is still anywhere in the diagram with a <code>2</code> or larger - now a total of <code><em>12</em></code> points.</p>
+<p>Consider all of the lines. <em>At how many points do at least two lines overlap?</em></p>
+</article>
+<p>Your puzzle answer was <code>22083</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2021">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="5/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Hydrothermal+Venture%22+%2D+Day+5+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F5" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Hydrothermal+Venture%22+%2D+Day+5+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F5&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Hydrothermal+Venture%22+%2D+Day+5+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F5';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Hydrothermal+Venture%22+%2D+Day+5+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F5" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Hydrothermal+Venture%22+%2D+Day+5+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F5&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Hydrothermal+Venture%22+%2D+Day+5+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F5';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

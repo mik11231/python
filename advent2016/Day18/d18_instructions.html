@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{:year </span><a href="/2016">2016</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">y(</span><a href="/2016">2016</a><span class="title-event-wrap">)</span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
 <div id="sponsor"><div class="quiet">Our <a href="/2016/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2016/sponsors/redirect?url=http%3A%2F%2Fwww%2Enovetta%2Ecom%2Fcareers%2F%23opportunities" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Novetta</a> - Unleash your imagination. Innovate at Novetta.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 18: Like a Rogue ---</h2><p>As you enter this room, you hear a loud click! Some of the tiles in the floor here seem to be pressure plates for <a href="https://nethackwiki.com/wiki/Trap">traps</a>, and the trap you just triggered has run out of... whatever it tried to do to you. You doubt you'll be so lucky next time.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 18: Like a Rogue ---</h2><p>As you enter this room, you hear a loud click! Some of the tiles in the floor here seem to be pressure plates for <a href="https://nethackwiki.com/wiki/Trap">traps</a>, and the trap you just triggered has run out of... whatever it tried to do to you. You doubt you'll be so lucky next time.</p>
 <p>Upon closer examination, the traps and safe tiles in this room seem to follow a pattern. The tiles are arranged into rows that are all the same width; you take note of the safe tiles (<code>.</code>) and traps (<code>^</code>) in the first row (your puzzle input).</p>
 <p>The type of tile (trapped or safe) in each row is based on the types of the tiles in the same position, and to either side of that position, in the previous row. (If either side is off either end of the row, it counts as "safe" because there isn't a trap embedded in the wall.)</p>
 <p>For example, suppose you know the first row (with tiles marked by letters) and want to determine the next row (with tiles marked by numbers):</p>
@@ -136,12 +136,15 @@ on Mastodon.
 <p>In ten rows, this larger example has <code>38</code> safe tiles.</p>
 <p>Starting with the map in your puzzle input, in a total of <code>40</code> rows (including the starting row), <em>how many safe tiles</em> are there?</p>
 </article>
-<p>To begin, <a href="18/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="18/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1956</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p><em>How many safe tiles</em> are there in a total of <span title="You feel a wrenching sensation."><code>400000</code> rows</span>?</p>
+</article>
+<p>Your puzzle answer was <code>19995121</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2016">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="18/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">0.0.0.0:</span><a href="/2019">2019</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">0.0.0.0:</span><a href="/2019">2019</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=https%3A%2F%2Fwww%2Eing%2Ejobs%2FGlobal%2FCareers%2Fexpertise%2FTech%2Ehtm" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">ING</a> - Tech is simply at the core of what we do.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=http%3A%2F%2Feducative%2Eio%2FAdventOfCode" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Educative.io</a> - Gain in-demand tech skills, at the speed you want. Text-based courses with live coding environments help you learn without the fluff.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 21: Springdroid Adventure ---</h2><p>You lift off from Pluto and start flying in the direction of Santa.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: Springdroid Adventure ---</h2><p>You lift off from Pluto and start flying in the direction of Santa.</p>
 <p>While experimenting further with the tractor beam, you accidentally pull an asteroid directly into your ship!  It deals significant damage to your hull and causes your ship to begin tumbling violently.</p>
 <p>You can send a droid out to investigate, but the tumbling is causing enough <a href="https://en.wikipedia.org/wiki/Artificial_gravity">artificial gravity</a> that one wrong step could send the droid through a hole in the hull and flying out into space.</p>
 <p>The clear choice for this mission is a <span title="I picture the Bouncy enemy from Kirby games.">droid</span> that can <em>jump</em> over the holes in the hull - a <em>springdroid</em>.</p>
@@ -163,12 +163,25 @@ WALK
 <p>However, if the springdroid successfully makes it across, it will use an output instruction to indicate the <em>amount of damage to the hull</em> as a single giant integer outside the normal ASCII range.</p>
 <p>Program the springdroid with logic that allows it to survey the hull without falling into space.  <em>What amount of hull damage does it report?</em></p>
 </article>
-<p>To begin, <a href="21/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="21/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>19359969</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>There are many areas the springdroid can't reach.  You flip through the manual and discover a way to <em>increase its sensor range</em>.</p>
+<p>Instead of ending your springcode program with <code>WALK</code>, use <code>RUN</code>. Doing this will enable <em>extended sensor mode</em>, capable of sensing ground up to <em>nine tiles away</em>. This data is available in <em>five new read-only registers</em>:</p>
+<ul>
+<li>Register <code>E</code> indicates whether there is ground <em>five</em> tiles away.</li>
+<li>Register <code>F</code> indicates whether there is ground <em>six</em> tiles away.</li>
+<li>Register <code>G</code> indicates whether there is ground <em>seven</em> tiles away.</li>
+<li>Register <code>H</code> indicates whether there is ground <em>eight</em> tiles away.</li>
+<li>Register <code>I</code> indicates whether there is ground <em>nine</em> tiles away.</li>
+</ul>
+<p>All other functions remain the same.</p>
+<p>Successfully survey the rest of the hull by ending your program with <code>RUN</code>.  <em>What amount of hull damage does the springdroid now report?</em></p>
+</article>
+<p>Your puzzle answer was <code>1140082748</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2019">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="21/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Springdroid+Adventure%22+%2D+Day+21+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F21" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Springdroid+Adventure%22+%2D+Day+21+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Springdroid+Adventure%22+%2D+Day+21+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Springdroid+Adventure%22+%2D+Day+21+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F21" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Springdroid+Adventure%22+%2D+Day+21+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Springdroid+Adventure%22+%2D+Day+21+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F21';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

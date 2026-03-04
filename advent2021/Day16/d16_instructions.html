@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2021/about">[About]</a></li><li><a href="/2021/events">[Events]</a></li><li><a href="/2021/shop">[Shop]</a></li><li><a href="/2021/settings">[Settings]</a></li><li><a href="/2021/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">var y=</span><a href="/2021">2021</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2021">[Calendar]</a></li><li><a href="/2021/support">[AoC++]</a></li><li><a href="/2021/sponsors">[Sponsors]</a></li><li><a href="/2021/leaderboard">[Leaderboards]</a></li><li><a href="/2021/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2021/about">[About]</a></li><li><a href="/2021/events">[Events]</a></li><li><a href="/2021/shop">[Shop]</a></li><li><a href="/2021/settings">[Settings]</a></li><li><a href="/2021/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0x0000|</span><a href="/2021">2021</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2021">[Calendar]</a></li><li><a href="/2021/support">[AoC++]</a></li><li><a href="/2021/sponsors">[Sponsors]</a></li><li><a href="/2021/leaderboard">[Leaderboards]</a></li><li><a href="/2021/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2021/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2021/sponsors/redirect?url=https%3A%2F%2Fjb%2Egg%2FAoC2021tips" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">JetBrains</a> - Get ready to jingle with Advent of Code in Kotlin! Have fun, learn new things, and win prizes. Believe in magic with Kotlin. Happy holidays! https://jb.gg/AoC</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2021/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2021/sponsors/redirect?url=https%3A%2F%2Fwww%2Esmartystreets%2Ecom%2Fadvent%2Dof%2Dcode" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">SmartyStreets</a> - Join our private leaderboard and solve our puzzles for BIG PRIZES!!! ----------------- Address Validation, Rooftop Geocoding, and more!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 16: Packet Decoder ---</h2><p>As you leave the cave and reach open waters, you receive a transmission from the Elves back on the ship.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 16: Packet Decoder ---</h2><p>As you leave the cave and reach open waters, you receive a transmission from the Elves back on the ship.</p>
 <p>The transmission was sent using the Buoyancy Interchange Transmission System (<span title="Just be glad it wasn't sent using the BuoyancY Transmission Encoding System.">BITS</span>), a method of packing numeric expressions into a binary sequence. Your submarine's computer has saved the transmission in <a href="https://en.wikipedia.org/wiki/Hexadecimal" target="_blank">hexadecimal</a> (your puzzle input).</p>
 <p>The first step of decoding the message is to convert the hexadecimal representation into binary. Each character of hexadecimal corresponds to four bits of binary data:</p>
 <pre><code>0 = 0000
@@ -174,12 +174,38 @@ VVVTTTILLLLLLLLLLLAAAAAAAAAAABBBBBBBBBBBCCCCCCCCCCC
 </ul>
 <p>Decode the structure of your hexadecimal-encoded BITS transmission; <em>what do you get if you add up the version numbers in all packets?</em></p>
 </article>
-<p>To begin, <a href="16/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="16/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>883</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now that you have the structure of your transmission decoded, you can calculate the value of the expression it represents.</p>
+<p>Literal values (type ID <code>4</code>) represent a single number as described above. The remaining type IDs are more interesting:</p>
+<ul>
+<li>Packets with type ID <code>0</code> are <em>sum</em> packets - their value is the sum of the values of their sub-packets. If they only have a single sub-packet, their value is the value of the sub-packet.</li>
+<li>Packets with type ID <code>1</code> are <em>product</em> packets - their value is the result of multiplying together the values of their sub-packets. If they only have a single sub-packet, their value is the value of the sub-packet.</li>
+<li>Packets with type ID <code>2</code> are <em>minimum</em> packets - their value is the minimum of the values of their sub-packets.</li>
+<li>Packets with type ID <code>3</code> are <em>maximum</em> packets - their value is the maximum of the values of their sub-packets.</li>
+<li>Packets with type ID <code>5</code> are <em>greater than</em> packets - their value is <em>1</em> if the value of the first sub-packet is greater than the value of the second sub-packet; otherwise, their value is <em>0</em>. These packets always have exactly two sub-packets.</li>
+<li>Packets with type ID <code>6</code> are <em>less than</em> packets - their value is <em>1</em> if the value of the first sub-packet is less than the value of the second sub-packet; otherwise, their value is <em>0</em>. These packets always have exactly two sub-packets.</li>
+<li>Packets with type ID <code>7</code> are <em>equal to</em> packets - their value is <em>1</em> if the value of the first sub-packet is equal to the value of the second sub-packet; otherwise, their value is <em>0</em>. These packets always have exactly two sub-packets.</li>
+</ul>
+<p>Using these rules, you can now work out the value of the outermost packet in your BITS transmission.</p>
+<p>For example:</p>
+<ul>
+<li><code>C200B40A82</code> finds the sum of <code>1</code> and <code>2</code>, resulting in the value <code><em>3</em></code>.</li>
+<li><code>04005AC33890</code> finds the product of <code>6</code> and <code>9</code>, resulting in the value <code><em>54</em></code>.</li>
+<li><code>880086C3E88112</code> finds the minimum of <code>7</code>, <code>8</code>, and <code>9</code>, resulting in the value <code><em>7</em></code>.</li>
+<li><code>CE00C43D881120</code> finds the maximum of <code>7</code>, <code>8</code>, and <code>9</code>, resulting in the value <code><em>9</em></code>.</li>
+<li><code>D8005AC2A8F0</code> produces <code>1</code>, because <code>5</code> is less than <code>15</code>.</li>
+<li><code>F600BC2D8F</code> produces <code>0</code>, because <code>5</code> is not greater than <code>15</code>.</li>
+<li><code>9C005AC2F8F0</code> produces <code>0</code>, because <code>5</code> is not equal to <code>15</code>.</li>
+<li><code>9C0141080250320F1802104A08</code> produces <code>1</code>, because <code>1</code> + <code>3</code> = <code>2</code> * <code>2</code>.</li>
+</ul>
+<p><em>What do you get if you evaluate the expression represented by your hexadecimal-encoded BITS transmission?</em></p>
+</article>
+<p>Your puzzle answer was <code>1675198555015</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2021">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="16/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

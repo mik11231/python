@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/^</span><a href="/2016">2016</a><span class="title-event-wrap">$/</span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2016/about">[About]</a></li><li><a href="/2016/events">[Events]</a></li><li><a href="/2016/shop">[Shop]</a></li><li><a href="/2016/settings">[Settings]</a></li><li><a href="/2016/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">{:year </span><a href="/2016">2016</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2016">[Calendar]</a></li><li><a href="/2016/support">[AoC++]</a></li><li><a href="/2016/sponsors">[Sponsors]</a></li><li><a href="/2016/leaderboard">[Leaderboards]</a></li><li><a href="/2016/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
 <div id="sponsor"><div class="quiet">Our <a href="/2016/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2016/sponsors/redirect?url=http%3A%2F%2Fwww%2Eaandkrentals%2Enet%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">A&amp;K Rentals</a> - Affordable, high-quality homes just north of Kansas City.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 8: Two-Factor Authentication ---</h2><p>You come across a door implementing what you can only assume is an implementation of <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">two-factor authentication</a> after a long game of <a href="https://en.wikipedia.org/wiki/Requirement">requirements</a> <a href="https://en.wikipedia.org/wiki/Chinese_whispers">telephone</a>.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 8: Two-Factor Authentication ---</h2><p>You come across a door implementing what you can only assume is an implementation of <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">two-factor authentication</a> after a long game of <a href="https://en.wikipedia.org/wiki/Requirement">requirements</a> <a href="https://en.wikipedia.org/wiki/Chinese_whispers">telephone</a>.</p>
 <p>To get past the door, you first swipe a keycard (no problem; there was one on a nearby desk). Then, it displays a code on a <a href="https://www.google.com/search?q=tiny+lcd&tbm=isch">little screen</a>, and you type that code on a keypad. Then, presumably, the door unlocks.</p>
 <p>Unfortunately, the screen has been <span title="BUT BY WHOM?!">smashed</span>. After a few minutes, you've taken everything apart and figured out how it works. Now you just have to work out what the screen <em>would</em> have displayed.</p>
 <p>The magnetic strip on the card you swiped encodes a series of instructions for the screen; these instructions are your puzzle input. The screen is <em><code>50</code> pixels wide and <code>6</code> pixels tall</em>, all of which start <em>off</em>, and is capable of three somewhat peculiar operations:</p>
@@ -121,12 +121,16 @@ on Mastodon.
 <p>As you can see, this display technology is extremely powerful, and will soon dominate the tiny-code-displaying-screen market.  That's what the advertisement on the back of the display tries to convince you, anyway.</p>
 <p>There seems to be an intermediate check of the voltage used by the display: after you swipe your card, if the screen did work, <em>how many pixels should be lit?</em></p>
 </article>
-<p>To begin, <a href="8/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="8/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>119</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>You notice that the screen is only capable of displaying capital letters; in the font it uses, each letter is <code>5</code> pixels wide and <code>6</code> tall.</p>
+<p>After you swipe your card, <em>what code is the screen trying to display?</em></p>
+</article>
+<p>Your puzzle answer was <code>ZFHFSFOGPO</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2016">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="8/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

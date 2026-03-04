@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">28*</span></div></div><div><h1 class="title-event">&nbsp;<span class="title-event-wrap">{&apos;year&apos;:</span><a href="/2018">2018</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2018/about">[About]</a></li><li><a href="/2018/events">[Events]</a></li><li><a href="/2018/shop">[Shop]</a></li><li><a href="/2018/settings">[Settings]</a></li><li><a href="/2018/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">sub y{</span><a href="/2018">2018</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2018">[Calendar]</a></li><li><a href="/2018/support">[AoC++]</a></li><li><a href="/2018/sponsors">[Sponsors]</a></li><li><a href="/2018/leaderboard">[Leaderboards]</a></li><li><a href="/2018/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fclubhouse%2Eio%2F%3Futm%5Fsource%3Dspon%26utm%5Fmedium%3Dch%26utm%5Fcampaign%3Daoc2018" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Clubhouse</a> - The first project management platform for software development that brings everyone on every team together to build better products. AoC participants get two free months by signing up at r.clbh.se/mze9q9P Also, we&apos;re hiring!</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2018/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2018/sponsors/redirect?url=https%3A%2F%2Fwww%2Enovetta%2Ecom%2Fcareers%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Novetta</a> - TS/SCI engineers &amp; data scientists developing mission-critical disruptive technologies by day, helping Santa by night.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 15: Beverage Bandits ---</h2><p>Having perfected their hot chocolate, the Elves have a new problem: the <a href="https://en.wikipedia.org/wiki/Goblin">Goblins</a> that live in these caves will do anything to steal it. Looks like they're here for a fight.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 15: Beverage Bandits ---</h2><p>Having perfected their hot chocolate, the Elves have a new problem: the <a href="https://en.wikipedia.org/wiki/Goblin">Goblins</a> that live in these caves will do anything to steal it. Looks like they're here for a fight.</p>
 <p>You scan the area, generating a map of the walls (<code>#</code>), open cavern (<code>.</code>), and starting position of every Goblin (<code>G</code>) and Elf (<code>E</code>) (your puzzle input).</p>
 <p>Combat proceeds in <em>rounds</em>; in each round, each unit that is still alive takes a <em>turn</em>, resolving all of its actions before the next unit's turn begins. On each unit's turn, it tries to <em>move</em> into range of an enemy (if it isn't already) and then <em>attack</em> (if it is in range).</p>
 <p>All units are very disciplined and always follow very strict combat rules. Units never move or attack diagonally, as doing so would be dishonorable. When multiple choices are equally valid, ties are broken in <em>reading order</em>: top-to-bottom, then left-to-right.  For instance, the order in which units take their turns within a round is the <em>reading order of their starting positions</em> in that round, regardless of the type of unit or whether other units have moved after the round started.  For example:</p>
@@ -355,12 +355,86 @@ Outcome: 20 * 937 = <em>18740</em>
 </code></pre>
 <p><em>What is the outcome</em> of the combat described in your puzzle input?</p>
 </article>
-<p>To begin, <a href="15/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="15/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>261855</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>According to your calculations, the Elves are going to lose badly. Surely, you won't mess up the timeline too much if you give them <span title="See also: the plot of every Civilization game.">just a little advanced technology</span>, right?</p>
+<p>You need to make sure the Elves not only <em>win</em>, but also suffer <em>no losses</em>: even the death of a single Elf is unacceptable.</p>
+<p>However, you can't go too far: larger changes will be more likely to permanently alter spacetime.</p>
+<p>So, you need to <em>find the outcome</em> of the battle in which the Elves have the <em>lowest integer attack power</em> (at least <code>4</code>) that allows them to <em>win without a single death</em>. The Goblins always have an attack power of <code>3</code>.</p>
+<p>In the first summarized example above, the lowest attack power the Elves need to win without losses is <code>15</code>:</p>
+<pre><code>#######       #######
+#.G...#       #..E..#   E(158)
+#...EG#       #...E.#   E(14)
+#.#.#G#  --&gt;  #.#.#.#
+#..G#E#       #...#.#
+#.....#       #.....#
+#######       #######
+
+Combat ends after 29 full rounds
+Elves win with 172 total hit points left
+Outcome: 29 * 172 = <em>4988</em>
+</code></pre>
+<p>In the second example above, the Elves need only <code>4</code> attack power:</p>
+<pre><code>#######       #######
+#E..EG#       #.E.E.#   E(200), E(23)
+#.#G.E#       #.#E..#   E(200)
+#E.##E#  --&gt;  #E.##E#   E(125), E(200)
+#G..#.#       #.E.#.#   E(200)
+#..E#.#       #...#.#
+#######       #######
+
+Combat ends after 33 full rounds
+Elves win with 948 total hit points left
+Outcome: 33 * 948 = <em>31284</em>
+</code></pre>
+<p>In the third example above, the Elves need <code>15</code> attack power:</p>
+<pre><code>#######       #######
+#E.G#.#       #.E.#.#   E(8)
+#.#G..#       #.#E..#   E(86)
+#G.#.G#  --&gt;  #..#..#
+#G..#.#       #...#.#
+#...E.#       #.....#
+#######       #######
+
+Combat ends after 37 full rounds
+Elves win with 94 total hit points left
+Outcome: 37 * 94 = <em>3478</em>
+</code></pre>
+<p>In the fourth example above, the Elves need <code>12</code> attack power:</p>
+<pre><code>#######       #######
+#.E...#       #...E.#   E(14)
+#.#..G#       #.#..E#   E(152)
+#.###.#  --&gt;  #.###.#
+#E#G#G#       #.#.#.#
+#...#G#       #...#.#
+#######       #######
+
+Combat ends after 39 full rounds
+Elves win with 166 total hit points left
+Outcome: 39 * 166 = <em>6474</em>
+</code></pre>
+<p>In the last example above, the lone Elf needs <code>34</code> attack power:</p>
+<pre><code>#########       #########   
+#G......#       #.......#   
+#.E.#...#       #.E.#...#   E(38)
+#..##..G#       #..##...#   
+#...##..#  --&gt;  #...##..#   
+#...#...#       #...#...#   
+#.G...G.#       #.......#   
+#.....G.#       #.......#   
+#########       #########   
+
+Combat ends after 30 full rounds
+Elves win with 38 total hit points left
+Outcome: 30 * 38 = <em>1140</em>
+</code></pre>
+<p>After increasing the Elves' attack power until it is just barely enough for them to win without any Elves dying, <em>what is the outcome</em> of the combat described in your puzzle input?</p>
+</article>
+<p>Your puzzle answer was <code>59568</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2018">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="15/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Beverage+Bandits%22+%2D+Day+15+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F15" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Beverage+Bandits%22+%2D+Day+15+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F15&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Beverage+Bandits%22+%2D+Day+15+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F15';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Beverage+Bandits%22+%2D+Day+15+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F15" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Beverage+Bandits%22+%2D+Day+15+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F15&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Beverage+Bandits%22+%2D+Day+15+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F15';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/*</span><a href="/2019">2019</a><span class="title-event-wrap">*/</span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">//</span><a href="/2019">2019</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=https%3A%2F%2Fabout%2Esourcegraph%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Sourcegraph</a> - Build the new standard developer platform on a globally-distributed remote-first team. We value ownership, autonomy, communication, and transparency.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=https%3A%2F%2Fwww%2Ecanyouhackit%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">AIS</a> - Can You Hack It? Visit our site to take our challenge &amp; join our team!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 12: The N-Body Problem ---</h2><p>The space near Jupiter is not a very safe place; you need to be careful of a <a href="https://en.wikipedia.org/wiki/Great_Red_Spot">big distracting red spot</a>, extreme <a href="https://en.wikipedia.org/wiki/Magnetosphere_of_Jupiter">radiation</a>, and a <a href="https://en.wikipedia.org/wiki/Moons_of_Jupiter#List">whole lot of moons</a> swirling around.  You decide to start by tracking the four largest moons: <em>Io</em>, <em>Europa</em>, <em>Ganymede</em>, and <em>Callisto</em>.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 12: The N-Body Problem ---</h2><p>The space near Jupiter is not a very safe place; you need to be careful of a <a href="https://en.wikipedia.org/wiki/Great_Red_Spot">big distracting red spot</a>, extreme <a href="https://en.wikipedia.org/wiki/Magnetosphere_of_Jupiter">radiation</a>, and a <a href="https://en.wikipedia.org/wiki/Moons_of_Jupiter#List">whole lot of moons</a> swirling around.  You decide to start by tracking the four largest moons: <em>Io</em>, <em>Europa</em>, <em>Ganymede</em>, and <em>Callisto</em>.</p>
 <p>After a brief scan, you calculate the <em>position of each moon</em> (your puzzle input). You just need to <em>simulate their motion</em> so you can <span title="Or you could just leave, but where's the fun in that?">avoid them</span>.</p>
 <p>Each moon has a 3-dimensional position (<code>x</code>, <code>y</code>, and <code>z</code>) and a 3-dimensional velocity.  The position of each moon is given in your scan; the <code>x</code>, <code>y</code>, and <code>z</code> velocity of each moon starts at <code>0</code>.</p>
 <p>Simulate the motion of the moons in <em>time steps</em>. Within each time step, first update the velocity of every moon by applying <em>gravity</em>. Then, once all moons' velocities have been updated, update the position of every moon by applying <em>velocity</em>. Time progresses by one step once all of the positions are updated.</p>
@@ -264,12 +264,49 @@ Sum of total energy: 290 + 608 + 574 + 468 = <em>1940</em>
 </code></pre>
 <p><em>What is the total energy in the system</em> after simulating the moons given in your scan for <code>1000</code> steps?</p>
 </article>
-<p>To begin, <a href="12/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="12/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>13500</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>All this drifting around in space makes you wonder about the nature of the universe.  Does history really repeat itself?  You're curious whether the moons will ever return to a previous state.</p>
+<p>Determine <em>the number of steps</em> that must occur before all of the moons' <em>positions and velocities</em> exactly match a previous point in time.</p>
+<p>For example, the first example above takes <code>2772</code> steps before they exactly match a previous point in time; it eventually returns to the initial state:</p>
+<pre><code>After 0 steps:
+pos=&lt;x= -1, y=  0, z=  2&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+pos=&lt;x=  2, y=-10, z= -7&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+pos=&lt;x=  4, y= -8, z=  8&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+pos=&lt;x=  3, y=  5, z= -1&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+
+After 2770 steps:
+pos=&lt;x=  2, y= -1, z=  1&gt;, vel=&lt;x= -3, y=  2, z=  2&gt;
+pos=&lt;x=  3, y= -7, z= -4&gt;, vel=&lt;x=  2, y= -5, z= -6&gt;
+pos=&lt;x=  1, y= -7, z=  5&gt;, vel=&lt;x=  0, y= -3, z=  6&gt;
+pos=&lt;x=  2, y=  2, z=  0&gt;, vel=&lt;x=  1, y=  6, z= -2&gt;
+
+After 2771 steps:
+pos=&lt;x= -1, y=  0, z=  2&gt;, vel=&lt;x= -3, y=  1, z=  1&gt;
+pos=&lt;x=  2, y=-10, z= -7&gt;, vel=&lt;x= -1, y= -3, z= -3&gt;
+pos=&lt;x=  4, y= -8, z=  8&gt;, vel=&lt;x=  3, y= -1, z=  3&gt;
+pos=&lt;x=  3, y=  5, z= -1&gt;, vel=&lt;x=  1, y=  3, z= -1&gt;
+
+After 2772 steps:
+pos=&lt;x= -1, y=  0, z=  2&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+pos=&lt;x=  2, y=-10, z= -7&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+pos=&lt;x=  4, y= -8, z=  8&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+pos=&lt;x=  3, y=  5, z= -1&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
+</code></pre>
+<p>Of course, the universe might last for a <em>very long time</em> before repeating.  Here's a copy of the second example from above:</p>
+<pre><code>&lt;x=-8, y=-10, z=0&gt;
+&lt;x=5, y=5, z=10&gt;
+&lt;x=2, y=-7, z=3&gt;
+&lt;x=9, y=-8, z=-3&gt;
+</code></pre>
+<p>This set of initial positions takes <code>4686774924</code> steps before it repeats a previous state! Clearly, you might need to <em>find a more efficient way to simulate the universe</em>.</p>
+<p><em>How many steps does it take</em> to reach the first state that exactly matches a previous state?</p>
+</article>
+<p>Your puzzle answer was <code>278013787106916</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2019">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="12/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22The+N%2DBody+Problem%22+%2D+Day+12+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F12" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22The+N%2DBody+Problem%22+%2D+Day+12+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F12&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22The+N%2DBody+Problem%22+%2D+Day+12+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F12';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22The+N%2DBody+Problem%22+%2D+Day+12+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F12" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22The+N%2DBody+Problem%22+%2D+Day+12+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F12&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22The+N%2DBody+Problem%22+%2D+Day+12+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F12';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;<span class="title-event-wrap">0.0.0.0:</span><a href="/2017">2017</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2017/about">[About]</a></li><li><a href="/2017/events">[Events]</a></li><li><a href="/2017/shop">[Shop]</a></li><li><a href="/2017/settings">[Settings]</a></li><li><a href="/2017/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">//</span><a href="/2017">2017</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2017">[Calendar]</a></li><li><a href="/2017/support">[AoC++]</a></li><li><a href="/2017/sponsors">[Sponsors]</a></li><li><a href="/2017/leaderboard">[Leaderboards]</a></li><li><a href="/2017/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=https%3A%2F%2Fformlabs%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Formlabs</a> - We make powerful, affordable 3D printers for professionals.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2017/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2017/sponsors/redirect?url=http%3A%2F%2Fwww%2Enovetta%2Ecom%2Fcareers%3Futm%5Fcampaign%3DAdvent%2520of%2520Code%25202017%26utm%5Fsource%3Dwww%2Eadventofcode%2Ecom%26utm%5Fmedium%3Dad" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Novetta</a> - Unleash your imagination. Innovate at Novetta.</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 5: A Maze of Twisty Trampolines, All Alike ---</h2><p>An urgent <span title="Later, on its turn, it sends you a sorcery.">interrupt</span> arrives from the CPU: it's trapped in a maze of jump instructions, and it would like assistance from any programs with spare cycles to help find the exit.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 5: A Maze of Twisty Trampolines, All Alike ---</h2><p>An urgent <span title="Later, on its turn, it sends you a sorcery.">interrupt</span> arrives from the CPU: it's trapped in a maze of jump instructions, and it would like assistance from any programs with spare cycles to help find the exit.</p>
 <p>The message includes a list of the offsets for each jump. Jumps are relative: <code>-1</code> moves to the previous instruction, and <code>2</code> skips the next one. Start at the first instruction in the list. The goal is to follow the jumps until one leads <em>outside</em> the list.</p>
 <p>In addition, these instructions are a little strange; after each jump, the offset of that instruction increases by <code>1</code>. So, if you come across an offset of <code>3</code>, you would move three instructions forward, but change it to a <code>4</code> for the next time it is encountered.</p>
 <p>For example, consider the following list of jump offsets:</p>
@@ -116,12 +116,17 @@ on Mastodon.
 <p>In this example, the exit is reached in <code>5</code> steps.</p>
 <p><em>How many steps</em> does it take to reach the exit?</p>
 </article>
-<p>To begin, <a href="5/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="5/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>394829</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now, the jumps are even stranger: after each jump, if the offset was <em>three or more</em>, instead <em>decrease</em> it by <code>1</code>. Otherwise, increase it by <code>1</code> as before.</p>
+<p>Using this rule with the above example, the process now takes <code>10</code> steps, and the offset values after finding the exit are left as <code>2 3 2 3 -1</code>.</p>
+<p><em>How many steps</em> does it now take to reach the exit?</p>
+</article>
+<p>Your puzzle answer was <code>31150702</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2017">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="5/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22A+Maze+of+Twisty+Trampolines%2C+All+Alike%22+%2D+Day+5+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F5" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22A+Maze+of+Twisty+Trampolines%2C+All+Alike%22+%2D+Day+5+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F5&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22A+Maze+of+Twisty+Trampolines%2C+All+Alike%22+%2D+Day+5+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F5';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22A+Maze+of+Twisty+Trampolines%2C+All+Alike%22+%2D+Day+5+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F5" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22A+Maze+of+Twisty+Trampolines%2C+All+Alike%22+%2D+Day+5+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F5&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22A+Maze+of+Twisty+Trampolines%2C+All+Alike%22+%2D+Day+5+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F5';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

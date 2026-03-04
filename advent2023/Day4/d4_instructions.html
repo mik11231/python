@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="/2023/shop">[Shop]</a></li><li><a href="/2023/settings">[Settings]</a></li><li><a href="/2023/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">2*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0xffff&amp;</span><a href="/2023">2023</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboards]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2023/about">[About]</a></li><li><a href="/2023/events">[Events]</a></li><li><a href="/2023/shop">[Shop]</a></li><li><a href="/2023/settings">[Settings]</a></li><li><a href="/2023/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">var y=</span><a href="/2023">2023</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2023">[Calendar]</a></li><li><a href="/2023/support">[AoC++]</a></li><li><a href="/2023/sponsors">[Sponsors]</a></li><li><a href="/2023/leaderboard">[Leaderboards]</a></li><li><a href="/2023/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2023/sponsors/redirect?url=https%3A%2F%2Fwww%2Ejpmorgan%2Ecom%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">JPMorgan Chase</a> - With over 57,000 technologists globally and an annual tech spend of $15 billion, JPMorgan Chase is dedicated to improving the design, analytics, coding and testing that goes into creating high quality software products.</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2023/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2023/sponsors/redirect?url=https%3A%2F%2Fwww%2Ecodethink%2Eco%2Euk%2F" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Codethink</a> - UK based software services company with a F/LOSS first approach</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 4: Scratchcards ---</h2><p>The gondola takes you up. Strangely, though, the ground doesn't seem to be coming with you; you're not climbing a mountain. As the circle of Snow Island recedes below you, an entire new landmass suddenly appears above you! The gondola carries you to the surface of the new island and lurches into the station.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 4: Scratchcards ---</h2><p>The gondola takes you up. Strangely, though, the ground doesn't seem to be coming with you; you're not climbing a mountain. As the circle of Snow Island recedes below you, an entire new landmass suddenly appears above you! The gondola carries you to the surface of the new island and lurches into the station.</p>
 <p>As you exit the gondola, the first thing you notice is that the air here is much <em>warmer</em> than it was on Snow Island. It's also quite <em>humid</em>. Is this where the water source is?</p>
 <p>The next thing you notice is an Elf sitting on the floor across the station in what seems to be a pile of colorful square cards.</p>
 <p>"Oh! Hello!" The Elf excitedly runs over to you. "How may I be of service?" You ask about water sources.</p>
@@ -120,12 +120,37 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
 <p>So, in this example, the Elf's pile of scratchcards is worth <code><em>13</em></code> points.</p>
 <p>Take a seat in the large pile of colorful cards. <em>How many points are they worth in total?</em></p>
 </article>
-<p>To begin, <a href="4/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="4/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>21919</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Just as you're about to report your findings to the Elf, one of you realizes that the rules have actually been printed on the back of every card this whole time.</p>
+<p>There's no such thing as "points". Instead, scratchcards only cause you to <em>win more scratchcards</em> equal to the number of winning numbers you have.</p>
+<p>Specifically, you win <em>copies</em> of the scratchcards below the winning card equal to the number of matches. So, if card 10 were to have 5 matching numbers, you would win one copy each of cards 11, 12, 13, 14, and 15.</p>
+<p>Copies of scratchcards are scored like normal scratchcards and have the <em>same card number</em> as the card they copied. So, if you win a copy of card 10 and it has 5 matching numbers, it would then win a copy of the same cards that the original card 10 won: cards 11, 12, 13, 14, and 15. This process repeats until none of the copies cause you to win any more cards. (Cards will never make you copy a card past the end of the table.)</p>
+<p>This time, the above example goes differently:</p>
+<pre><code>Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
+Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
+Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
+Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
+Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
+Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
+</code></pre>
+<ul>
+<li>Card 1 has four matching numbers, so you win one copy each of the next four cards: cards 2, 3, 4, and 5.</li>
+<li>Your original card 2 has two matching numbers, so you win one copy each of cards 3 and 4.</li>
+<li>Your copy of card 2 also wins one copy each of cards 3 and 4.</li>
+<li>Your four instances of card 3 (one original and three copies) have two matching numbers, so you win <em>four</em> copies each of cards 4 and 5.</li>
+<li>Your eight instances of card 4 (one original and seven copies) have one matching number, so you win <em>eight</em> copies of card 5.</li>
+<li>Your fourteen instances of card 5 (one original and thirteen copies) have no matching numbers and win no more cards.</li>
+<li>Your one instance of card 6 (one original) has no matching numbers and wins no more cards.</li>
+</ul>
+<p>Once all of the originals and copies have been processed, you end up with <code><em>1</em></code> instance of card 1, <code><em>2</em></code> instances of card 2, <code><em>4</em></code> instances of card 3, <code><em>8</em></code> instances of card 4, <code><em>14</em></code> instances of card 5, and <code><em>1</em></code> instance of card 6. In total, this example pile of scratchcards causes you to ultimately have <code><em>30</em></code> scratchcards!</p>
+<p>Process all of the original and copied scratchcards until no more scratchcards are won. Including the original set of scratchcards, <em>how many total scratchcards do you end up with?</em></p>
+</article>
+<p>Your puzzle answer was <code>9881048</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2023">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="4/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Scratchcards%22+%2D+Day+4+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F4" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Scratchcards%22+%2D+Day+4+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F4&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Scratchcards%22+%2D+Day+4+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F4';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Scratchcards%22+%2D+Day+4+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F4" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Scratchcards%22+%2D+Day+4+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F4&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Scratchcards%22+%2D+Day+4+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F4';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

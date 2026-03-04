@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2025/about">[About]</a></li><li><a href="/2025/events">[Events]</a></li><li><a href="/2025/shop">[Shop]</a></li><li><a href="/2025/settings">[Settings]</a></li><li><a href="/2025/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">19*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/*</span><a href="/2025">2025</a><span class="title-event-wrap">*/</span></h1><nav><ul><li><a href="/2025">[Calendar]</a></li><li><a href="/2025/support">[AoC++]</a></li><li><a href="/2025/sponsors">[Sponsors]</a></li><li><a href="/2025/leaderboard/private">[Leaderboards]</a></li><li><a href="/2025/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2025/about">[About]</a></li><li><a href="/2025/events">[Events]</a></li><li><a href="/2025/shop">[Shop]</a></li><li><a href="/2025/settings">[Settings]</a></li><li><a href="/2025/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">24*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0x0000|</span><a href="/2025">2025</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2025">[Calendar]</a></li><li><a href="/2025/support">[AoC++]</a></li><li><a href="/2025/sponsors">[Sponsors]</a></li><li><a href="/2025/leaderboard/private">[Leaderboards]</a></li><li><a href="/2025/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
 <div id="sponsor"><div class="quiet">Our <a href="/2025/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2025/sponsors/redirect?url=https%3A%2F%2Fcoderabbit%2Elink%2Fadventofcode" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">CodeRabbit</a> - Cut Code Review Time and Bugs in Half</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 10: Factory ---</h2><p>Just across the hall, you find a large factory. Fortunately, the Elves here have plenty of time to decorate. Unfortunately, it's because the factory machines are all offline, and none of the Elves can figure out the initialization procedure.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 10: Factory ---</h2><p>Just across the hall, you find a large factory. Fortunately, the Elves here have plenty of time to decorate. Unfortunately, it's because the factory machines are all offline, and none of the Elves can figure out the initialization procedure.</p>
 <p>The Elves do have the manual for the machines, but the section detailing the initialization procedure was eaten by a <a href="https://en.wikipedia.org/wiki/Shiba_Inu">Shiba Inu</a>. All that remains of the manual are some indicator light diagrams, button wiring schematics, and <a href="3">joltage</a> requirements for each machine.</p>
 <p>For example:</p>
 <pre><code>[.##.] (3) (1,3) (2) (2,3) (0,2) (0,1) {3,5,4,7}
@@ -125,8 +125,7 @@ on Mastodon.
 <p>So, the fewest button presses required to correctly configure the indicator lights on all of the machines is <code>2</code> + <code>3</code> + <code>2</code> = <code><em>7</em></code>.</p>
 <p>Analyze each machine's indicator light diagram and button wiring schematics. <em>What is the fewest button presses required to correctly configure the indicator lights on all of the machines?</em></p>
 </article>
-<p>Your puzzle answer was <code>524</code>.</p><p class="day-success">The first half of this puzzle is complete! It provides one gold star: *</p>
-<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>All of the machines are starting to come online! Now, it's time to worry about the joltage requirements.</p>
+<p>Your puzzle answer was <code>524</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>All of the machines are starting to come online! Now, it's time to worry about the joltage requirements.</p>
 <p>Each machine needs to be configured to <em>exactly the specified joltage levels</em> to function properly. Below the buttons on each machine is a big lever that you can use to switch the buttons from configuring the indicator lights to increasing the joltage levels. (Ignore the indicator light diagrams.)</p>
 <p>The machines each have a set of <em>numeric counters</em> tracking its joltage levels, one counter per joltage requirement. The counters are all <em>initially set to zero</em>.</p>
 <p>So, joltage requirements like <code>{3,5,4,7}</code> mean that the machine has four counters which are initially <code>0</code> and that the goal is to simultaneously configure the first counter to be <code>3</code>, the second counter to be <code>5</code>, the third to be <code>4</code>, and the fourth to be <code>7</code>.</p>
@@ -144,12 +143,13 @@ on Mastodon.
 <p>So, the fewest button presses required to correctly configure the joltage level counters on all of the machines is <code>10</code> + <code>12</code> + <code>11</code> = <code><em>33</em></code>.</p>
 <p>Analyze each machine's joltage requirements and button wiring schematics. <em>What is the fewest button presses required to correctly configure the joltage level counters on all of the machines?</em></p>
 </article>
-<form method="post" action="10/answer"><input type="hidden" name="level" value="2"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
-<p>Although it hasn't changed, you can still <a href="10/input" target="_blank">get your puzzle input</a>.</p>
+<p>Your puzzle answer was <code>21696</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2025">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="10/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22Factory%22+%2D+Day+10+%2D+Advent+of+Code+2025+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2025%2Fday%2F10" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Factory%22+%2D+Day+10+%2D+Advent+of+Code+2025&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2025%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+Part+One+of+%22Factory%22+%2D+Day+10+%2D+Advent+of+Code+2025+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2025%2Fday%2F10';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Factory%22+%2D+Day+10+%2D+Advent+of+Code+2025+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2025%2Fday%2F10" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Factory%22+%2D+Day+10+%2D+Advent+of+Code+2025&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2025%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Factory%22+%2D+Day+10+%2D+Advent+of+Code+2025+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2025%2Fday%2F10';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 

@@ -87,14 +87,14 @@ on Mastodon.
 
 -->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea</div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">/*</span><a href="/2019">2019</a><span class="title-event-wrap">*/</span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2019/about">[About]</a></li><li><a href="/2019/events">[Events]</a></li><li><a href="/2019/shop">[Shop]</a></li><li><a href="/2019/settings">[Settings]</a></li><li><a href="/2019/auth/logout">[Log Out]</a></li></ul></nav><div class="user">Mihai Untea <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="/2019">2019</a><span class="title-event-wrap">;</span></h1><nav><ul><li><a href="/2019">[Calendar]</a></li><li><a href="/2019/support">[AoC++]</a></li><li><a href="/2019/sponsors">[Sponsors]</a></li><li><a href="/2019/leaderboard">[Leaderboards]</a></li><li><a href="/2019/stats">[Stats]</a></li></ul></nav></div></header>
 
 <div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=https%3A%2F%2Fsmartystreets%2Ecom%2Faoc" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">SmartyStreets</a> - Ridiculously -- Fast -------- Address ------ Verification --</div></div>
+<div id="sponsor"><div class="quiet">Our <a href="/2019/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="/2019/sponsors/redirect?url=https%3A%2F%2Fximed%2Ees%2Faoc" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Ximedes</a> - Help us write elegant, secure, and performant software that enables payments worldwide. We&apos;re hiring in the Netherlands and Serbia!</div></div>
 </div><!--/sidebar-->
 
 <main>
-<article class="day-desc"><h2>--- Day 11: Space Police ---</h2><p>On the way to Jupiter, you're <a href="https://www.youtube.com/watch?v=KwY28rpyKDE">pulled over</a> by the <em>Space Police</em>.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 11: Space Police ---</h2><p>On the way to Jupiter, you're <a href="https://www.youtube.com/watch?v=KwY28rpyKDE">pulled over</a> by the <em>Space Police</em>.</p>
 <p>"Attention, unmarked spacecraft! You are in violation of Space Law! All spacecraft must have a clearly visible <em>registration identifier</em>! You have 24 hours to comply or be sent to <a href="https://www.youtube.com/watch?v=BVn1oQL9sWg&t=5">Space Jail</a>!"</p>
 <p>Not wanting to be sent to Space Jail, you radio back to the Elves on Earth for help. Although it takes almost three hours for their reply signal to reach you, they send instructions for how to power up the <em>emergency hull painting robot</em> and even provide a small <a href="9">Intcode program</a> (your puzzle input) that will cause it to paint your ship appropriately.</p>
 <p>There's just one problem: you don't have an emergency hull painting robot.</p>
@@ -144,12 +144,17 @@ on Mastodon.
 <p>Before you deploy the robot, you should probably have an estimate of the area it will cover: specifically, you need to know the <em>number of panels it paints at least once</em>, regardless of color. In the example above, the robot painted <em><code>6</code> panels</em> at least once. (It painted its starting panel twice, but that panel is <a href="https://www.youtube.com/watch?v=KjsSvjA5TuE">still only counted once</a>; it also never painted the panel it ended on.)</p>
 <p>Build a new emergency hull painting robot and run the Intcode program on it. <em>How many panels does it paint at least once?</em></p>
 </article>
-<p>To begin, <a href="11/input" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="11/answer"><input type="hidden" name="level" value="1"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>2226</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>You're not sure what it's trying to paint, but it's definitely not a <em>registration identifier</em>.  The Space Police are getting impatient.</p>
+<p>Checking your external ship cameras again, you notice a white panel marked "emergency hull painting robot starting panel". The rest of the panels are <em>still black</em>, but it looks like the robot was expecting to <em>start on a white panel</em>, not a black one.</p>
+<p>Based on the <span title="Just be glad it wasn't a full set of Space Law Space Books; the number of pages is *astronomical*.">Space Law Space Brochure</span> that the Space Police attached to one of your windows, a valid registration identifier is always <em>eight capital letters</em>. After starting the robot on a single <em>white panel</em> instead, <em>what registration identifier does it paint</em> on your hull?</p>
+</article>
+<p>Your puzzle answer was <code>HBGLZKLF</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="/2019">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="11/input" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://bsky.app/intent/compose?text=%22Space+Police%22+%2D+Day+11+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F11" target="_blank">Bluesky</a>
-  <a href="https://twitter.com/intent/tweet?text=%22Space+Police%22+%2D+Day+11+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F11&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=%22Space+Police%22+%2D+Day+11+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F11';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Space+Police%22+%2D+Day+11+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F11" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Space+Police%22+%2D+Day+11+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F11&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Space+Police%22+%2D+Day+11+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F11';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 
