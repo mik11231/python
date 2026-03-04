@@ -95,3 +95,6 @@ ENV/
 .ropeproject
 
 .aoc_session_b64
+
+# Local assistant/session handoff notes
+.local_state/
