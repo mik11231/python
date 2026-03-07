@@ -98,3 +98,9 @@ ENV/
 
 # Local assistant/session handoff notes
 .local_state/
+
+# Local build artifacts
+.venv-opt/
+advent2017/extras/go/.gocache/
+advent2017/extras/go/bin/
+advent2017/extras/native/bin/
